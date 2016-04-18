@@ -1,0 +1,110 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - DACircularProgress (2.3.1)
+  - dyci (0.1.5.6):
+    - dyci/Injections (= 0.1.5.6)
+  - dyci/Injections (0.1.5.6)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - IDMPhotoBrowser (1.8.4):
+    - DACircularProgress
+    - pop
+    - SDWebImage
+  - IQKeyboardManager (3.3.7)
+  - LGActionSheet (2.0.0)
+  - LGAlertView (2.0.13)
+  - Mantle (2.0):
+    - Mantle/extobjc (= 2.0)
+  - Mantle/extobjc (2.0)
+  - Masonry (1.0.0)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.0)
+  - pop (1.0.9)
+  - RTLabel (1.0.1)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - STPopup (1.6.2)
+  - TYAttributedLabel (2.6.0)
+  - UMengAnalytics-NO-IDFA (3.6.7)
+  - YYKit (1.0.5):
+    - YYKit/no-arc (= 1.0.5)
+  - YYKit/no-arc (1.0.5)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - dyci (from `https://github.com/DyCI/dyci-main.git`)
+  - FMDB
+  - IDMPhotoBrowser
+  - IQKeyboardManager
+  - LGActionSheet
+  - LGAlertView
+  - Mantle (= 2.0)
+  - Masonry
+  - MBProgressHUD
+  - MJRefresh
+  - pop (from `https://github.com/facebook/pop.git`)
+  - RTLabel
+  - SDWebImage
+  - STPopup
+  - TYAttributedLabel
+  - UMengAnalytics-NO-IDFA
+  - YYKit
+
+EXTERNAL SOURCES:
+  dyci:
+    :git: https://github.com/DyCI/dyci-main.git
+  pop:
+    :git: https://github.com/facebook/pop.git
+
+CHECKOUT OPTIONS:
+  dyci:
+    :commit: fa8a47d7913e977c9150962ca0260cc629d0b4bc
+    :git: https://github.com/DyCI/dyci-main.git
+  pop:
+    :commit: 5fff11a68a9c5327f153d7d1e39a87a8e42f76a6
+    :git: https://github.com/facebook/pop.git
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  dyci: 099c2e6dc98abb8f21b370cabbf1443ff700608a
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  IDMPhotoBrowser: b574fe3229754e701f32df271afbc4ac7e4e1997
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  LGActionSheet: a439e0ecefddb46b65152ac717001408dc18bc65
+  LGAlertView: 9a5dcbf4f81b02b718083539d7f222280adc9547
+  Mantle: d7c75b6fb789b20f7ae30cd0d09435fe545896ff
+  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  RTLabel: 6005d07fef57b101097c4271f804daae3110cbca
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  STPopup: dca530d01343df997c5ed42a7465355cd5cbf01d
+  TYAttributedLabel: da1b63b7c0424680f8a2dcc8e4ab774b1b42a897
+  UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
+  YYKit: f2654fe525de2283648db957bddb37ddd8e06549
+
+COCOAPODS: 0.39.0
