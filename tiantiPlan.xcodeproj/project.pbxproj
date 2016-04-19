@@ -48,6 +48,15 @@
 		2414FAA41CC527CB003DA0B7 /* UIScrollView+UnderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FA941CC527CB003DA0B7 /* UIScrollView+UnderLine.m */; };
 		2414FAA51CC527CB003DA0B7 /* UIView+CTExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FA961CC527CB003DA0B7 /* UIView+CTExtensions.m */; };
 		2414FAA61CC527CB003DA0B7 /* UIViewController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FA981CC527CB003DA0B7 /* UIViewController+Loading.m */; };
+		2414FABE1CC5D0BF003DA0B7 /* BYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FABB1CC5D0BF003DA0B7 /* BYTabBarController.m */; };
+		2414FABF1CC5D0BF003DA0B7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FABD1CC5D0BF003DA0B7 /* BaseViewController.m */; };
+		2414FAC71CC5D8CA003DA0B7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAC61CC5D8CA003DA0B7 /* HomeViewController.m */; };
+		2414FACA1CC5D8E8003DA0B7 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAC91CC5D8E8003DA0B7 /* UserCenterViewController.m */; };
+		2414FAD01CC5D91E003DA0B7 /* HistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FACF1CC5D91E003DA0B7 /* HistoryListViewController.m */; };
+		2414FAD31CC5D93F003DA0B7 /* AllGoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAD21CC5D93F003DA0B7 /* AllGoodsListViewController.m */; };
+		2414FAD71CC5D9D5003DA0B7 /* BYTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAD61CC5D9D5003DA0B7 /* BYTabBarItem.m */; };
+		2414FADA1CC5DBA4003DA0B7 /* BaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAD91CC5DBA4003DA0B7 /* BaseViewCell.m */; };
+		2414FADE1CC5DEF6003DA0B7 /* JXBAdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FADD1CC5DEF6003DA0B7 /* JXBAdPageView.m */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +144,24 @@
 		2414FA971CC527CB003DA0B7 /* UIViewController+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Loading.h"; sourceTree = "<group>"; };
 		2414FA981CC527CB003DA0B7 /* UIViewController+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Loading.m"; sourceTree = "<group>"; };
 		2414FAA81CC527F8003DA0B7 /* DSConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSConfig.h; sourceTree = "<group>"; };
+		2414FABA1CC5D0BF003DA0B7 /* BYTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYTabBarController.h; sourceTree = "<group>"; };
+		2414FABB1CC5D0BF003DA0B7 /* BYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYTabBarController.m; sourceTree = "<group>"; };
+		2414FABC1CC5D0BF003DA0B7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		2414FABD1CC5D0BF003DA0B7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		2414FAC51CC5D8CA003DA0B7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		2414FAC61CC5D8CA003DA0B7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		2414FAC81CC5D8E8003DA0B7 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
+		2414FAC91CC5D8E8003DA0B7 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		2414FACE1CC5D91E003DA0B7 /* HistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryListViewController.h; sourceTree = "<group>"; };
+		2414FACF1CC5D91E003DA0B7 /* HistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryListViewController.m; sourceTree = "<group>"; };
+		2414FAD11CC5D93F003DA0B7 /* AllGoodsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllGoodsListViewController.h; sourceTree = "<group>"; };
+		2414FAD21CC5D93F003DA0B7 /* AllGoodsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllGoodsListViewController.m; sourceTree = "<group>"; };
+		2414FAD51CC5D9D5003DA0B7 /* BYTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYTabBarItem.h; sourceTree = "<group>"; };
+		2414FAD61CC5D9D5003DA0B7 /* BYTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYTabBarItem.m; sourceTree = "<group>"; };
+		2414FAD81CC5DBA4003DA0B7 /* BaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewCell.h; sourceTree = "<group>"; };
+		2414FAD91CC5DBA4003DA0B7 /* BaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewCell.m; sourceTree = "<group>"; };
+		2414FADC1CC5DEF6003DA0B7 /* JXBAdPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXBAdPageView.h; sourceTree = "<group>"; };
+		2414FADD1CC5DEF6003DA0B7 /* JXBAdPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXBAdPageView.m; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		71403779568D52B4625CE6D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7179336ADD00C16AF180385 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,11 +200,14 @@
 		2414FA071CC4E7AF003DA0B7 /* tiantiPlan */ = {
 			isa = PBXGroup;
 			children = (
+				2414FADB1CC5DED4003DA0B7 /* ThirdPart */,
+				2414FAD41CC5D9C6003DA0B7 /* Views */,
 				2414FAA71CC527F8003DA0B7 /* Config */,
 				2414FA7B1CC527CB003DA0B7 /* Category */,
 				2414FA6E1CC527A1003DA0B7 /* Model */,
 				2414FA521CC52758003DA0B7 /* Utils */,
 				2414FA1F1CC52727003DA0B7 /* Network */,
+				2414FAB91CC5B26A003DA0B7 /* Controller */,
 				2414FA0B1CC4E7AF003DA0B7 /* AppDelegate.h */,
 				2414FA0C1CC4E7AF003DA0B7 /* AppDelegate.m */,
 				2414FA0E1CC4E7AF003DA0B7 /* ViewController.h */,
@@ -347,6 +377,85 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		2414FAB91CC5B26A003DA0B7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAC41CC5D896003DA0B7 /* History */,
+				2414FAC11CC5D884003DA0B7 /* AllList */,
+				2414FAC21CC5D884003DA0B7 /* Login */,
+				2414FAC31CC5D884003DA0B7 /* UserCenter */,
+				2414FAC01CC5D858003DA0B7 /* Home */,
+				2414FABA1CC5D0BF003DA0B7 /* BYTabBarController.h */,
+				2414FABB1CC5D0BF003DA0B7 /* BYTabBarController.m */,
+				2414FABC1CC5D0BF003DA0B7 /* BaseViewController.h */,
+				2414FABD1CC5D0BF003DA0B7 /* BaseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2414FAC01CC5D858003DA0B7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAC51CC5D8CA003DA0B7 /* HomeViewController.h */,
+				2414FAC61CC5D8CA003DA0B7 /* HomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2414FAC11CC5D884003DA0B7 /* AllList */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAD11CC5D93F003DA0B7 /* AllGoodsListViewController.h */,
+				2414FAD21CC5D93F003DA0B7 /* AllGoodsListViewController.m */,
+			);
+			path = AllList;
+			sourceTree = "<group>";
+		};
+		2414FAC21CC5D884003DA0B7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2414FAC31CC5D884003DA0B7 /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAC81CC5D8E8003DA0B7 /* UserCenterViewController.h */,
+				2414FAC91CC5D8E8003DA0B7 /* UserCenterViewController.m */,
+			);
+			path = UserCenter;
+			sourceTree = "<group>";
+		};
+		2414FAC41CC5D896003DA0B7 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				2414FACE1CC5D91E003DA0B7 /* HistoryListViewController.h */,
+				2414FACF1CC5D91E003DA0B7 /* HistoryListViewController.m */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		2414FAD41CC5D9C6003DA0B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAD81CC5DBA4003DA0B7 /* BaseViewCell.h */,
+				2414FAD91CC5DBA4003DA0B7 /* BaseViewCell.m */,
+				2414FAD51CC5D9D5003DA0B7 /* BYTabBarItem.h */,
+				2414FAD61CC5D9D5003DA0B7 /* BYTabBarItem.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2414FADB1CC5DED4003DA0B7 /* ThirdPart */ = {
+			isa = PBXGroup;
+			children = (
+				2414FADC1CC5DEF6003DA0B7 /* JXBAdPageView.h */,
+				2414FADD1CC5DEF6003DA0B7 /* JXBAdPageView.m */,
+			);
+			path = ThirdPart;
+			sourceTree = "<group>";
+		};
 		3EB7B06069F8CD882D508DF4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,8 +596,10 @@
 				2414FA101CC4E7AF003DA0B7 /* ViewController.m in Sources */,
 				2414FA7A1CC527A1003DA0B7 /* UserCacheBean.m in Sources */,
 				2414FA781CC527A1003DA0B7 /* DSBaseModel.m in Sources */,
+				2414FACA1CC5D8E8003DA0B7 /* UserCenterViewController.m in Sources */,
 				2414FA4A1CC52727003DA0B7 /* NSURLRequest+TYAFNetworking.m in Sources */,
 				2414FA9F1CC527CB003DA0B7 /* UIImage+Alpha.m in Sources */,
+				2414FAC71CC5D8CA003DA0B7 /* HomeViewController.m in Sources */,
 				2414FA671CC52758003DA0B7 /* DeviceModel.m in Sources */,
 				2414FA6A1CC52758003DA0B7 /* ImageUtils.m in Sources */,
 				2414FA481CC52727003DA0B7 /* NSArray+TYAFNetworking.m in Sources */,
@@ -498,18 +609,22 @@
 				2414FAA61CC527CB003DA0B7 /* UIViewController+Loading.m in Sources */,
 				2414FA4C1CC52727003DA0B7 /* DSRequestCenter.m in Sources */,
 				2414FA6C1CC52758003DA0B7 /* RegulationMatchUtil.m in Sources */,
+				2414FADA1CC5DBA4003DA0B7 /* BaseViewCell.m in Sources */,
 				2414FA4B1CC52727003DA0B7 /* DSAPIProxy.m in Sources */,
 				2414FA491CC52727003DA0B7 /* NSDictionary+TYAFNetworking.m in Sources */,
 				2414FA4E1CC52727003DA0B7 /* DSSignatureGenerator.m in Sources */,
 				2414FA9D1CC527CB003DA0B7 /* UDIDWrapper.m in Sources */,
+				2414FAD31CC5D93F003DA0B7 /* AllGoodsListViewController.m in Sources */,
 				2414FA691CC52758003DA0B7 /* FunctionMethodsUtil.m in Sources */,
 				2414FAA31CC527CB003DA0B7 /* UILabel+HightLight.m in Sources */,
 				2414FA9E1CC527CB003DA0B7 /* UIDevice+IdentifierAddition.m in Sources */,
 				2414FA9C1CC527CB003DA0B7 /* NSString+RTStyle.m in Sources */,
 				2414FA9B1CC527CB003DA0B7 /* NSString+MD5Addition.m in Sources */,
+				2414FADE1CC5DEF6003DA0B7 /* JXBAdPageView.m in Sources */,
 				2414FA0D1CC4E7AF003DA0B7 /* AppDelegate.m in Sources */,
 				2414FA4D1CC52727003DA0B7 /* DSRequestGenerator.m in Sources */,
 				2414FA6D1CC52758003DA0B7 /* UserDefaultCashe.m in Sources */,
+				2414FABE1CC5D0BF003DA0B7 /* BYTabBarController.m in Sources */,
 				2414FA501CC52727003DA0B7 /* BaseResponseModel.m in Sources */,
 				2414FAA21CC527CB003DA0B7 /* UIImage+RTStyle.m in Sources */,
 				2414FAA51CC527CB003DA0B7 /* UIView+CTExtensions.m in Sources */,
@@ -523,6 +638,9 @@
 				2414FAA41CC527CB003DA0B7 /* UIScrollView+UnderLine.m in Sources */,
 				2414FA771CC527A1003DA0B7 /* AgentInfoModel.m in Sources */,
 				2414FAA01CC527CB003DA0B7 /* UIImage+Resize.m in Sources */,
+				2414FAD71CC5D9D5003DA0B7 /* BYTabBarItem.m in Sources */,
+				2414FABF1CC5D0BF003DA0B7 /* BaseViewController.m in Sources */,
+				2414FAD01CC5D91E003DA0B7 /* HistoryListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

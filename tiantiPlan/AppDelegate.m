@@ -7,16 +7,23 @@
 //
 
 #import "AppDelegate.h"
+#import "BYTabBarController.h"
 
 @interface AppDelegate ()
+{
+    BYTabBarController *_mainTabController;
 
+}
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _mainTabController = [[BYTabBarController alloc] init];
+    self.window.rootViewController = _mainTabController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
