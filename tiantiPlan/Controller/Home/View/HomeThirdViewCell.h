@@ -10,4 +10,6 @@
 
 @interface HomeThirdViewCell : BaseViewCell
 
+- (void)configCellWithData:(id) celldata;
+
 @end

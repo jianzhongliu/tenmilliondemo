@@ -10,4 +10,6 @@
 
 @interface HomeSecondViewCell : BaseViewCell
 
+- (void)configCellWithData:(id) celldata;
+
 @end

@@ -61,6 +61,8 @@
 		2414FAE61CC60958003DA0B7 /* HomeSecondViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAE51CC60958003DA0B7 /* HomeSecondViewCell.m */; };
 		2414FAE91CC60968003DA0B7 /* HomeThirdViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAE81CC60968003DA0B7 /* HomeThirdViewCell.m */; };
 		2414FAEC1CC60BCE003DA0B7 /* FoundsCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAEB1CC60BCE003DA0B7 /* FoundsCardCell.m */; };
+		2414FAEF1CC628D6003DA0B7 /* FoundsProgressCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAEE1CC628D6003DA0B7 /* FoundsProgressCardCell.m */; };
+		2414FAF21CC6316F003DA0B7 /* FoundsTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAF11CC6316F003DA0B7 /* FoundsTypeCell.m */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +176,10 @@
 		2414FAE81CC60968003DA0B7 /* HomeThirdViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeThirdViewCell.m; sourceTree = "<group>"; };
 		2414FAEA1CC60BCE003DA0B7 /* FoundsCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsCardCell.h; sourceTree = "<group>"; };
 		2414FAEB1CC60BCE003DA0B7 /* FoundsCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsCardCell.m; sourceTree = "<group>"; };
+		2414FAED1CC628D6003DA0B7 /* FoundsProgressCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsProgressCardCell.h; sourceTree = "<group>"; };
+		2414FAEE1CC628D6003DA0B7 /* FoundsProgressCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsProgressCardCell.m; sourceTree = "<group>"; };
+		2414FAF01CC6316F003DA0B7 /* FoundsTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsTypeCell.h; sourceTree = "<group>"; };
+		2414FAF11CC6316F003DA0B7 /* FoundsTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsTypeCell.m; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		71403779568D52B4625CE6D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7179336ADD00C16AF180385 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -488,6 +494,10 @@
 				2414FAE81CC60968003DA0B7 /* HomeThirdViewCell.m */,
 				2414FAEA1CC60BCE003DA0B7 /* FoundsCardCell.h */,
 				2414FAEB1CC60BCE003DA0B7 /* FoundsCardCell.m */,
+				2414FAED1CC628D6003DA0B7 /* FoundsProgressCardCell.h */,
+				2414FAEE1CC628D6003DA0B7 /* FoundsProgressCardCell.m */,
+				2414FAF01CC6316F003DA0B7 /* FoundsTypeCell.h */,
+				2414FAF11CC6316F003DA0B7 /* FoundsTypeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -637,6 +647,7 @@
 				2414FA9F1CC527CB003DA0B7 /* UIImage+Alpha.m in Sources */,
 				2414FAC71CC5D8CA003DA0B7 /* HomeViewController.m in Sources */,
 				2414FA671CC52758003DA0B7 /* DeviceModel.m in Sources */,
+				2414FAF21CC6316F003DA0B7 /* FoundsTypeCell.m in Sources */,
 				2414FA6A1CC52758003DA0B7 /* ImageUtils.m in Sources */,
 				2414FA481CC52727003DA0B7 /* NSArray+TYAFNetworking.m in Sources */,
 				2414FA4F1CC52727003DA0B7 /* DSURLResponse.m in Sources */,
@@ -666,6 +677,7 @@
 				2414FA6D1CC52758003DA0B7 /* UserDefaultCashe.m in Sources */,
 				2414FABE1CC5D0BF003DA0B7 /* BYTabBarController.m in Sources */,
 				2414FA501CC52727003DA0B7 /* BaseResponseModel.m in Sources */,
+				2414FAEF1CC628D6003DA0B7 /* FoundsProgressCardCell.m in Sources */,
 				2414FAA21CC527CB003DA0B7 /* UIImage+RTStyle.m in Sources */,
 				2414FAA51CC527CB003DA0B7 /* UIView+CTExtensions.m in Sources */,
 				2414FA9A1CC527CB003DA0B7 /* NSString+Hash.m in Sources */,

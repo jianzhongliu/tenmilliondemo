@@ -10,6 +10,8 @@
 #import "JXBAdPageView.h"
 #import "UIImageView+WebCache.h"
 #import "HomeFirstViewCell.h"
+#import "HomeSecondViewCell.h"
+#import "HomeThirdViewCell.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate>
 
@@ -30,7 +32,7 @@
 }
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] init];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorColor = [UIColor clearColor];
@@ -82,23 +84,83 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 140;
+    switch (indexPath.section) {
+        case 0:
+        {
+            return 210;
+        }
+            break;
+        case 1:
+        {
+            return 210;
+        }
+            break;
+        case 2:
+        {
+            return 210;
+        }
+            break;
+        default:
+        {
+            return 0;
+        }
+            break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identify = @"identify";
-    HomeFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
-    if (cell == nil) {
-        cell = [[HomeFirstViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-        [cell showUnderLineAt:140];
+    switch (indexPath.section) {
+        case 0:
+        {
+            static NSString *identify = @"HomeFirstViewCell";
+            HomeFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+            if (cell == nil) {
+                cell = [[HomeFirstViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+                [cell showUnderLineAt:140];
+            }
+            [cell configCellWithData:nil];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+            break;
+        case 1:
+        {
+            static NSString *identify = @"HomeSecondViewCell";
+            HomeSecondViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+            if (cell == nil) {
+                cell = [[HomeSecondViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+                [cell showUnderLineAt:140];
+            }
+            [cell configCellWithData:nil];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+            break;
+        case 2:
+        {
+            static NSString *identify = @"HomeThirdViewCell";
+            HomeThirdViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+            if (cell == nil) {
+                cell = [[HomeThirdViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+                [cell showUnderLineAt:140];
+            }
+            [cell configCellWithData:nil];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+            break;
+        default:
+            return nil;
+            break;
     }
-    [cell configCellWithData:nil];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
