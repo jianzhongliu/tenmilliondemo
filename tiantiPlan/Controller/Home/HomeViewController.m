@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "JXBAdPageView.h"
 #import "UIImageView+WebCache.h"
+#import "HomeFirstViewCell.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate>
 
@@ -64,7 +65,7 @@
     [self setTitle:@"首页"];
     [self.view addSubview:self.tableView];
     self.tableView.frame = self.view.bounds;
-    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, 100);
+    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, 150);
     self.tableView.tableHeaderView = self.viewAD;
     [self.viewAD startAdsWithBlock:@[@1,@2] block:^(NSInteger clickIndex){
 //        if (arrayData.count > clickIndex) {
@@ -90,11 +91,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identify = @"identify";
-    BaseViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    HomeFirstViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
-        cell = [[BaseViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+        cell = [[HomeFirstViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
         [cell showUnderLineAt:140];
     }
+    [cell configCellWithData:nil];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -108,7 +110,7 @@
     if (self == nil) {
         return;
     }
-    NSURL *url = [NSURL URLWithString:@"www.baidu.com"];
+    NSURL *url = [NSURL URLWithString:@"http://img.1yyg.com/Poster/20140918182340689.jpg"];
     [imgView sd_setImageWithURL:url];
 }
 

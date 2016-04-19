@@ -57,6 +57,10 @@
 		2414FAD71CC5D9D5003DA0B7 /* BYTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAD61CC5D9D5003DA0B7 /* BYTabBarItem.m */; };
 		2414FADA1CC5DBA4003DA0B7 /* BaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAD91CC5DBA4003DA0B7 /* BaseViewCell.m */; };
 		2414FADE1CC5DEF6003DA0B7 /* JXBAdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FADD1CC5DEF6003DA0B7 /* JXBAdPageView.m */; };
+		2414FAE31CC60945003DA0B7 /* HomeFirstViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAE21CC60945003DA0B7 /* HomeFirstViewCell.m */; };
+		2414FAE61CC60958003DA0B7 /* HomeSecondViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAE51CC60958003DA0B7 /* HomeSecondViewCell.m */; };
+		2414FAE91CC60968003DA0B7 /* HomeThirdViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAE81CC60968003DA0B7 /* HomeThirdViewCell.m */; };
+		2414FAEC1CC60BCE003DA0B7 /* FoundsCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAEB1CC60BCE003DA0B7 /* FoundsCardCell.m */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +166,14 @@
 		2414FAD91CC5DBA4003DA0B7 /* BaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewCell.m; sourceTree = "<group>"; };
 		2414FADC1CC5DEF6003DA0B7 /* JXBAdPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXBAdPageView.h; sourceTree = "<group>"; };
 		2414FADD1CC5DEF6003DA0B7 /* JXBAdPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXBAdPageView.m; sourceTree = "<group>"; };
+		2414FAE11CC60945003DA0B7 /* HomeFirstViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFirstViewCell.h; sourceTree = "<group>"; };
+		2414FAE21CC60945003DA0B7 /* HomeFirstViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFirstViewCell.m; sourceTree = "<group>"; };
+		2414FAE41CC60958003DA0B7 /* HomeSecondViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSecondViewCell.h; sourceTree = "<group>"; };
+		2414FAE51CC60958003DA0B7 /* HomeSecondViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSecondViewCell.m; sourceTree = "<group>"; };
+		2414FAE71CC60968003DA0B7 /* HomeThirdViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeThirdViewCell.h; sourceTree = "<group>"; };
+		2414FAE81CC60968003DA0B7 /* HomeThirdViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeThirdViewCell.m; sourceTree = "<group>"; };
+		2414FAEA1CC60BCE003DA0B7 /* FoundsCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsCardCell.h; sourceTree = "<group>"; };
+		2414FAEB1CC60BCE003DA0B7 /* FoundsCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsCardCell.m; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		71403779568D52B4625CE6D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7179336ADD00C16AF180385 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -396,6 +408,8 @@
 		2414FAC01CC5D858003DA0B7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2414FADF1CC5E1D7003DA0B7 /* Model */,
+				2414FAE01CC5E1D7003DA0B7 /* View */,
 				2414FAC51CC5D8CA003DA0B7 /* HomeViewController.h */,
 				2414FAC61CC5D8CA003DA0B7 /* HomeViewController.m */,
 			);
@@ -454,6 +468,28 @@
 				2414FADD1CC5DEF6003DA0B7 /* JXBAdPageView.m */,
 			);
 			path = ThirdPart;
+			sourceTree = "<group>";
+		};
+		2414FADF1CC5E1D7003DA0B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2414FAE01CC5E1D7003DA0B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAE11CC60945003DA0B7 /* HomeFirstViewCell.h */,
+				2414FAE21CC60945003DA0B7 /* HomeFirstViewCell.m */,
+				2414FAE41CC60958003DA0B7 /* HomeSecondViewCell.h */,
+				2414FAE51CC60958003DA0B7 /* HomeSecondViewCell.m */,
+				2414FAE71CC60968003DA0B7 /* HomeThirdViewCell.h */,
+				2414FAE81CC60968003DA0B7 /* HomeThirdViewCell.m */,
+				2414FAEA1CC60BCE003DA0B7 /* FoundsCardCell.h */,
+				2414FAEB1CC60BCE003DA0B7 /* FoundsCardCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3EB7B06069F8CD882D508DF4 /* Pods */ = {
@@ -612,7 +648,10 @@
 				2414FADA1CC5DBA4003DA0B7 /* BaseViewCell.m in Sources */,
 				2414FA4B1CC52727003DA0B7 /* DSAPIProxy.m in Sources */,
 				2414FA491CC52727003DA0B7 /* NSDictionary+TYAFNetworking.m in Sources */,
+				2414FAE31CC60945003DA0B7 /* HomeFirstViewCell.m in Sources */,
+				2414FAEC1CC60BCE003DA0B7 /* FoundsCardCell.m in Sources */,
 				2414FA4E1CC52727003DA0B7 /* DSSignatureGenerator.m in Sources */,
+				2414FAE91CC60968003DA0B7 /* HomeThirdViewCell.m in Sources */,
 				2414FA9D1CC527CB003DA0B7 /* UDIDWrapper.m in Sources */,
 				2414FAD31CC5D93F003DA0B7 /* AllGoodsListViewController.m in Sources */,
 				2414FA691CC52758003DA0B7 /* FunctionMethodsUtil.m in Sources */,
@@ -623,6 +662,7 @@
 				2414FADE1CC5DEF6003DA0B7 /* JXBAdPageView.m in Sources */,
 				2414FA0D1CC4E7AF003DA0B7 /* AppDelegate.m in Sources */,
 				2414FA4D1CC52727003DA0B7 /* DSRequestGenerator.m in Sources */,
+				2414FAE61CC60958003DA0B7 /* HomeSecondViewCell.m in Sources */,
 				2414FA6D1CC52758003DA0B7 /* UserDefaultCashe.m in Sources */,
 				2414FABE1CC5D0BF003DA0B7 /* BYTabBarController.m in Sources */,
 				2414FA501CC52727003DA0B7 /* BaseResponseModel.m in Sources */,
