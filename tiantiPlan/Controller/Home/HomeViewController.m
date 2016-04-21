@@ -12,6 +12,7 @@
 #import "HomeFirstViewCell.h"
 #import "HomeSecondViewCell.h"
 #import "HomeThirdViewCell.h"
+#import "FoundsDetailViewController.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate>
 
@@ -30,6 +31,7 @@
     }
     return _viewAD;
 }
+
 - (UITableView *)tableView {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -55,6 +57,10 @@
     [self initUI];
 }
 
+- (void)dealloc {
+    self.viewAD.delegate = nil;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
@@ -69,7 +75,7 @@
     self.tableView.frame = self.view.bounds;
     self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, 150);
     self.tableView.tableHeaderView = self.viewAD;
-    [self.viewAD startAdsWithBlock:@[@1,@2] block:^(NSInteger clickIndex){
+    [self.viewAD startAdsWithBlock:@[@"www", @"www"] block:^(NSInteger clickIndex){
 //        if (arrayData.count > clickIndex) {
 //            if (_delegate && [_delegate respondsToSelector:@selector(didSelectedADitem:)]) {
 //                [_delegate didSelectedADitem:data[clickIndex]];
@@ -165,7 +171,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)setWebImage:(UIImageView*)imgView imgUrl:(NSString*)imgUrl withIndex:(NSInteger ) index {

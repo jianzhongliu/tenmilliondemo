@@ -124,7 +124,7 @@
     NSString* nextImage = [_arrImage objectAtIndex:next];
     if(_bWebImage)
     {
-#warning TODO 这里有问题啊，会挂，找原因
+#warning TODO 这里有问题啊，会挂，找原因 : 需要在页面内存释放的时执行self.viewAD.delegate = nil
         if(_delegate != nil && [_delegate respondsToSelector:@selector(setWebImage:imgUrl:withIndex:)])
         {
             [_delegate setWebImage:_imgPrev imgUrl:prevImage withIndex:prev];

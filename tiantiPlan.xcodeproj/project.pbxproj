@@ -63,6 +63,11 @@
 		2414FAEC1CC60BCE003DA0B7 /* FoundsCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAEB1CC60BCE003DA0B7 /* FoundsCardCell.m */; };
 		2414FAEF1CC628D6003DA0B7 /* FoundsProgressCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAEE1CC628D6003DA0B7 /* FoundsProgressCardCell.m */; };
 		2414FAF21CC6316F003DA0B7 /* FoundsTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAF11CC6316F003DA0B7 /* FoundsTypeCell.m */; };
+		2414FAF61CC665D0003DA0B7 /* FoundsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAF51CC665D0003DA0B7 /* FoundsDetailViewController.m */; };
+		2414FAFA1CC66658003DA0B7 /* FoundsDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAF91CC66658003DA0B7 /* FoundsDetailHeaderView.m */; };
+		2414FAFD1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FAFC1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.m */; };
+		2414FB121CC8D9B9003DA0B7 /* CommonViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB111CC8D9B9003DA0B7 /* CommonViewCell.m */; };
+		2414FB151CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB141CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.m */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +185,16 @@
 		2414FAEE1CC628D6003DA0B7 /* FoundsProgressCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsProgressCardCell.m; sourceTree = "<group>"; };
 		2414FAF01CC6316F003DA0B7 /* FoundsTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsTypeCell.h; sourceTree = "<group>"; };
 		2414FAF11CC6316F003DA0B7 /* FoundsTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsTypeCell.m; sourceTree = "<group>"; };
+		2414FAF41CC665D0003DA0B7 /* FoundsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsDetailViewController.h; sourceTree = "<group>"; };
+		2414FAF51CC665D0003DA0B7 /* FoundsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsDetailViewController.m; sourceTree = "<group>"; };
+		2414FAF81CC66658003DA0B7 /* FoundsDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsDetailHeaderView.h; sourceTree = "<group>"; };
+		2414FAF91CC66658003DA0B7 /* FoundsDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsDetailHeaderView.m; sourceTree = "<group>"; };
+		2414FAFB1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsDetailInfoViewCell.h; sourceTree = "<group>"; };
+		2414FAFC1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsDetailInfoViewCell.m; sourceTree = "<group>"; };
+		2414FB101CC8D9B9003DA0B7 /* CommonViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewCell.h; sourceTree = "<group>"; };
+		2414FB111CC8D9B9003DA0B7 /* CommonViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewCell.m; sourceTree = "<group>"; };
+		2414FB131CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryOwnerInfoViewCell.h; sourceTree = "<group>"; };
+		2414FB141CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryOwnerInfoViewCell.m; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		71403779568D52B4625CE6D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7179336ADD00C16AF180385 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -398,6 +413,7 @@
 		2414FAB91CC5B26A003DA0B7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2414FAF31CC665B8003DA0B7 /* FoundsDetail */,
 				2414FAC41CC5D896003DA0B7 /* History */,
 				2414FAC11CC5D884003DA0B7 /* AllList */,
 				2414FAC21CC5D884003DA0B7 /* Login */,
@@ -498,6 +514,31 @@
 				2414FAEE1CC628D6003DA0B7 /* FoundsProgressCardCell.m */,
 				2414FAF01CC6316F003DA0B7 /* FoundsTypeCell.h */,
 				2414FAF11CC6316F003DA0B7 /* FoundsTypeCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2414FAF31CC665B8003DA0B7 /* FoundsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAF71CC6663D003DA0B7 /* View */,
+				2414FAF41CC665D0003DA0B7 /* FoundsDetailViewController.h */,
+				2414FAF51CC665D0003DA0B7 /* FoundsDetailViewController.m */,
+			);
+			path = FoundsDetail;
+			sourceTree = "<group>";
+		};
+		2414FAF71CC6663D003DA0B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2414FAF81CC66658003DA0B7 /* FoundsDetailHeaderView.h */,
+				2414FAF91CC66658003DA0B7 /* FoundsDetailHeaderView.m */,
+				2414FAFB1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.h */,
+				2414FAFC1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.m */,
+				2414FB101CC8D9B9003DA0B7 /* CommonViewCell.h */,
+				2414FB111CC8D9B9003DA0B7 /* CommonViewCell.m */,
+				2414FB131CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.h */,
+				2414FB141CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -656,6 +697,8 @@
 				2414FAA61CC527CB003DA0B7 /* UIViewController+Loading.m in Sources */,
 				2414FA4C1CC52727003DA0B7 /* DSRequestCenter.m in Sources */,
 				2414FA6C1CC52758003DA0B7 /* RegulationMatchUtil.m in Sources */,
+				2414FAFD1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.m in Sources */,
+				2414FAFA1CC66658003DA0B7 /* FoundsDetailHeaderView.m in Sources */,
 				2414FADA1CC5DBA4003DA0B7 /* BaseViewCell.m in Sources */,
 				2414FA4B1CC52727003DA0B7 /* DSAPIProxy.m in Sources */,
 				2414FA491CC52727003DA0B7 /* NSDictionary+TYAFNetworking.m in Sources */,
@@ -668,10 +711,12 @@
 				2414FA691CC52758003DA0B7 /* FunctionMethodsUtil.m in Sources */,
 				2414FAA31CC527CB003DA0B7 /* UILabel+HightLight.m in Sources */,
 				2414FA9E1CC527CB003DA0B7 /* UIDevice+IdentifierAddition.m in Sources */,
+				2414FB121CC8D9B9003DA0B7 /* CommonViewCell.m in Sources */,
 				2414FA9C1CC527CB003DA0B7 /* NSString+RTStyle.m in Sources */,
 				2414FA9B1CC527CB003DA0B7 /* NSString+MD5Addition.m in Sources */,
 				2414FADE1CC5DEF6003DA0B7 /* JXBAdPageView.m in Sources */,
 				2414FA0D1CC4E7AF003DA0B7 /* AppDelegate.m in Sources */,
+				2414FB151CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.m in Sources */,
 				2414FA4D1CC52727003DA0B7 /* DSRequestGenerator.m in Sources */,
 				2414FAE61CC60958003DA0B7 /* HomeSecondViewCell.m in Sources */,
 				2414FA6D1CC52758003DA0B7 /* UserDefaultCashe.m in Sources */,
@@ -684,6 +729,7 @@
 				2414FA661CC52758003DA0B7 /* CaculateUtils.m in Sources */,
 				2414FAA11CC527CB003DA0B7 /* UIImage+RoundedCorner.m in Sources */,
 				2414FA6B1CC52758003DA0B7 /* NetworkUtils.m in Sources */,
+				2414FAF61CC665D0003DA0B7 /* FoundsDetailViewController.m in Sources */,
 				2414FA681CC52758003DA0B7 /* FilePathManager.m in Sources */,
 				2414FA991CC527CB003DA0B7 /* NSObject+AddKeyValueToObject.m in Sources */,
 				2414FA0A1CC4E7AF003DA0B7 /* main.m in Sources */,

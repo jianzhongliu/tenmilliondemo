@@ -52,7 +52,7 @@
 #define DSColorAlphaFromHex(rgb,a)     [UIColor colorWithRed:((float)((rgb & 0xFF0000) >> 16))/255.0 green:((float)((rgb & 0xFF00) >> 8))/255.0 blue:((float)(rgb & 0xFF))/255.0 alpha:a]
 /**设置主题色*/
 #define DSColor DSColorFromHex(0x0D94E5) //蓝色风格主题色调00ad88
-#define DSNavi DSColorFromHex(0xffffff) //navigation的颜色
+#define DSNavi DSColorFromHex(0xEC633C) //navigation的颜色
 #define DSRedColor DSColorFromHex(0xe36062)//红色风格主题色调
 #define DSGrayColor DSColorFromHex(0x99999c)//灰色字体
 #define DSGrayColor3 DSColorFromHex(0x333333)//灰色字体
