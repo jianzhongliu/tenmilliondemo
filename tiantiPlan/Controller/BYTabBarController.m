@@ -8,7 +8,7 @@
 
 #import "BYTabBarController.h"
 #import "HomeViewController.h"
-#import "HistoryListViewController.h"
+#import "FoundsCarListViewController.h"
 #import "UserCenterViewController.h"
 #import "AppDelegate.h"
 #import "BYTabBarItem.h"
@@ -40,12 +40,12 @@
 - (void)adjustNavigationUI:(UINavigationController *) nav {
     [[UINavigationBar appearance] setBarTintColor:DSNavi];
     nav.navigationBar.translucent = YES;
-    [[UINavigationBar appearance] setTintColor:DSColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"icon_back"]];
     [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"icon_back"]];
     NSShadow *shadow = [[NSShadow alloc] init];
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor blackColor], NSForegroundColorAttributeName,
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName,
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont systemFontOfSize:18], NSFontAttributeName, nil]];
 }
@@ -61,7 +61,7 @@
     self.tabBar.tintColor = DSColor;
     homeItem = [[BYTabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"icon_home_home"] selectedImage:[UIImage imageNamed:@"icon_home_home_selected"]];
     
-    messageItem = [[BYTabBarItem alloc]initWithTitle:@"微聊" image:[UIImage imageNamed:@"icon_home_message"] selectedImage:[UIImage imageNamed:@"icon_home_message_selected"]];
+    messageItem = [[BYTabBarItem alloc]initWithTitle:@"购物车" image:[UIImage imageNamed:@"icon_home_message"] selectedImage:[UIImage imageNamed:@"icon_home_message_selected"]];
     
     myItem = [[BYTabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"icon_home_me"] selectedImage:[UIImage imageNamed:@"icon_home_me_selected"]];
     
@@ -74,7 +74,7 @@
     [self adjustNavigationUI:homeNavController];
     
     //tab
-    HistoryListViewController *messageController = [[HistoryListViewController alloc] init];
+    FoundsCarListViewController *messageController = [[FoundsCarListViewController alloc] init];
     UINavigationController *messageNavController = [[UINavigationController alloc] initWithRootViewController:messageController];
     messageController.navigationController.navigationBar.translucent = YES;
     messageItem.highlightedImage = [UIImage imageNamed:@"icon_home_message_selected.png"];

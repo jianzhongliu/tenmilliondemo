@@ -67,9 +67,9 @@
         _labelCurrentNumber.numberOfLines = 0;
         _labelCurrentNumber.lineBreakMode = NSLineBreakByCharWrapping;
         _labelCurrentNumber.textAlignment = NSTextAlignmentLeft;
-        _labelCurrentNumber.textColor = DSBlackColor;
+        _labelCurrentNumber.textColor = DSNavi;
         _labelCurrentNumber.font = [UIFont systemFontOfSize:14];
-        _labelCurrentNumber.text = @"124";
+        _labelCurrentNumber.text = @"319";
     }
     return _labelCurrentNumber;
 }
@@ -80,9 +80,9 @@
         _labelCurrentTitle.numberOfLines = 0;
         _labelCurrentTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelCurrentTitle.textAlignment = NSTextAlignmentLeft;
-        _labelCurrentTitle.textColor = DSBlackColor;
-        _labelCurrentTitle.font = [UIFont systemFontOfSize:14];
-        _labelCurrentTitle.text = @"以参与";
+        _labelCurrentTitle.textColor = DSGrayColor9;
+        _labelCurrentTitle.font = [UIFont systemFontOfSize:12];
+        _labelCurrentTitle.text = @"已参与";
     }
     return _labelCurrentTitle;
 }
@@ -93,9 +93,9 @@
         _labelTotalNumber.numberOfLines = 0;
         _labelTotalNumber.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTotalNumber.textAlignment = NSTextAlignmentCenter;
-        _labelTotalNumber.textColor = DSBlackColor;
-        _labelTotalNumber.font = [UIFont systemFontOfSize:14];
-        _labelTotalNumber.text = @"44";
+        _labelTotalNumber.textColor = DSGrayColor9;
+        _labelTotalNumber.font = [UIFont systemFontOfSize:12];
+        _labelTotalNumber.text = @"320";
     }
     return _labelTotalNumber;
 }
@@ -106,8 +106,8 @@
         _labelTotalTitle.numberOfLines = 0;
         _labelTotalTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTotalTitle.textAlignment = NSTextAlignmentCenter;
-        _labelTotalTitle.textColor = DSBlackColor;
-        _labelTotalTitle.font = [UIFont systemFontOfSize:14];
+        _labelTotalTitle.textColor = DSGrayColor9;
+        _labelTotalTitle.font = [UIFont systemFontOfSize:12];
         _labelTotalTitle.text = @"总需人次";
     }
     return _labelTotalTitle;
@@ -119,9 +119,9 @@
         _labelLackNumber.numberOfLines = 0;
         _labelLackNumber.lineBreakMode = NSLineBreakByCharWrapping;
         _labelLackNumber.textAlignment = NSTextAlignmentRight;
-        _labelLackNumber.textColor = DSBlackColor;
-        _labelLackNumber.font = [UIFont systemFontOfSize:14];
-        _labelLackNumber.text = @"55";
+        _labelLackNumber.textColor = DSColor;
+        _labelLackNumber.font = [UIFont systemFontOfSize:12];
+        _labelLackNumber.text = @"1";
     }
     return _labelLackNumber;
 }
@@ -132,8 +132,8 @@
         _labelLackTitle.numberOfLines = 0;
         _labelLackTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelLackTitle.textAlignment = NSTextAlignmentRight;
-        _labelLackTitle.textColor = DSBlackColor;
-        _labelLackTitle.font = [UIFont systemFontOfSize:14];
+        _labelLackTitle.textColor = DSGrayColor9;
+        _labelLackTitle.font = [UIFont systemFontOfSize:12];
         _labelLackTitle.text = @"剩余";
     }
     return _labelLackTitle;
@@ -149,14 +149,14 @@
 
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
-    self.labelTitle.frame = CGRectMake(15, 10, SCREENWIDTH - 30, 30);
-    self.progress.frame = CGRectMake(5, self.labelTitle.ctBottom + 10, SCREENWIDTH - 10, 30);
-    self.labelCurrentNumber.frame = CGRectMake(5, self.progress.ctBottom + 8, SCREENWIDTH - 10, 15);
-    self.labelCurrentTitle.frame = CGRectMake(5, self.labelCurrentNumber.ctBottom + 5, SCREENWIDTH - 10, 15);
-    self.labelTotalNumber.frame = CGRectMake(5, self.progress.ctBottom + 8, SCREENWIDTH - 10, 15);
-    self.labelTotalTitle.frame = CGRectMake(5, self.labelTotalNumber.ctBottom +5, SCREENWIDTH - 10, 15);
-    self.labelLackNumber.frame = CGRectMake(5, self.progress.ctBottom + 8, SCREENWIDTH - 10, 15);
-    self.labelLackTitle.frame = CGRectMake(5, self.labelLackNumber.ctBottom+5, SCREENWIDTH - 10, 15);
+    self.labelTitle.frame = CGRectMake(10, 10, SCREENWIDTH - 20, 30);
+    self.progress.frame = CGRectMake(10, self.labelTitle.ctBottom + 10, SCREENWIDTH - 20, 30);
+    self.labelCurrentNumber.frame = CGRectMake(10, self.progress.ctBottom + 8, SCREENWIDTH - 20, 15);
+    self.labelCurrentTitle.frame = CGRectMake(10, self.labelCurrentNumber.ctBottom + 5, SCREENWIDTH - 20, 15);
+    self.labelTotalNumber.frame = CGRectMake(10, self.progress.ctBottom + 8, SCREENWIDTH - 20, 15);
+    self.labelTotalTitle.frame = CGRectMake(10, self.labelTotalNumber.ctBottom +5, SCREENWIDTH - 20, 15);
+    self.labelLackNumber.frame = CGRectMake(10, self.progress.ctBottom + 8, SCREENWIDTH - 20, 15);
+    self.labelLackTitle.frame = CGRectMake(10, self.labelLackNumber.ctBottom+5, SCREENWIDTH - 20, 15);
     
     [self addSubview:self.labelTitle];
     [self addSubview:self.labelPrice];

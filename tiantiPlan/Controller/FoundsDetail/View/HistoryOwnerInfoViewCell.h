@@ -7,8 +7,15 @@
 //
 
 #import "BaseViewCell.h"
+@class HistoryOwnerInfoViewCell;
+@protocol HistoryOwnerInfoViewCellDelegate <NSObject>
 
+- (void)didViewResultDetail;
+
+@end
 @interface HistoryOwnerInfoViewCell : BaseViewCell
+
+@property (nonatomic, assign) id<HistoryOwnerInfoViewCellDelegate> delegate;
 
 - (void)configCellWithData:(id) celldata;
 

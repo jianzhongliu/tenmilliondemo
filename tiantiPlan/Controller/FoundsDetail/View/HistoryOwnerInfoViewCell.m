@@ -19,6 +19,11 @@
 @property (nonatomic, strong) UIImageView *imageStatus;
 
 @property (nonatomic, strong) UIView *viewBG;
+
+@property (nonatomic, strong) UILabel *labelOwner;
+
+@property (nonatomic, strong) UIButton *buttonResult;
+
 @end
 
 @implementation HistoryOwnerInfoViewCell
@@ -99,6 +104,35 @@
     return _viewBG;
 }
 
+- (UILabel *)labelOwner {
+    if (_labelOwner == nil) {
+        _labelOwner = [[UILabel alloc] init];
+        _labelOwner.numberOfLines = 0;
+        _labelOwner.lineBreakMode = NSLineBreakByCharWrapping;
+        _labelOwner.textAlignment = NSTextAlignmentLeft;
+        _labelOwner.textColor = [UIColor whiteColor];
+        _labelOwner.font = [UIFont boldSystemFontOfSize:13];
+        _labelOwner.text = @"幸运号码：10271985";
+    }
+    return _labelOwner;
+}
+
+- (UIButton *)buttonResult {
+    if (_buttonResult == nil) {
+        _buttonResult = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_buttonResult addTarget:self action:@selector(onClickButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _buttonResult.selected = NO;
+        _buttonResult.backgroundColor = [UIColor whiteColor];
+        [_buttonResult setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        _buttonResult.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+        [_buttonResult setTitle:@"查看计算详情" forState:UIControlStateNormal];
+        _buttonResult.layer.cornerRadius = 6;
+        _buttonResult.clipsToBounds = YES;
+        _buttonResult.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    }
+    return _buttonResult;
+}
+
 #pragma mark - lifecycleMethod
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -117,7 +151,10 @@
     self.imageStatus.frame = CGRectMake(SCREENWIDTH - 30, 0, 21, 53);
     
     self.viewBG.frame = CGRectMake(0, self.imageIcon.ctBottom + 10, SCREENWIDTH, 50);
-    
+    self.labelOwner.frame = CGRectMake(10, 0, SCREENWIDTH, 50);
+    self.buttonResult.frame = CGRectMake(SCREENWIDTH - 90, 10, 80, 30);
+    [self.viewBG addSubview:self.labelOwner];
+//    [self.viewBG addSubview:self.buttonResult];
     [self.contentView addSubview:self.imageIcon];
     [self.contentView addSubview:self.imageOwnerTag];
     [self.contentView addSubview:self.labelName];
@@ -126,6 +163,12 @@
     [self.contentView addSubview:self.imageStatus];
     [self.contentView addSubview:self.viewBG];
     
+}
+
+- (void)onClickButtonAction:(UIButton *) button {
+    if (_delegate && [_delegate respondsToSelector:@selector(didViewResultDetail)]) {
+        [_delegate didViewResultDetail];
+    }
 }
 
 - (void)configCellWithData:(id) celldata{

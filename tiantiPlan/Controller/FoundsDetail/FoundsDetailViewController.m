@@ -9,11 +9,12 @@
 #import "FoundsDetailViewController.h"
 #import "FoundsDetailInfoViewCell.h"
 #import "HistoryOwnerInfoViewCell.h"
+#import "FoundsResultViewController.h"
 #import "CommonViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "JXBAdPageView.h"
 
-@interface FoundsDetailViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate>
+@interface FoundsDetailViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate, HistoryOwnerInfoViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) JXBAdPageView *viewAD;
@@ -200,6 +201,7 @@
             if (cell == nil) {
                 cell = [[HistoryOwnerInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
                 [cell showUnderLineAt:130];
+                cell.delegate = self;
             }
             [cell configCellWithData:nil];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -238,4 +240,8 @@
     [imgView sd_setImageWithURL:url];
 }
 
+- (void)didViewResultDetail {
+    FoundsResultViewController *controller = [[FoundsResultViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 @end
