@@ -1,33 +1,22 @@
 //
-//  UserCenterViewController.m
+//  SettingViewController.m
 //  tiantiPlan
 //
-//  Created by liujianzhong on 16/4/19.
+//  Created by liujianzhong on 16/4/22.
 //  Copyright © 2016年 liujianzhong. All rights reserved.
 //
 
-#import "UserCenterViewController.h"
 #import "SettingViewController.h"
-#import "UserCenterHeaderView.h"
 #import "CommonViewCell.h"
 
-@interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SettingViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UserCenterHeaderView *viewHeader;
 @property (nonatomic, strong) NSMutableArray *array;
 
 @end
 
-@implementation UserCenterViewController
-
-- (UserCenterHeaderView *)viewHeader {
-    if (_viewHeader == nil) {
-        _viewHeader = [[UserCenterHeaderView alloc] init];
-    }
-    return _viewHeader;
-}
-
+@implementation SettingViewController
 - (UITableView *)tableView {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] init];
@@ -57,27 +46,18 @@
 }
 
 - (void)initData {
-    self.array = [NSMutableArray arrayWithObjects:@"抢单记录",@"中奖记录",@"充值记录",@"地址管理", nil];
+    self.array = [NSMutableArray arrayWithObjects:@"意见反馈",@"服务协议",@"关于我们", nil];
 }
 
 - (void)initUI {
-    [self setTitle:@"我的"];
-    self.viewHeader.frame = CGRectMake(0, 0, SCREENWIDTH, 150);
+    [self setTitle:@"设置"];
     self.tableView.frame = self.view.bounds;
-    self.tableView.tableHeaderView = self.viewHeader;
     [self.view addSubview:self.tableView];
-    
-    [self setRightButtonWithIcon:[UIImage imageNamed:@"ic_setting"]];
-}
-
-- (void)didRightClick {
-    SettingViewController *controller = [[SettingViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.array.count;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -85,7 +65,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 140;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,7 +73,7 @@
     CommonViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[CommonViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-        [cell showUnderLineAt:60];
+        [cell showUnderLineAt:140];
     }
     [cell configCellWithData:self.array[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -104,5 +84,4 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
-
 @end

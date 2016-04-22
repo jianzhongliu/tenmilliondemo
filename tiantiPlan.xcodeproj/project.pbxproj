@@ -71,6 +71,8 @@
 		2414FB181CC93251003DA0B7 /* FoundsResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB171CC93251003DA0B7 /* FoundsResultViewController.m */; };
 		2414FB1C1CC9C359003DA0B7 /* FoundsCarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB1B1CC9C359003DA0B7 /* FoundsCarListViewController.m */; };
 		2414FB201CC9C3E9003DA0B7 /* FoundsCarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB1F1CC9C3E9003DA0B7 /* FoundsCarViewCell.m */; };
+		2414FB241CC9EF44003DA0B7 /* UserCenterHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB231CC9EF44003DA0B7 /* UserCenterHeaderView.m */; };
+		2414FB271CC9F158003DA0B7 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB261CC9F158003DA0B7 /* SettingViewController.m */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -204,6 +206,10 @@
 		2414FB1B1CC9C359003DA0B7 /* FoundsCarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsCarListViewController.m; sourceTree = "<group>"; };
 		2414FB1E1CC9C3E9003DA0B7 /* FoundsCarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsCarViewCell.h; sourceTree = "<group>"; };
 		2414FB1F1CC9C3E9003DA0B7 /* FoundsCarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsCarViewCell.m; sourceTree = "<group>"; };
+		2414FB221CC9EF44003DA0B7 /* UserCenterHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterHeaderView.h; sourceTree = "<group>"; };
+		2414FB231CC9EF44003DA0B7 /* UserCenterHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterHeaderView.m; sourceTree = "<group>"; };
+		2414FB251CC9F158003DA0B7 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		2414FB261CC9F158003DA0B7 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		71403779568D52B4625CE6D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7179336ADD00C16AF180385 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -467,8 +473,11 @@
 		2414FAC31CC5D884003DA0B7 /* UserCenter */ = {
 			isa = PBXGroup;
 			children = (
+				2414FB211CC9EF22003DA0B7 /* View */,
 				2414FAC81CC5D8E8003DA0B7 /* UserCenterViewController.h */,
 				2414FAC91CC5D8E8003DA0B7 /* UserCenterViewController.m */,
+				2414FB251CC9F158003DA0B7 /* SettingViewController.h */,
+				2414FB261CC9F158003DA0B7 /* SettingViewController.m */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -570,6 +579,15 @@
 			children = (
 				2414FB1E1CC9C3E9003DA0B7 /* FoundsCarViewCell.h */,
 				2414FB1F1CC9C3E9003DA0B7 /* FoundsCarViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2414FB211CC9EF22003DA0B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2414FB221CC9EF44003DA0B7 /* UserCenterHeaderView.h */,
+				2414FB231CC9EF44003DA0B7 /* UserCenterHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -726,6 +744,7 @@
 				2414FA791CC527A1003DA0B7 /* UserBaseInfoModel.m in Sources */,
 				2414FA431CC52727003DA0B7 /* BaseApi.m in Sources */,
 				2414FAA61CC527CB003DA0B7 /* UIViewController+Loading.m in Sources */,
+				2414FB271CC9F158003DA0B7 /* SettingViewController.m in Sources */,
 				2414FA4C1CC52727003DA0B7 /* DSRequestCenter.m in Sources */,
 				2414FB181CC93251003DA0B7 /* FoundsResultViewController.m in Sources */,
 				2414FA6C1CC52758003DA0B7 /* RegulationMatchUtil.m in Sources */,
@@ -762,6 +781,7 @@
 				2414FAA11CC527CB003DA0B7 /* UIImage+RoundedCorner.m in Sources */,
 				2414FA6B1CC52758003DA0B7 /* NetworkUtils.m in Sources */,
 				2414FB1C1CC9C359003DA0B7 /* FoundsCarListViewController.m in Sources */,
+				2414FB241CC9EF44003DA0B7 /* UserCenterHeaderView.m in Sources */,
 				2414FAF61CC665D0003DA0B7 /* FoundsDetailViewController.m in Sources */,
 				2414FA681CC52758003DA0B7 /* FilePathManager.m in Sources */,
 				2414FA991CC527CB003DA0B7 /* NSObject+AddKeyValueToObject.m in Sources */,
