@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "UserInfoViewController.h"
 #import "CommonViewCell.h"
 
 @interface SettingViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -46,7 +47,7 @@
 }
 
 - (void)initData {
-    self.array = [NSMutableArray arrayWithObjects:@"意见反馈",@"服务协议",@"关于我们", nil];
+    self.array = [NSMutableArray arrayWithObjects:@"编辑个人资料", @"意见反馈",@"服务协议",@"关于我们", nil];
 }
 
 - (void)initUI {
@@ -57,7 +58,7 @@
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.array.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -65,7 +66,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 140;
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -73,7 +74,7 @@
     CommonViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[CommonViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-        [cell showUnderLineAt:140];
+        [cell showUnderLineAt:60];
     }
     [cell configCellWithData:self.array[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -82,6 +83,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    switch (indexPath.row) {
+        case 0:
+        {
+            UserInfoViewController *controller = [[UserInfoViewController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        case 3:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 @end

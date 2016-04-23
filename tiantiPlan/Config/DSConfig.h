@@ -11,6 +11,7 @@
 
 #define APPNAME @"i-3laz"
 #define DPSIGNATURE @"psmtoiyrpyqofhfo7atdofdby4eqc02p"//加密key
+#define API_PhotoUpload @"http://upd1.ajkimg.com/upload"
 
 #define DEBUG_slaz
 

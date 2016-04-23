@@ -113,6 +113,10 @@
     [self.viewBanner addSubview:self.viewLine];
 }
 
+- (void)onClickButtonPay {
+    
+}
+
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
