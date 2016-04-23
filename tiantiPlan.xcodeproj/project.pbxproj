@@ -95,6 +95,8 @@
 		2414FB601CCB17B1003DA0B7 /* AddressManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB5F1CCB17B1003DA0B7 /* AddressManagerViewController.m */; };
 		2414FB631CCB1EA4003DA0B7 /* MoneyHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB621CCB1EA4003DA0B7 /* MoneyHistoryViewController.m */; };
 		2414FB661CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB651CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m */; };
+		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
+		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -271,6 +273,8 @@
 		2414FB621CCB1EA4003DA0B7 /* MoneyHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyHistoryViewController.m; sourceTree = "<group>"; };
 		2414FB641CCB1F2C003DA0B7 /* MoneyHistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyHistoryViewCell.h; sourceTree = "<group>"; };
 		2414FB651CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyHistoryViewCell.m; sourceTree = "<group>"; };
+		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		71403779568D52B4625CE6D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7179336ADD00C16AF180385 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +342,8 @@
 		2414FA081CC4E7AF003DA0B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				24A732B31CCBD26A001F4199 /* Default-568h@2x.png */,
+				24A732B41CCBD26A001F4199 /* Default.png */,
 				2414FA091CC4E7AF003DA0B7 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -765,6 +771,7 @@
 				TargetAttributes = {
 					2414FA041CC4E7AF003DA0B7 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4DW89V8URU;
 					};
 				};
 			};
@@ -792,8 +799,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2414FA181CC4E7AF003DA0B7 /* LaunchScreen.storyboard in Resources */,
+				24A732B61CCBD26A001F4199 /* Default.png in Resources */,
 				2414FB431CCA8E5C003DA0B7 /* Overlay@2x.png in Resources */,
 				2414FA151CC4E7AF003DA0B7 /* Assets.xcassets in Resources */,
+				24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */,
 				2414FB421CCA8E5C003DA0B7 /* IMGLibraryREADME in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1035,6 +1044,8 @@
 			baseConfigurationReference = 3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1048,8 +1059,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AD",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.company.tiantiPlan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "43cf1f9f-1639-4de4-b1b7-27e0815c8589";
 			};
 			name = Debug;
 		};
@@ -1058,6 +1070,8 @@
 			baseConfigurationReference = 71403779568D52B4625CE6D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1071,8 +1085,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AD",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.company.tiantiPlan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "43cf1f9f-1639-4de4-b1b7-27e0815c8589";
 			};
 			name = Release;
 		};
