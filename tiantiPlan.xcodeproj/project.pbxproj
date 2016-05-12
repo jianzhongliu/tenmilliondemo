@@ -82,12 +82,6 @@
 		2414FB411CCA8E5C003DA0B7 /* BK_ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB381CCA8E5C003DA0B7 /* BK_ELCImagePickerController.m */; };
 		2414FB421CCA8E5C003DA0B7 /* IMGLibraryREADME in Resources */ = {isa = PBXBuildFile; fileRef = 2414FB3B1CCA8E5C003DA0B7 /* IMGLibraryREADME */; };
 		2414FB431CCA8E5C003DA0B7 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2414FB3C1CCA8E5C003DA0B7 /* Overlay@2x.png */; };
-		2414FB461CCB0F12003DA0B7 /* apilib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2414FB451CCB0F12003DA0B7 /* apilib.a */; };
-		2414FB481CCB0F1A003DA0B7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2414FB471CCB0F1A003DA0B7 /* AdSupport.framework */; };
-		2414FB4A1CCB0F2F003DA0B7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2414FB491CCB0F2F003DA0B7 /* CoreTelephony.framework */; };
-		2414FB4C1CCB0F36003DA0B7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2414FB4B1CCB0F36003DA0B7 /* QuartzCore.framework */; };
-		2414FB4E1CCB0F3B003DA0B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2414FB4D1CCB0F3B003DA0B7 /* CoreGraphics.framework */; };
-		2414FB501CCB0F41003DA0B7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2414FB4F1CCB0F41003DA0B7 /* SystemConfiguration.framework */; };
 		2414FB541CCB129A003DA0B7 /* MyFoundsHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB531CCB129A003DA0B7 /* MyFoundsHistoryListViewController.m */; };
 		2414FB571CCB1314003DA0B7 /* MyFoundsHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB561CCB1314003DA0B7 /* MyFoundsHistoryViewCell.m */; };
 		2414FB5A1CCB15F8003DA0B7 /* MyOwnerHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB591CCB15F8003DA0B7 /* MyOwnerHistoryViewCell.m */; };
@@ -95,6 +89,9 @@
 		2414FB601CCB17B1003DA0B7 /* AddressManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB5F1CCB17B1003DA0B7 /* AddressManagerViewController.m */; };
 		2414FB631CCB1EA4003DA0B7 /* MoneyHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB621CCB1EA4003DA0B7 /* MoneyHistoryViewController.m */; };
 		2414FB661CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB651CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m */; };
+		24224D951CE44DB800720DED /* FoundsApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D941CE44DB800720DED /* FoundsApiManager.m */; };
+		24224D981CE44DCC00720DED /* UserCenterApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D971CE44DCC00720DED /* UserCenterApiManager.m */; };
+		24224D9B1CE44FF300720DED /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D9A1CE44FF300720DED /* Utils.m */; };
 		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
 		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
@@ -252,13 +249,6 @@
 		2414FB3A1CCA8E5C003DA0B7 /* ELCAssetSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAssetSelectionDelegate.h; sourceTree = "<group>"; };
 		2414FB3B1CCA8E5C003DA0B7 /* IMGLibraryREADME */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IMGLibraryREADME; sourceTree = "<group>"; };
 		2414FB3C1CCA8E5C003DA0B7 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
-		2414FB451CCB0F12003DA0B7 /* apilib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = apilib.a; sourceTree = "<group>"; };
-		2414FB471CCB0F1A003DA0B7 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdSupport.framework; sourceTree = "<group>"; };
-		2414FB491CCB0F2F003DA0B7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreTelephony.framework; sourceTree = "<group>"; };
-		2414FB4B1CCB0F36003DA0B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuartzCore.framework; sourceTree = "<group>"; };
-		2414FB4D1CCB0F3B003DA0B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreGraphics.framework; sourceTree = "<group>"; };
-		2414FB4F1CCB0F41003DA0B7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SystemConfiguration.framework; sourceTree = "<group>"; };
-		2414FB511CCB0F8C003DA0B7 /* JOYConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOYConnect.h; sourceTree = "<group>"; };
 		2414FB521CCB129A003DA0B7 /* MyFoundsHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFoundsHistoryListViewController.h; sourceTree = "<group>"; };
 		2414FB531CCB129A003DA0B7 /* MyFoundsHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFoundsHistoryListViewController.m; sourceTree = "<group>"; };
 		2414FB551CCB1314003DA0B7 /* MyFoundsHistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFoundsHistoryViewCell.h; sourceTree = "<group>"; };
@@ -273,6 +263,12 @@
 		2414FB621CCB1EA4003DA0B7 /* MoneyHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyHistoryViewController.m; sourceTree = "<group>"; };
 		2414FB641CCB1F2C003DA0B7 /* MoneyHistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyHistoryViewCell.h; sourceTree = "<group>"; };
 		2414FB651CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyHistoryViewCell.m; sourceTree = "<group>"; };
+		24224D931CE44DB800720DED /* FoundsApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsApiManager.h; sourceTree = "<group>"; };
+		24224D941CE44DB800720DED /* FoundsApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsApiManager.m; sourceTree = "<group>"; };
+		24224D961CE44DCC00720DED /* UserCenterApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterApiManager.h; sourceTree = "<group>"; };
+		24224D971CE44DCC00720DED /* UserCenterApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterApiManager.m; sourceTree = "<group>"; };
+		24224D991CE44FF300720DED /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		24224D9A1CE44FF300720DED /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -285,13 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2414FB4E1CCB0F3B003DA0B7 /* CoreGraphics.framework in Frameworks */,
-				2414FB501CCB0F41003DA0B7 /* SystemConfiguration.framework in Frameworks */,
-				2414FB4C1CCB0F36003DA0B7 /* QuartzCore.framework in Frameworks */,
-				2414FB4A1CCB0F2F003DA0B7 /* CoreTelephony.framework in Frameworks */,
-				2414FB461CCB0F12003DA0B7 /* apilib.a in Frameworks */,
 				9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */,
-				2414FB481CCB0F1A003DA0B7 /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,9 +309,9 @@
 		2414FA071CC4E7AF003DA0B7 /* tiantiPlan */ = {
 			isa = PBXGroup;
 			children = (
+				2414FAA71CC527F8003DA0B7 /* Config */,
 				2414FADB1CC5DED4003DA0B7 /* ThirdPart */,
 				2414FAD41CC5D9C6003DA0B7 /* Views */,
-				2414FAA71CC527F8003DA0B7 /* Config */,
 				2414FA7B1CC527CB003DA0B7 /* Category */,
 				2414FA6E1CC527A1003DA0B7 /* Model */,
 				2414FA521CC52758003DA0B7 /* Utils */,
@@ -364,6 +354,10 @@
 			children = (
 				2414FA211CC52727003DA0B7 /* BaseApi.h */,
 				2414FA221CC52727003DA0B7 /* BaseApi.m */,
+				24224D931CE44DB800720DED /* FoundsApiManager.h */,
+				24224D941CE44DB800720DED /* FoundsApiManager.m */,
+				24224D961CE44DCC00720DED /* UserCenterApiManager.h */,
+				24224D971CE44DCC00720DED /* UserCenterApiManager.m */,
 			);
 			path = ApiService;
 			sourceTree = "<group>";
@@ -412,6 +406,8 @@
 		2414FA521CC52758003DA0B7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				24224D991CE44FF300720DED /* Utils.h */,
+				24224D9A1CE44FF300720DED /* Utils.m */,
 				2414FA551CC52758003DA0B7 /* CaculateUtils.h */,
 				2414FA561CC52758003DA0B7 /* CaculateUtils.m */,
 				2414FA571CC52758003DA0B7 /* DeviceModel.h */,
@@ -590,7 +586,6 @@
 		2414FADB1CC5DED4003DA0B7 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
-				2414FB441CCB0F05003DA0B7 /* AD */,
 				2414FB2E1CCA8E5C003DA0B7 /* IMGLibrary */,
 				2414FADC1CC5DEF6003DA0B7 /* JXBAdPageView.h */,
 				2414FADD1CC5DEF6003DA0B7 /* JXBAdPageView.m */,
@@ -704,20 +699,6 @@
 				2414FB3C1CCA8E5C003DA0B7 /* Overlay@2x.png */,
 			);
 			path = IMGLibrary;
-			sourceTree = "<group>";
-		};
-		2414FB441CCB0F05003DA0B7 /* AD */ = {
-			isa = PBXGroup;
-			children = (
-				2414FB511CCB0F8C003DA0B7 /* JOYConnect.h */,
-				2414FB4F1CCB0F41003DA0B7 /* SystemConfiguration.framework */,
-				2414FB4D1CCB0F3B003DA0B7 /* CoreGraphics.framework */,
-				2414FB4B1CCB0F36003DA0B7 /* QuartzCore.framework */,
-				2414FB491CCB0F2F003DA0B7 /* CoreTelephony.framework */,
-				2414FB471CCB0F1A003DA0B7 /* AdSupport.framework */,
-				2414FB451CCB0F12003DA0B7 /* apilib.a */,
-			);
-			path = AD;
 			sourceTree = "<group>";
 		};
 		3EB7B06069F8CD882D508DF4 /* Pods */ = {
@@ -868,6 +849,7 @@
 				2414FACA1CC5D8E8003DA0B7 /* UserCenterViewController.m in Sources */,
 				2414FA4A1CC52727003DA0B7 /* NSURLRequest+TYAFNetworking.m in Sources */,
 				2414FB2A1CCA8BD8003DA0B7 /* UserInfoViewController.m in Sources */,
+				24224D981CE44DCC00720DED /* UserCenterApiManager.m in Sources */,
 				2414FA9F1CC527CB003DA0B7 /* UIImage+Alpha.m in Sources */,
 				2414FAC71CC5D8CA003DA0B7 /* HomeViewController.m in Sources */,
 				2414FA671CC52758003DA0B7 /* DeviceModel.m in Sources */,
@@ -881,12 +863,14 @@
 				2414FB2D1CCA8CB4003DA0B7 /* TouristInputInfoViewController.m in Sources */,
 				2414FB271CC9F158003DA0B7 /* SettingViewController.m in Sources */,
 				2414FA4C1CC52727003DA0B7 /* DSRequestCenter.m in Sources */,
+				24224D951CE44DB800720DED /* FoundsApiManager.m in Sources */,
 				2414FB181CC93251003DA0B7 /* FoundsResultViewController.m in Sources */,
 				2414FA6C1CC52758003DA0B7 /* RegulationMatchUtil.m in Sources */,
 				2414FAFD1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.m in Sources */,
 				2414FAFA1CC66658003DA0B7 /* FoundsDetailHeaderView.m in Sources */,
 				2414FADA1CC5DBA4003DA0B7 /* BaseViewCell.m in Sources */,
 				2414FA4B1CC52727003DA0B7 /* DSAPIProxy.m in Sources */,
+				24224D9B1CE44FF300720DED /* Utils.m in Sources */,
 				2414FA491CC52727003DA0B7 /* NSDictionary+TYAFNetworking.m in Sources */,
 				2414FB661CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m in Sources */,
 				2414FAE31CC60945003DA0B7 /* HomeFirstViewCell.m in Sources */,
@@ -1044,8 +1028,8 @@
 			baseConfigurationReference = 3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1061,7 +1045,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43cf1f9f-1639-4de4-b1b7-27e0815c8589";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1070,8 +1054,8 @@
 			baseConfigurationReference = 71403779568D52B4625CE6D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1087,7 +1071,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43cf1f9f-1639-4de4-b1b7-27e0815c8589";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

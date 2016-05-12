@@ -16,7 +16,11 @@
 #define DEBUG_slaz
 
 #ifdef DEBUG_slaz
-#define DPHOST @"http://api-test.3laz.com:8006/v1"
+#define DPHOST @"http://182.92.158.7/yungou/REST/"
+//#define HOST @"http://182.92.158.7/Love/REST/"
+
+//#define DPHOST @"http://liujianongdembp.lan:8080/Yungou/REST/"
+
 //#define DPHOST @"http://api.51diansong.com/api"
 //#define DPHOST @"http://192.168.0.90/api/v1"
 #define UmengKey @"56efb210e0f55a8eaa00010a"

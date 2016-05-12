@@ -15,12 +15,11 @@
 #import "CommonViewCell.h"
 #import "UserInfoViewController.h"
 #import "MoneyHistoryViewController.h"
-#import "JOYConnect.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <SystemConfiguration/CaptiveNetwork.h>
 
-@interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource, JOYConnectDelegate>
+@interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UserCenterHeaderView *viewHeader;
@@ -86,9 +85,9 @@
 }
 
 - (void)getMoney {
-    [JOYConnect getConnect:@"24c9a1d87a0d51afd7b86753fe85e6b3" pid:@"appstore" userID:@"xguang"];
-    [JOYConnect sharedJOYConnect].delegate=self;
-    [JOYConnect showList:nil];
+//    [JOYConnect getConnect:@"24c9a1d87a0d51afd7b86753fe85e6b3" pid:@"appstore" userID:@"xguang"];
+//    [JOYConnect sharedJOYConnect].delegate=self;
+//    [JOYConnect showList:nil];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
@@ -151,61 +150,6 @@
         default:
             break;
     }
-}
-
-- (void)onConnectSuccess;{
-    NSLog(@"连接成功");
-    NSMutableDictionary * params=[JOYConnect getConfigItems];
-    NSString * url=params[@"url"];
-    NSLog(@"url=%@",url);
-}
-
-- (void)onConnectFailed:(NSString *)error;{
-    NSLog(@"连接失败:%@",error);
-}
-
-- (void)onBannerShow;{//仅在第一次调用的时候通知
-    NSLog(@"广告条展示");
-}
-
-- (void)onBannerShowFailed:(NSString *)error;{
-    NSLog(@"广告条展示失败:%@",error);
-}
-
-- (void)onBannerClick;{
-    NSLog(@"广告条点击");
-}
-
-- (void)onBannerClose;{
-    NSLog(@"广告条关闭");
-}
-
-- (void)onPopShow;{
-    NSLog(@"插屏展示");
-}
-
-- (void)onPopShowFailed:(NSString *)error;{
-    NSLog(@"插屏展示失败:%@",error);
-}
-
-- (void)onPopClose;{
-    NSLog(@"插屏关闭");
-}
-
-- (void)onPopClick;{
-    NSLog(@"插屏点击");
-}
-
-- (void)onListOpen;{
-    NSLog(@"列表展示");
-}
-
--(void)onListShowFailed:(NSString *)error;{
-    NSLog(@"列表展示失败:%@",error);
-}
-
-- (void)onListClose;{
-    NSLog(@"列表关闭");
 }
 
 @end

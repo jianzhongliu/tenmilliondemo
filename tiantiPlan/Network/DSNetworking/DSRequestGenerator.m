@@ -13,6 +13,7 @@
 #import "DSConfig.h"
 #import "NSString+Hash.h"
 #import "DeviceModel.h"
+#import "Utils.h"
 
 @interface DSRequestGenerator ()
 
@@ -58,16 +59,19 @@
     NSDictionary *dicOrderSigneture = [NSDictionary dictionary];
     [dicSignature setObject:[self commonHeader] forKey:@"useragent"];
     dicOrderSigneture = [DSSignatureGenerator compomentParamsAndOrder:dicSignature];//参数表按字母排序，拼接成字符串
-    NSString *paramStringSigneture = [dicOrderSigneture TY_urlParamsStringSignature:YES];
-    NSString *signature = [DSSignatureGenerator signGETRestfulRequestWithSignParams:paramStringSigneture];
+    NSString *currentTime = [Utils getCurrentTime];
+    NSString *sign = [NSString stringWithFormat:@"%@%@", currentTime, DPSIGNATURE];
+    sign = [[Utils MD5:sign] uppercaseString];
+    
+    NSString *signature = sign;
+    //[DSSignatureGenerator signGETRestfulRequestWithSignParams:paramStringSigneture];
     
     NSString *urlString = @"";
     if ([url rangeOfString:@"?"].length > 0) {
         urlString = [NSString stringWithFormat:@"%@%@%@&signature=%@",DPHOST, url, paramString,
                     signature];
     } else {
-        urlString = [NSString stringWithFormat:@"%@%@?%@&signature=%@",DPHOST, url, paramString,
-                    signature];
+        urlString = [NSString stringWithFormat:@"%@%@?%@&signature=%@",DPHOST, url, paramString, signature];
     }
     urlString =  [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"NEW reqeust URL:%@", urlString);

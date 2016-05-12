@@ -13,6 +13,7 @@
 #import "HomeSecondViewCell.h"
 #import "HomeThirdViewCell.h"
 #import "FoundsDetailViewController.h"
+#import "FoundsApiManager.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate>
 
@@ -63,6 +64,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self requestData];
 }
 
 - (void)initData {
@@ -81,6 +83,12 @@
 //                [_delegate didSelectedADitem:data[clickIndex]];
 //            }
 //        }
+    }];
+}
+
+- (void)requestData {
+    [FoundsApiManager requestAllFoundsInfoModel:^(id response) {
+        
     }];
 }
 

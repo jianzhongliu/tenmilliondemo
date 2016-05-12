@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseResponseModel.h"
 #import "DSAPIProxy.h"
+#import "DSConfig.h"
 
 typedef void(^responseModel)(id response);
 
