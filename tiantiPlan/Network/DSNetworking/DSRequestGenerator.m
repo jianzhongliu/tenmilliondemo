@@ -59,7 +59,7 @@
     NSDictionary *dicOrderSigneture = [NSDictionary dictionary];
     [dicSignature setObject:[self commonHeader] forKey:@"useragent"];
     dicOrderSigneture = [DSSignatureGenerator compomentParamsAndOrder:dicSignature];//参数表按字母排序，拼接成字符串
-    NSString *currentTime = [Utils getCurrentTime];
+    NSString *currentTime = dicOrder[@"timestamp"];
     NSString *sign = [NSString stringWithFormat:@"%@%@", currentTime, DPSIGNATURE];
     sign = [[Utils MD5:sign] uppercaseString];
     
