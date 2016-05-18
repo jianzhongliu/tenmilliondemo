@@ -7,6 +7,7 @@
 //
 
 #import "FoundsDetailInfoViewCell.h"
+#import "FoundsDetailModel.h"
 
 @interface FoundsDetailInfoViewCell ()
 
@@ -32,7 +33,7 @@
         _labelTitle.textAlignment = NSTextAlignmentLeft;
         _labelTitle.textColor = DSRedColor;
         _labelTitle.font = [UIFont systemFontOfSize:14];
-        _labelTitle.text = @"iPhone 6s 64G内存，支持移动联通电信，唯一的不同 ， 是处处都不同，";
+        _labelTitle.text = @"";
     }
     return _labelTitle;
 }
@@ -43,10 +44,10 @@
         _labelPrice = [[UILabel alloc] init];
         _labelPrice.numberOfLines = 0;
         _labelPrice.lineBreakMode = NSLineBreakByCharWrapping;
-        _labelPrice.textAlignment = NSTextAlignmentCenter;
-        _labelPrice.textColor = DSBlackColor;
+        _labelPrice.textAlignment = NSTextAlignmentLeft;
+        _labelPrice.textColor = DSGrayColor9;
         _labelPrice.font = [UIFont systemFontOfSize:14];
-        _labelPrice.text = @"价值：￥5188.00";
+        _labelPrice.text = @"";
     }
     return _labelPrice;
 }
@@ -56,7 +57,7 @@
         _progress = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
         _progress.tintColor = DSRedColor;
         _progress.backgroundColor = DSColor;
-        [_progress setProgress:0.6];
+        [_progress setProgress:0.0];
     }
     return _progress;
 }
@@ -69,7 +70,7 @@
         _labelCurrentNumber.textAlignment = NSTextAlignmentLeft;
         _labelCurrentNumber.textColor = DSNavi;
         _labelCurrentNumber.font = [UIFont systemFontOfSize:14];
-        _labelCurrentNumber.text = @"319";
+        _labelCurrentNumber.text = @"0";
     }
     return _labelCurrentNumber;
 }
@@ -95,7 +96,7 @@
         _labelTotalNumber.textAlignment = NSTextAlignmentCenter;
         _labelTotalNumber.textColor = DSGrayColor9;
         _labelTotalNumber.font = [UIFont systemFontOfSize:12];
-        _labelTotalNumber.text = @"320";
+        _labelTotalNumber.text = @"0";
     }
     return _labelTotalNumber;
 }
@@ -108,7 +109,7 @@
         _labelTotalTitle.textAlignment = NSTextAlignmentCenter;
         _labelTotalTitle.textColor = DSGrayColor9;
         _labelTotalTitle.font = [UIFont systemFontOfSize:12];
-        _labelTotalTitle.text = @"总需人次";
+        _labelTotalTitle.text = @"总需";
     }
     return _labelTotalTitle;
 }
@@ -121,7 +122,7 @@
         _labelLackNumber.textAlignment = NSTextAlignmentRight;
         _labelLackNumber.textColor = DSColor;
         _labelLackNumber.font = [UIFont systemFontOfSize:12];
-        _labelLackNumber.text = @"1";
+        _labelLackNumber.text = @"0";
     }
     return _labelLackNumber;
 }
@@ -150,6 +151,7 @@
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
     self.labelTitle.frame = CGRectMake(10, 10, SCREENWIDTH - 20, 30);
+    self.labelPrice.frame = CGRectMake(10, self.labelTitle.ctBottom, SCREENWIDTH, 20);
     self.progress.frame = CGRectMake(10, self.labelTitle.ctBottom + 10, SCREENWIDTH - 20, 30);
     self.labelCurrentNumber.frame = CGRectMake(10, self.progress.ctBottom + 8, SCREENWIDTH - 20, 15);
     self.labelCurrentTitle.frame = CGRectMake(10, self.labelCurrentNumber.ctBottom + 5, SCREENWIDTH - 20, 15);
@@ -159,7 +161,7 @@
     self.labelLackTitle.frame = CGRectMake(10, self.labelLackNumber.ctBottom+5, SCREENWIDTH - 20, 15);
     
     [self addSubview:self.labelTitle];
-    [self addSubview:self.labelPrice];
+//    [self addSubview:self.labelPrice];
     [self addSubview:self.progress];
     [self addSubview:self.labelCurrentNumber];
     [self addSubview:self.labelCurrentTitle];
@@ -170,7 +172,17 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    [self.labelTitle sizeToFit];
+    if ([celldata isKindOfClass:[FoundsDetailInfoModel class]]) {
+        FoundsDetailInfoModel *founds = (FoundsDetailInfoModel *) celldata;
+        self.labelTitle.text = founds.name;
+        [self.labelTitle sizeToFit];
+        
+        self.labelTotalNumber.text = founds.totaln;
+        self.labelCurrentNumber.text = founds.nown;
+        self.labelLackNumber.text = [NSString stringWithFormat:@"%ld", [founds.totaln integerValue] - [founds.nown integerValue]];
+        [self.progress setProgress:[founds.nown floatValue]/[founds.totaln floatValue] ];
+        self.labelPrice.text = [NSString stringWithFormat:@"价值：%@元", founds.totaln];
+    }
     
 }
 

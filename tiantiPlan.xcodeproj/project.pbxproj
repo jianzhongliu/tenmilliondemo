@@ -95,6 +95,7 @@
 		24889D941CEC35E600A4777B /* FoundsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D931CEC35E600A4777B /* FoundsModel.m */; };
 		24889D971CEC3A0500A4777B /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D961CEC3A0500A4777B /* HomeModel.m */; };
 		24889D9B1CEC846800A4777B /* FoundsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D9A1CEC846800A4777B /* FoundsDetailModel.m */; };
+		24889D9E1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D9D1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m */; };
 		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
 		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
@@ -278,6 +279,8 @@
 		24889D961CEC3A0500A4777B /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
 		24889D991CEC846800A4777B /* FoundsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsDetailModel.h; sourceTree = "<group>"; };
 		24889D9A1CEC846800A4777B /* FoundsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsDetailModel.m; sourceTree = "<group>"; };
+		24889D9C1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsHistoryOwnerListViewController.h; sourceTree = "<group>"; };
+		24889D9D1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsHistoryOwnerListViewController.m; sourceTree = "<group>"; };
 		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -641,6 +644,8 @@
 				2414FAF51CC665D0003DA0B7 /* FoundsDetailViewController.m */,
 				2414FB161CC93251003DA0B7 /* FoundsResultViewController.h */,
 				2414FB171CC93251003DA0B7 /* FoundsResultViewController.m */,
+				24889D9C1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.h */,
+				24889D9D1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m */,
 			);
 			path = FoundsDetail;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				2414FB271CC9F158003DA0B7 /* SettingViewController.m in Sources */,
 				2414FA4C1CC52727003DA0B7 /* DSRequestCenter.m in Sources */,
 				24224D951CE44DB800720DED /* FoundsApiManager.m in Sources */,
+				24889D9E1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m in Sources */,
 				2414FB181CC93251003DA0B7 /* FoundsResultViewController.m in Sources */,
 				2414FA6C1CC52758003DA0B7 /* RegulationMatchUtil.m in Sources */,
 				2414FAFD1CC678A3003DA0B7 /* FoundsDetailInfoViewCell.m in Sources */,

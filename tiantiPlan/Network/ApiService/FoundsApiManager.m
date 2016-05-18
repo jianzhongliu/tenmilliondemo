@@ -47,12 +47,35 @@
 }
 
 /**获取商品往期揭晓列表*/
-+ (void)requestHistoryFoundsById:(NSString *)foundsId ResultListModel:(responseModel ) response {
++ (void)requestHistoryFoundsById:(NSString *)foundsId ResultListModel:(responseModel ) responseModel {
     NSString *url = [NSString stringWithFormat:@"founds/getHistoryFoundsResultList"];
-    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"foundsId":@"392840234802"} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
-        
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"foundsId":foundsId} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
+        if (response.content && [response.content[@"code"] integerValue] == 0) {
+            NSMutableArray *arrayResult = [NSMutableArray array];
+            if ([response.content[@"historyResult"] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *dic = response.content[@"historyResult"];
+                NSError *error;
+                FoundsHistoryOwnerInfoModel *historyModel = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dic error:&error];
+                [arrayResult addObject:historyModel];
+            } else if ([response.content[@"historyResult"] isKindOfClass:[NSArray class]]) {
+                NSArray *arrayItem = response.content[@"historyResult"];
+                for (NSDictionary *dicHistory in arrayItem) {
+                    NSError *error;
+                    FoundsHistoryOwnerInfoModel *historyModel = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dicHistory error:&error];
+                    [arrayResult addObject:historyModel];
+                }
+            }
+            if (responseModel) {
+                responseModel(arrayResult);
+            }
+        }
+        if (responseModel) {
+            responseModel(nil);
+        }
     } faildCallBack:^(DSURLResponse *response) {
-        
+        if (responseModel) {
+            responseModel(nil);
+        }
     }];
 }
 

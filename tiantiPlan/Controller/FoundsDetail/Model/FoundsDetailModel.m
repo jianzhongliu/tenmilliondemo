@@ -60,6 +60,7 @@
              @"ownerBuyNumber":@"ownerBuyNumber",
              @"ownerid":@"ownerid",
              @"resulttime":@"resulttime",
+             @"resultnumber":@"resultnumber",
              @"timeidentify":@"timeidentify",
              @"totaln":@"totaln",
              @"type":@"type"

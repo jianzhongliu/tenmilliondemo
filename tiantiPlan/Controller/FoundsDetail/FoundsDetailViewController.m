@@ -15,6 +15,7 @@
 #import "JXBAdPageView.h"
 #import "FoundsApiManager.h"
 #import "FoundsDetailModel.h"
+#import "FoundsHistoryOwnerListViewController.h"
 
 @interface FoundsDetailViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate, HistoryOwnerInfoViewCellDelegate>
 
@@ -221,7 +222,7 @@
                 [cell showUnderLineAt:130];
                 cell.delegate = self;
             }
-            [cell configCellWithData:self.foundsDetailModel.foundsHistoryInfoModel];
+            [cell configCellWithData:self.foundsDetailModel];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -247,7 +248,40 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    switch (indexPath.section) {
+        case 0:
+        {
+        
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            switch (indexPath.row) {
+                case 0:
+                {
+                    FoundsHistoryOwnerListViewController *controller = [[FoundsHistoryOwnerListViewController alloc] init];
+                    controller.foundsId = self.foundsId;
+                    [self.navigationController pushViewController:controller animated:YES];
+                }
+                    break;
+                case 1:
+                {
+                    
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)setWebImage:(UIImageView*)imgView imgUrl:(NSString*)imgUrl withIndex:(NSInteger ) index {

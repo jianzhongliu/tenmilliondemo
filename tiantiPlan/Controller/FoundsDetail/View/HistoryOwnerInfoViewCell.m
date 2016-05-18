@@ -7,6 +7,8 @@
 //
 
 #import "HistoryOwnerInfoViewCell.h"
+#import "FoundsDetailModel.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface HistoryOwnerInfoViewCell ()
 
@@ -45,7 +47,7 @@
         _labelName.textAlignment = NSTextAlignmentLeft;
         _labelName.textColor = DSBlackColor;
         _labelName.font = [UIFont systemFontOfSize:14];
-        _labelName.text = @"获奖账户：风花雪月";
+        _labelName.text = @"";
     }
     return _labelName;
 }
@@ -58,7 +60,7 @@
         _labelNumber.textAlignment = NSTextAlignmentLeft;
         _labelNumber.textColor = DSBlackColor;
         _labelNumber.font = [UIFont systemFontOfSize:14];
-        _labelNumber.text = @"本期参与：304次";
+        _labelNumber.text = @"";
     }
     return _labelNumber;
 }
@@ -71,7 +73,7 @@
         _labelTime.textAlignment = NSTextAlignmentLeft;
         _labelTime.textColor = DSBlackColor;
         _labelTime.font = [UIFont systemFontOfSize:14];
-        _labelTime.text = @"揭晓时间：2016-04-21 03:37:33:192";
+        _labelTime.text = @"";
     }
     return _labelTime;
 }
@@ -112,7 +114,7 @@
         _labelOwner.textAlignment = NSTextAlignmentLeft;
         _labelOwner.textColor = [UIColor whiteColor];
         _labelOwner.font = [UIFont boldSystemFontOfSize:13];
-        _labelOwner.text = @"幸运号码：10271985";
+        _labelOwner.text = @"";
     }
     return _labelOwner;
 }
@@ -172,7 +174,18 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    
+    if ([celldata isKindOfClass:[FoundsDetailModel class]]) {
+        FoundsDetailModel *history = (FoundsDetailModel *) celldata;
+        [self.imageIcon setImageWithURL:[NSURL URLWithString:history.userInfoModel.icon] placeholderImage:[UIImage imageNamed:@"userhead"]];
+        self.labelName.text = [NSString stringWithFormat:@"获奖者：%@", history.userInfoModel.name];
+        self.labelNumber.text = [NSString stringWithFormat:@"参与次数：%@", history.foundsHistoryInfoModel.ownerBuyNumber];
+        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)history.foundsHistoryInfoModel.resulttime];
+        NSString *dateString = [formater stringFromDate:date];
+        self.labelTime.text = [NSString stringWithFormat:@"揭晓时间：%@", dateString];
+        self.labelOwner.text = [NSString stringWithFormat:@"幸运号码：%@",history.foundsHistoryInfoModel.resultnumber];
+    }
 }
 
 - (CGFloat)fetchCellHight {

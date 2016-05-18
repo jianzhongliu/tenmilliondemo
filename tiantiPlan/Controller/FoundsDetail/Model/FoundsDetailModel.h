@@ -50,6 +50,7 @@
 @property (nonatomic, strong) NSString *ownerBuyNumber;
 @property (nonatomic, strong) NSString *ownerid;
 @property (nonatomic, strong) NSString *resulttime;
+@property (nonatomic, strong) NSString *resultnumber;
 @property (nonatomic, strong) NSString *timeidentify;
 @property (nonatomic, strong) NSString *totaln;
 @property (nonatomic, strong) NSString *type;
