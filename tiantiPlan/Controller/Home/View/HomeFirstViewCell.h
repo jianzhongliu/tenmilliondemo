@@ -8,8 +8,17 @@
 
 #import "BaseViewController.h"
 
+@class HomeFirstViewCell;
+
+@protocol HomeFirstViewCellDelegate <NSObject>
+
+- (void)homeFirstViewCell:(HomeFirstViewCell *) cell clickData:(id) clickData;
+
+@end
+
 @interface HomeFirstViewCell : BaseViewCell
 
+@property (nonatomic, assign) id<HomeFirstViewCellDelegate> delegate;
 - (void)configCellWithData:(id) celldata;
 
 @end

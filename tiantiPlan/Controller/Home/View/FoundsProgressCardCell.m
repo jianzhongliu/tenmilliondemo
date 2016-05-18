@@ -7,6 +7,8 @@
 //
 
 #import "FoundsProgressCardCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "FoundsModel.h"
 
 @interface FoundsProgressCardCell ()
 
@@ -62,7 +64,7 @@
         _labelCurrentNumber.lineBreakMode = NSLineBreakByCharWrapping;
         _labelCurrentNumber.textAlignment = NSTextAlignmentCenter;
         _labelCurrentNumber.textColor = DSBlackColor;
-        _labelCurrentNumber.font = [UIFont systemFontOfSize:14];
+        _labelCurrentNumber.font = [UIFont systemFontOfSize:12];
         _labelCurrentNumber.text = @"124";
     }
     return _labelCurrentNumber;
@@ -75,8 +77,8 @@
         _labelCurrentTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelCurrentTitle.textAlignment = NSTextAlignmentCenter;
         _labelCurrentTitle.textColor = DSBlackColor;
-        _labelCurrentTitle.font = [UIFont systemFontOfSize:14];
-        _labelCurrentTitle.text = @"以参与";
+        _labelCurrentTitle.font = [UIFont systemFontOfSize:12];
+        _labelCurrentTitle.text = @"已参与";
     }
     return _labelCurrentTitle;
 }
@@ -88,8 +90,8 @@
         _labelTotalNumber.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTotalNumber.textAlignment = NSTextAlignmentCenter;
         _labelTotalNumber.textColor = DSBlackColor;
-        _labelTotalNumber.font = [UIFont systemFontOfSize:14];
-        _labelTotalNumber.text = @"44";
+        _labelTotalNumber.font = [UIFont systemFontOfSize:12];
+        _labelTotalNumber.text = @"";
     }
     return _labelTotalNumber;
 }
@@ -101,8 +103,8 @@
         _labelTotalTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTotalTitle.textAlignment = NSTextAlignmentCenter;
         _labelTotalTitle.textColor = DSBlackColor;
-        _labelTotalTitle.font = [UIFont systemFontOfSize:14];
-        _labelTotalTitle.text = @"总需人次";
+        _labelTotalTitle.font = [UIFont systemFontOfSize:12];
+        _labelTotalTitle.text = @"总需";
     }
     return _labelTotalTitle;
 }
@@ -114,8 +116,8 @@
         _labelLackNumber.lineBreakMode = NSLineBreakByCharWrapping;
         _labelLackNumber.textAlignment = NSTextAlignmentCenter;
         _labelLackNumber.textColor = DSBlackColor;
-        _labelLackNumber.font = [UIFont systemFontOfSize:14];
-        _labelLackNumber.text = @"55";
+        _labelLackNumber.font = [UIFont systemFontOfSize:12];
+        _labelLackNumber.text = @"";
     }
     return _labelLackNumber;
 }
@@ -127,7 +129,7 @@
         _labelLackTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelLackTitle.textAlignment = NSTextAlignmentCenter;
         _labelLackTitle.textColor = DSBlackColor;
-        _labelLackTitle.font = [UIFont systemFontOfSize:14];
+        _labelLackTitle.font = [UIFont systemFontOfSize:12];
         _labelLackTitle.text = @"剩余";
     }
     return _labelLackTitle;
@@ -164,7 +166,18 @@
 }
 
 - (void)configViewWithData:(id) data {
-    
+    if ([data isKindOfClass:[FoundsModel class]]) {
+        FoundsModel *founds = (FoundsModel *)data;
+        NSArray *images = [founds.images componentsSeparatedByString:@"|"];
+
+        [self.imageView setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
+        
+        self.labelTotalNumber.text = founds.totaln;
+        self.labelCurrentNumber.text = founds.nown;
+        self.labelLackNumber.text = [NSString stringWithFormat:@"%ld", [founds.totaln integerValue] - [founds.nown integerValue]];
+        [self.progress setProgress:[founds.nown floatValue]/[founds.totaln floatValue] ];
+        self.labelPrice.text = founds.name;
+    }
 }
 
 - (CGFloat)fetchViewHeight {

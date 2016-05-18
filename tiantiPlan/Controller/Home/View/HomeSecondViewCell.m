@@ -8,6 +8,7 @@
 
 #import "HomeSecondViewCell.h"
 #import "FoundsProgressCardCell.h"
+#import "NSObject+AddKeyValueToObject.h"
 
 @interface HomeSecondViewCell () <UIScrollViewDelegate>
 
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) UIImageView *imageArrow;
 @property (nonatomic, strong) UIView *viewLine;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) NSMutableArray *arrayData;
 
 @end
 
@@ -61,6 +63,13 @@
     return _viewLine;
 }
 
+- (NSMutableArray *)arrayData {
+    if (_arrayData == nil) {
+        _arrayData = [NSMutableArray array];
+    }
+    return _arrayData;
+}
+
 #pragma mark - lifecycleMethod
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -82,17 +91,32 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    for (NSInteger index = 0; index < 10; index ++ ) {
-        FoundsProgressCardCell *cell = [[FoundsProgressCardCell alloc] init];
-        cell.frame = CGRectMake(index* 120, 0, 120, 180);
-        [self.scrollView addSubview:cell];
-        self.scrollView.contentSize = CGSizeMake(120 * (index + 1), 180);
+    if ([celldata isKindOfClass:[NSArray class]]) {
+        NSArray *arrayData = celldata;
+        [self.arrayData removeAllObjects];
+        [self.arrayData addObjectsFromArray:arrayData];
+        for (NSInteger index = 0; index < arrayData.count; index ++ ) {
+            FoundsProgressCardCell *cell = [[FoundsProgressCardCell alloc] init];
+            cell.frame = CGRectMake(index* 120, 0, 120, 180);
+            [cell configViewWithData:arrayData[index]];
+            [self.scrollView addSubview:cell];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapFounds:)];
+            [tap setObjectDSValue:@(index + 100)];
+            [cell addGestureRecognizer:tap];
+            self.scrollView.contentSize = CGSizeMake(120 * (index + 1), 180);
+        }
+    }
+}
+
+- (void)didTapFounds:(UITapGestureRecognizer *) gesture {
+    NSInteger index = [gesture.objectDSValue integerValue] - 100;
+    if (_delegate && [_delegate respondsToSelector:@selector(homeSecondViewCell:clickData:)]) {
+        [_delegate homeSecondViewCell:self clickData:self.arrayData[index]];
     }
 }
 
 - (CGFloat)fetchCellHight {
     return 0;
 }
-
 
 @end

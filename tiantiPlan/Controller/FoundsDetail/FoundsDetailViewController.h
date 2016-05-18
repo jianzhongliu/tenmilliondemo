@@ -10,4 +10,6 @@
 
 @interface FoundsDetailViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *foundsId;
+
 @end

@@ -8,12 +8,14 @@
 
 #import "HomeFirstViewCell.h"
 #import "FoundsCardCell.h"
+#import "NSObject+AddKeyValueToObject.h"
 
 @interface HomeFirstViewCell ()
 
 @property (nonatomic, strong) UILabel *labelTitle;
 @property (nonatomic, strong) UIImageView *imageArrow;
 @property (nonatomic, strong) UIView *viewLine;
+@property (nonatomic, strong) NSMutableArray *arrayData;
 
 @end
 
@@ -49,6 +51,13 @@
     return _viewLine;
 }
 
+- (NSMutableArray *)arrayData {
+    if (_arrayData == nil) {
+        _arrayData = [NSMutableArray array];
+    }
+    return _arrayData;
+}
+
 #pragma mark - lifecycleMethod
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -68,12 +77,29 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    for (NSInteger index = 0; index < 4; index ++) {
-        FoundsCardCell *cell = [[FoundsCardCell alloc] init];
-        cell.frame = CGRectMake(index % 2 * SCREENWIDTH/2 - 0.5, index/2 * 90 + 30, SCREENWIDTH/2 + 1, 90+1);
-        cell.layer.borderColor = DSRedColor.CGColor;
-        cell.layer.borderWidth = 1;
-        [self.contentView addSubview:cell];
+    NSArray *arrayData = celldata;
+    [self.arrayData removeAllObjects];
+    [self.arrayData addObjectsFromArray:arrayData];
+    if ([celldata isKindOfClass:[NSArray class]]) {
+        for (NSInteger index = 0; index < 4 && arrayData.count >=4; index ++) {
+            FoundsCardCell *cell = [[FoundsCardCell alloc] init];
+            cell.frame = CGRectMake(index % 2 * SCREENWIDTH/2 - 0.5, index/2 * 90 + 30, SCREENWIDTH/2 + 1, 90+1);
+            cell.layer.borderColor = DSRedColor.CGColor;
+            cell.layer.borderWidth = 1;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapFounds:)];
+            [tap setObjectDSValue:@(index + 100)];
+            [cell addGestureRecognizer:tap];
+            [cell configViewWithData:arrayData[index]];
+            [self.contentView addSubview:cell];
+        }
+    }
+
+}
+
+- (void)didTapFounds:(UITapGestureRecognizer *) gesture {
+    NSInteger index = [gesture.objectDSValue integerValue] - 100;
+    if (_delegate && [_delegate respondsToSelector:@selector(homeFirstViewCell:clickData:)]) {
+        [_delegate homeFirstViewCell:self clickData:self.arrayData[index]];
     }
 }
 

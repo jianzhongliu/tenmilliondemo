@@ -171,7 +171,7 @@
 
 - (void)configCellWithData:(id) celldata{
     [self.labelTitle sizeToFit];
-
+    
 }
 
 - (CGFloat)fetchCellHight {

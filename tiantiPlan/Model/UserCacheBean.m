@@ -74,7 +74,7 @@
 }
 
 - (BOOL)isLogin {
-    if (self.userInfo.token.length > 0) {
+    if (self.userInfo.userId.length > 0) {
         return YES;
     }
     return NO;

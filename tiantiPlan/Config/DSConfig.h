@@ -19,7 +19,7 @@
 //#define DPHOST @"http://182.92.158.7/yungou/REST/"
 //#define HOST @"http://182.92.158.7/Love/REST/"
 
-#define DPHOST @"http://172.20.10.4:8080/yungou/REST/"
+#define DPHOST @"http://liujianongdembp:8080/yungou/REST/"
 
 //#define DPHOST @"http://api.51diansong.com/api"
 //#define DPHOST @"http://192.168.0.90/api/v1"

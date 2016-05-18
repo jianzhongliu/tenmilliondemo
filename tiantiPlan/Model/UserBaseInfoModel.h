@@ -12,13 +12,12 @@
 @interface UserBaseInfoModel : DSBaseModel
 
 @property (nonatomic, strong) NSString *userId;
-@property (nonatomic, strong) NSString *mobile;
-@property (nonatomic, strong) NSString *token;
-@property (nonatomic, strong) NSString *cityId;
-@property (nonatomic, strong) NSString *realName;
-@property (nonatomic, strong) NSString *logo;
-@property (nonatomic, strong) NSString *easemobUsername;
-@property (nonatomic, strong) NSString *easemobPassword;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *account;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *phone;
 
 - (NSDictionary *)getUserInfoDictionary;
 - (void)configUserInfoModelWithDic:(NSDictionary *) dic;

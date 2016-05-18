@@ -12,4 +12,6 @@
 
 @interface FoundsTypeCell : UIView
 
+- (void)configViewWithData:(id) data;
+
 @end

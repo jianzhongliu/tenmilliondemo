@@ -92,6 +92,9 @@
 		24224D951CE44DB800720DED /* FoundsApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D941CE44DB800720DED /* FoundsApiManager.m */; };
 		24224D981CE44DCC00720DED /* UserCenterApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D971CE44DCC00720DED /* UserCenterApiManager.m */; };
 		24224D9B1CE44FF300720DED /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D9A1CE44FF300720DED /* Utils.m */; };
+		24889D941CEC35E600A4777B /* FoundsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D931CEC35E600A4777B /* FoundsModel.m */; };
+		24889D971CEC3A0500A4777B /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D961CEC3A0500A4777B /* HomeModel.m */; };
+		24889D9B1CEC846800A4777B /* FoundsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D9A1CEC846800A4777B /* FoundsDetailModel.m */; };
 		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
 		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
@@ -269,6 +272,12 @@
 		24224D971CE44DCC00720DED /* UserCenterApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterApiManager.m; sourceTree = "<group>"; };
 		24224D991CE44FF300720DED /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		24224D9A1CE44FF300720DED /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		24889D921CEC35E600A4777B /* FoundsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsModel.h; sourceTree = "<group>"; };
+		24889D931CEC35E600A4777B /* FoundsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsModel.m; sourceTree = "<group>"; };
+		24889D951CEC3A0500A4777B /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
+		24889D961CEC3A0500A4777B /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
+		24889D991CEC846800A4777B /* FoundsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsDetailModel.h; sourceTree = "<group>"; };
+		24889D9A1CEC846800A4777B /* FoundsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsDetailModel.m; sourceTree = "<group>"; };
 		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -596,6 +605,10 @@
 		2414FADF1CC5E1D7003DA0B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				24889D921CEC35E600A4777B /* FoundsModel.h */,
+				24889D931CEC35E600A4777B /* FoundsModel.m */,
+				24889D951CEC3A0500A4777B /* HomeModel.h */,
+				24889D961CEC3A0500A4777B /* HomeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -622,6 +635,7 @@
 		2414FAF31CC665B8003DA0B7 /* FoundsDetail */ = {
 			isa = PBXGroup;
 			children = (
+				24889D981CEC845200A4777B /* Model */,
 				2414FAF71CC6663D003DA0B7 /* View */,
 				2414FAF41CC665D0003DA0B7 /* FoundsDetailViewController.h */,
 				2414FAF51CC665D0003DA0B7 /* FoundsDetailViewController.m */,
@@ -699,6 +713,15 @@
 				2414FB3C1CCA8E5C003DA0B7 /* Overlay@2x.png */,
 			);
 			path = IMGLibrary;
+			sourceTree = "<group>";
+		};
+		24889D981CEC845200A4777B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24889D991CEC846800A4777B /* FoundsDetailModel.h */,
+				24889D9A1CEC846800A4777B /* FoundsDetailModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3EB7B06069F8CD882D508DF4 /* Pods */ = {
@@ -873,6 +896,7 @@
 				24224D9B1CE44FF300720DED /* Utils.m in Sources */,
 				2414FA491CC52727003DA0B7 /* NSDictionary+TYAFNetworking.m in Sources */,
 				2414FB661CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m in Sources */,
+				24889D941CEC35E600A4777B /* FoundsModel.m in Sources */,
 				2414FAE31CC60945003DA0B7 /* HomeFirstViewCell.m in Sources */,
 				2414FAEC1CC60BCE003DA0B7 /* FoundsCardCell.m in Sources */,
 				2414FA4E1CC52727003DA0B7 /* DSSignatureGenerator.m in Sources */,
@@ -907,6 +931,8 @@
 				2414FA6B1CC52758003DA0B7 /* NetworkUtils.m in Sources */,
 				2414FB401CCA8E5C003DA0B7 /* BK_ELCAssetTablePicker.m in Sources */,
 				2414FB571CCB1314003DA0B7 /* MyFoundsHistoryViewCell.m in Sources */,
+				24889D9B1CEC846800A4777B /* FoundsDetailModel.m in Sources */,
+				24889D971CEC3A0500A4777B /* HomeModel.m in Sources */,
 				2414FB1C1CC9C359003DA0B7 /* FoundsCarListViewController.m in Sources */,
 				2414FB241CC9EF44003DA0B7 /* UserCenterHeaderView.m in Sources */,
 				2414FAF61CC665D0003DA0B7 /* FoundsDetailViewController.m in Sources */,

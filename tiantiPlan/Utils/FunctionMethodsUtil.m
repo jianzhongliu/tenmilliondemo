@@ -72,8 +72,8 @@
     if ([responseObject isKindOfClass:[NSData class]]) {
         NSError *error = nil;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-        NSLog(@"%d",[dict[@"code"] integerValue]);
-        NSString *code = [NSString stringWithFormat:@"%@", dict[@"code"]];
+        NSLog(@"%ld",[dict[@"code"] integerValue]);
+//        NSString *code = [NSString stringWithFormat:@"%@", dict[@"code"]];
         if ([dict[@"code"] integerValue] != 0  && [dict[@"code"] integerValue] != 404 ){
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", dict[@"message"]] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
             [alertView show];

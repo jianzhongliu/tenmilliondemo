@@ -67,12 +67,16 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    for (NSInteger index = 0; index < 4; index ++) {
-        FoundsTypeCell *cell = [[FoundsTypeCell alloc] init];
-        cell.frame = CGRectMake(index % 2 * SCREENWIDTH/2 - 0.5, index/2 * 90 + 30, SCREENWIDTH/2 + 1, 90+1);
-        cell.layer.borderColor = DSRedColor.CGColor;
-        cell.layer.borderWidth = 1;
-        [self.contentView addSubview:cell];
+    if ([celldata isKindOfClass:[NSArray class]]) {
+        NSArray *arrayData = celldata;
+        for (NSInteger index = 0; index < 4; index ++) {
+            FoundsTypeCell *cell = [[FoundsTypeCell alloc] init];
+            cell.frame = CGRectMake(index % 2 * SCREENWIDTH/2 - 0.5, index/2 * 90 + 30, SCREENWIDTH/2 + 1, 90+1);
+            cell.layer.borderColor = DSRedColor.CGColor;
+            cell.layer.borderWidth = 1;
+            [cell configViewWithData:arrayData[index]];
+            [self.contentView addSubview:cell];
+        }
     }
 }
 

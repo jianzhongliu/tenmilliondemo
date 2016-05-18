@@ -13,6 +13,8 @@
 #import "CommonViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "JXBAdPageView.h"
+#import "FoundsApiManager.h"
+#import "FoundsDetailModel.h"
 
 @interface FoundsDetailViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate, HistoryOwnerInfoViewCellDelegate>
 
@@ -21,6 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayEnter;
 @property (nonatomic, strong) UIButton *buttonCar;
 @property (nonatomic, strong) UIButton *buttonBuy;
+@property (nonatomic, strong) FoundsDetailModel *foundsDetailModel;
 
 @end
 
@@ -96,6 +99,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self requestData];
 }
 
 - (void)initData {
@@ -121,6 +125,20 @@
     [self.view addSubview:self.buttonCar];
     [self.view addSubview:self.buttonBuy];
     
+}
+
+- (void)reloadData {
+    [self.tableView reloadData];
+}
+
+#pragma mark - HTTPRequest
+- (void)requestData {
+    [FoundsApiManager requestFoundsById:self.foundsId DetailInfoModel:^(id response) {
+        if ([response isKindOfClass:[FoundsDetailModel class]]) {
+            self.foundsDetailModel = response;
+            [self reloadData];
+        }
+    }];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
@@ -189,7 +207,7 @@
                 cell = [[FoundsDetailInfoViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
                 [cell showUnderLineAt:100];
             }
-            [cell configCellWithData:nil];
+            [cell configCellWithData:self.foundsDetailModel.foundsDetailInfoModel];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -203,7 +221,7 @@
                 [cell showUnderLineAt:130];
                 cell.delegate = self;
             }
-            [cell configCellWithData:nil];
+            [cell configCellWithData:self.foundsDetailModel.foundsHistoryInfoModel];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }

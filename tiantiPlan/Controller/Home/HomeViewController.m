@@ -14,11 +14,14 @@
 #import "HomeThirdViewCell.h"
 #import "FoundsDetailViewController.h"
 #import "FoundsApiManager.h"
+#import "HomeModel.h"
+#import "FoundsModel.h"
 
-@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate>
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, JXBAdPageViewDelegate, HomeFirstViewCellDelegate, HomeSecondViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) JXBAdPageView *viewAD;
+@property (nonatomic, strong) HomeModel *homeModel;
 
 @end
 
@@ -88,7 +91,10 @@
 
 - (void)requestData {
     [FoundsApiManager requestAllFoundsInfoModel:^(id response) {
-        
+        HomeModel *homeModel = [[HomeModel alloc] init];
+        [homeModel configModelWithDic:response];
+        self.homeModel = homeModel;
+        [self.tableView reloadData];
     }];
 }
 
@@ -98,7 +104,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -139,8 +145,9 @@
             if (cell == nil) {
                 cell = [[HomeFirstViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
                 [cell showUnderLineAt:140];
+                cell.delegate = self;
             }
-            [cell configCellWithData:nil];
+            [cell configCellWithData:self.homeModel.arrayOver];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -152,8 +159,9 @@
             if (cell == nil) {
                 cell = [[HomeSecondViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
                 [cell showUnderLineAt:140];
+                cell.delegate = self;
             }
-            [cell configCellWithData:nil];
+            [cell configCellWithData:self.homeModel.arrayActivity];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -166,7 +174,7 @@
                 cell = [[HomeThirdViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
                 [cell showUnderLineAt:140];
             }
-            [cell configCellWithData:nil];
+            [cell configCellWithData:self.homeModel.arrayHot];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -190,6 +198,24 @@
     }
     NSURL *url = [NSURL URLWithString:@"http://img.1yyg.com/Poster/20140918182340689.jpg"];
     [imgView sd_setImageWithURL:url];
+}
+
+#pragma mark - HomeFirstViewCellDelegate
+- (void)homeFirstViewCell:(HomeFirstViewCell *) cell clickData:(id) clickData {
+    FoundsModel *founds = clickData;
+    FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    controller.foundsId = founds.identify;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+#pragma makr - HomeSecondViewCellDelegate
+- (void)homeSecondViewCell:(HomeSecondViewCell *) cell clickData:(id) clickData {
+    FoundsModel *founds = clickData;
+    FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    controller.foundsId = founds.identify;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

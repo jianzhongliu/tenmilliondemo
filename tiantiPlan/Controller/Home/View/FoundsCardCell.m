@@ -7,6 +7,8 @@
 //
 
 #import "FoundsCardCell.h"
+#import "FoundsModel.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface FoundsCardCell ()
 
@@ -71,7 +73,13 @@
 }
 
 - (void)configViewWithData:(id) data {
-    
+    if ([data isKindOfClass:[FoundsModel class]]) {
+        FoundsModel *founds = (FoundsModel *)data;
+        NSArray *images = [founds.images componentsSeparatedByString:@"|"];
+        [self.imageView setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
+        self.labelTitle.text = founds.name;
+        self.labelTime.text = [NSString stringWithFormat:@"剩余：%ld 份", [founds.totaln integerValue] - [founds.nown integerValue]];
+    }
 }
 
 - (CGFloat)fetchViewHeight {

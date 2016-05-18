@@ -11,4 +11,9 @@
 
 @interface UserCenterApiManager : BaseApi
 
+/**登录并获取用户信息*/
++ (void)requestLoginUserInfoById:(NSString *)userId InfoModel:(responseModel ) response;
+/**修改用户信息*/
++ (void)requestUpdateUserInfo:(NSDictionary *)dic InfoModel:(responseModel ) response;
+
 @end

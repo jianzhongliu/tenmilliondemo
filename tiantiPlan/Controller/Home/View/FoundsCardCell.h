@@ -20,4 +20,6 @@ typedef NS_ENUM(NSInteger, CARDTYPE) {
 
 @property (nonatomic, assign) CARDTYPE cardType;
 
+- (void)configViewWithData:(id) data;
+
 @end

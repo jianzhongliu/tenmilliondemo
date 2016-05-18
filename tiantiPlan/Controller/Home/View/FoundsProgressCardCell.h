@@ -12,4 +12,6 @@
 
 @interface FoundsProgressCardCell : UIView
 
+- (void)configViewWithData:(id) data;
+
 @end
