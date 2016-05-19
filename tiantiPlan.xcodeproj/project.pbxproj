@@ -96,6 +96,8 @@
 		24889D971CEC3A0500A4777B /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D961CEC3A0500A4777B /* HomeModel.m */; };
 		24889D9B1CEC846800A4777B /* FoundsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D9A1CEC846800A4777B /* FoundsDetailModel.m */; };
 		24889D9E1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D9D1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m */; };
+		24889DA11CED394300A4777B /* FoundsHistoryOwnerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889DA01CED394300A4777B /* FoundsHistoryOwnerListCell.m */; };
+		24889DA41CED41A900A4777B /* FoundsHistoryOwnerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889DA31CED41A900A4777B /* FoundsHistoryOwnerListModel.m */; };
 		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
 		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
@@ -281,6 +283,10 @@
 		24889D9A1CEC846800A4777B /* FoundsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsDetailModel.m; sourceTree = "<group>"; };
 		24889D9C1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsHistoryOwnerListViewController.h; sourceTree = "<group>"; };
 		24889D9D1CECC4BA00A4777B /* FoundsHistoryOwnerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsHistoryOwnerListViewController.m; sourceTree = "<group>"; };
+		24889D9F1CED394300A4777B /* FoundsHistoryOwnerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsHistoryOwnerListCell.h; sourceTree = "<group>"; };
+		24889DA01CED394300A4777B /* FoundsHistoryOwnerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsHistoryOwnerListCell.m; sourceTree = "<group>"; };
+		24889DA21CED41A900A4777B /* FoundsHistoryOwnerListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsHistoryOwnerListModel.h; sourceTree = "<group>"; };
+		24889DA31CED41A900A4777B /* FoundsHistoryOwnerListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsHistoryOwnerListModel.m; sourceTree = "<group>"; };
 		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -661,6 +667,8 @@
 				2414FB111CC8D9B9003DA0B7 /* CommonViewCell.m */,
 				2414FB131CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.h */,
 				2414FB141CC8E102003DA0B7 /* HistoryOwnerInfoViewCell.m */,
+				24889D9F1CED394300A4777B /* FoundsHistoryOwnerListCell.h */,
+				24889DA01CED394300A4777B /* FoundsHistoryOwnerListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -725,6 +733,8 @@
 			children = (
 				24889D991CEC846800A4777B /* FoundsDetailModel.h */,
 				24889D9A1CEC846800A4777B /* FoundsDetailModel.m */,
+				24889DA21CED41A900A4777B /* FoundsHistoryOwnerListModel.h */,
+				24889DA31CED41A900A4777B /* FoundsHistoryOwnerListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -888,6 +898,7 @@
 				2414FA791CC527A1003DA0B7 /* UserBaseInfoModel.m in Sources */,
 				2414FA431CC52727003DA0B7 /* BaseApi.m in Sources */,
 				2414FAA61CC527CB003DA0B7 /* UIViewController+Loading.m in Sources */,
+				24889DA11CED394300A4777B /* FoundsHistoryOwnerListCell.m in Sources */,
 				2414FB2D1CCA8CB4003DA0B7 /* TouristInputInfoViewController.m in Sources */,
 				2414FB271CC9F158003DA0B7 /* SettingViewController.m in Sources */,
 				2414FA4C1CC52727003DA0B7 /* DSRequestCenter.m in Sources */,
@@ -903,6 +914,7 @@
 				2414FA491CC52727003DA0B7 /* NSDictionary+TYAFNetworking.m in Sources */,
 				2414FB661CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m in Sources */,
 				24889D941CEC35E600A4777B /* FoundsModel.m in Sources */,
+				24889DA41CED41A900A4777B /* FoundsHistoryOwnerListModel.m in Sources */,
 				2414FAE31CC60945003DA0B7 /* HomeFirstViewCell.m in Sources */,
 				2414FAEC1CC60BCE003DA0B7 /* FoundsCardCell.m in Sources */,
 				2414FA4E1CC52727003DA0B7 /* DSSignatureGenerator.m in Sources */,

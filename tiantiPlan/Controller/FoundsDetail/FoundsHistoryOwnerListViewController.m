@@ -7,6 +7,7 @@
 //
 
 #import "FoundsHistoryOwnerListViewController.h"
+#import "FoundsHistoryOwnerListCell.h"
 #import "FoundsApiManager.h"
 
 @interface FoundsHistoryOwnerListViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -84,12 +85,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identify = @"identify";
-    BaseViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    FoundsHistoryOwnerListCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
-        cell = [[BaseViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+        cell = [[FoundsHistoryOwnerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
         [cell showUnderLineAt:80];
     }
-    
+    [cell configCellWithData:self.arrayHistory[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

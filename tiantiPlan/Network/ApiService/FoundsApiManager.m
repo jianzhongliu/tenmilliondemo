@@ -8,6 +8,7 @@
 
 #import "FoundsApiManager.h"
 #import "FoundsDetailModel.h"
+#import "FoundsHistoryOwnerListModel.h"
 
 @implementation FoundsApiManager
 
@@ -54,15 +55,15 @@
             NSMutableArray *arrayResult = [NSMutableArray array];
             if ([response.content[@"historyResult"] isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *dic = response.content[@"historyResult"];
-                NSError *error;
-                FoundsHistoryOwnerInfoModel *historyModel = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dic error:&error];
-                [arrayResult addObject:historyModel];
+                FoundsHistoryOwnerListModel *historyOwnerInfo = [[FoundsHistoryOwnerListModel alloc] init];
+                [historyOwnerInfo configFoundsDetailModelWithDic:dic];
+                [arrayResult addObject:historyOwnerInfo];
             } else if ([response.content[@"historyResult"] isKindOfClass:[NSArray class]]) {
                 NSArray *arrayItem = response.content[@"historyResult"];
                 for (NSDictionary *dicHistory in arrayItem) {
-                    NSError *error;
-                    FoundsHistoryOwnerInfoModel *historyModel = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dicHistory error:&error];
-                    [arrayResult addObject:historyModel];
+                    FoundsHistoryOwnerListModel *historyOwnerInfo = [[FoundsHistoryOwnerListModel alloc] init];
+                    [historyOwnerInfo configFoundsDetailModelWithDic:dicHistory];
+                    [arrayResult addObject:historyOwnerInfo];
                 }
             }
             if (responseModel) {
