@@ -8,6 +8,7 @@
 
 #import "MyFoundsHistoryViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "UserBuyHistoryListModel.h"
 
 @interface MyFoundsHistoryViewCell ()
 
@@ -89,7 +90,18 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    [self.imageIcon setImageWithURL:[NSURL URLWithString:@"www"] placeholderImage:[UIImage imageNamed:@"noimage"]];
+    if ([celldata isKindOfClass:[UserBuyHistoryListModel class]]) {
+        UserBuyHistoryListModel *buyModel = (UserBuyHistoryListModel *)celldata;
+        [self.imageIcon setImageWithURL:[NSURL URLWithString:buyModel.userIcon] placeholderImage:[UIImage imageNamed:@"noimage"]];
+        self.labelTitle.text = buyModel.name;
+        self.labelOwner.text = buyModel.ownerName;
+        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)buyModel.time];
+        NSString *dateString = [formater stringFromDate:date];
+        self.openTime.text = dateString;
+    }
+    
 }
 
 - (CGFloat)fetchCellHight {

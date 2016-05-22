@@ -8,6 +8,7 @@
 
 #import "MyOwnerHistoryViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "FoundsDetailModel.h"
 
 @interface MyOwnerHistoryViewCell ()
 
@@ -89,7 +90,18 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    [self.imageIcon setImageWithURL:[NSURL URLWithString:@"www"] placeholderImage:[UIImage imageNamed:@"noimage"]];
+    if ([celldata isKindOfClass:[FoundsHistoryOwnerInfoModel class]]) {
+        FoundsHistoryOwnerInfoModel *buyModel = (FoundsHistoryOwnerInfoModel *)celldata;
+        NSArray *arrayImage = [buyModel.images componentsSeparatedByString:@"|"];
+        [self.imageIcon setImageWithURL:[NSURL URLWithString:arrayImage[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
+        self.labelTitle.text = buyModel.name;
+        self.labelOwner.text = [NSString stringWithFormat:@"参与次数：%@次", buyModel.ownerBuyNumber];
+        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)buyModel.resulttime];
+        NSString *dateString = [NSString stringWithFormat:@"揭晓时间%@",[formater stringFromDate:date]];
+        self.openTime.text = dateString;
+    }
 }
 
 - (CGFloat)fetchCellHight {

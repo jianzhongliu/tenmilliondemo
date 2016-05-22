@@ -101,7 +101,7 @@
 - (UIView *)viewBG {
     if (_viewBG == nil) {
         _viewBG = [[UIView alloc] init];
-        _viewBG.backgroundColor = [UIColor redColor];
+        _viewBG.backgroundColor = DSRedColor;
     }
     return _viewBG;
 }
@@ -152,8 +152,8 @@
     self.labelTime.frame = CGRectMake(self.imageIcon.ctRight + 6, self.labelNumber.ctBottom, SCREENWIDTH - 85, 20);
     self.imageStatus.frame = CGRectMake(SCREENWIDTH - 30, 0, 21, 53);
     
-    self.viewBG.frame = CGRectMake(0, self.imageIcon.ctBottom + 10, SCREENWIDTH, 50);
-    self.labelOwner.frame = CGRectMake(10, 0, SCREENWIDTH, 50);
+    self.viewBG.frame = CGRectMake(0, self.imageIcon.ctBottom, SCREENWIDTH, 25);
+    self.labelOwner.frame = CGRectMake(10, 0, SCREENWIDTH, 25);
     self.buttonResult.frame = CGRectMake(SCREENWIDTH - 90, 10, 80, 30);
     [self.viewBG addSubview:self.labelOwner];
     //    [self.viewBG addSubview:self.buttonResult];

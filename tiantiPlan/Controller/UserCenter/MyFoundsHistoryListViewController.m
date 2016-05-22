@@ -8,10 +8,12 @@
 
 #import "MyFoundsHistoryListViewController.h"
 #import "MyFoundsHistoryViewCell.h"
+#import "FoundsApiManager.h"
 
 @interface MyFoundsHistoryListViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *arrayBuyHistory;
 
 @end
 
@@ -39,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    [self requestData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,7 +49,7 @@
 }
 
 - (void)initData {
-    
+    self.arrayBuyHistory = [NSMutableArray array];
 }
 
 - (void)initUI {
@@ -55,9 +58,21 @@
     [self.view addSubview:self.tableView];
 }
 
+#pragma mark - HTTPRequest
+- (void)requestData {
+    NSString *userId = @"10000";
+    [FoundsApiManager requestUserHistoryFoundsByUserId:userId ResultListModel:^(id response) {
+        if ([response isKindOfClass:[NSArray class]]) {
+            [self.arrayBuyHistory removeAllObjects];
+            [self.arrayBuyHistory addObjectsFromArray:response];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.arrayBuyHistory.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,7 +90,7 @@
         cell = [[MyFoundsHistoryViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
         [cell showUnderLineAt:80];
     }
-    [cell configCellWithData:nil];
+    [cell configCellWithData:self.arrayBuyHistory[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

@@ -66,7 +66,7 @@
 }
 
 - (void)initData {
-    self.array = [NSMutableArray arrayWithObjects:@"我的云购记录",@"中奖记录",@"充值记录",@"地址管理",@"下载app赚钱                 100积分=1元", nil];
+    self.array = [NSMutableArray arrayWithObjects:@"我的云购记录",@"中奖记录",@"地址管理", nil];
 }
 
 - (void)initUI {
@@ -120,33 +120,37 @@
     switch (indexPath.row) {
         case 0:
         {
-            MyFoundsHistoryListViewController *controller = [[MyFoundsHistoryListViewController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
+                MyFoundsHistoryListViewController *controller = [[MyFoundsHistoryListViewController alloc] init];
+                [self.navigationController pushViewController:controller animated:YES];
+            }];
         }
             break;
         case 1:
         {
-            MyOwnerHistoryViewController *controller = [[MyOwnerHistoryViewController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
+                MyOwnerHistoryViewController *controller = [[MyOwnerHistoryViewController alloc] init];
+                [self.navigationController pushViewController:controller animated:YES];
+            }];
         }
             break;
         case 2:
         {
-            MoneyHistoryViewController *controller = [[MoneyHistoryViewController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
+                AddressManagerViewController *controller = [[AddressManagerViewController alloc] init];
+                [self.navigationController pushViewController:controller animated:YES];
+            }];
         }
             break;
         case 3:
         {
-            AddressManagerViewController *controller = [[AddressManagerViewController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
+                MoneyHistoryViewController *controller = [[MoneyHistoryViewController alloc] init];
+                [self.navigationController pushViewController:controller animated:YES];
+            }];
         }
             break;
-        case 4:
-        {
-            [self getMoney];
-        }
-            break;
+
         default:
             break;
     }

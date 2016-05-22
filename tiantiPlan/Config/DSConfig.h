@@ -23,12 +23,16 @@
 
 //#define DPHOST @"http://api.51diansong.com/api"
 //#define DPHOST @"http://192.168.0.90/api/v1"
-#define UmengKey @"56efb210e0f55a8eaa00010a"
+#define UmengAppkey @"5741648ae0f55a68e7001dd5"
 
 #define WeiXinAppID @"wxf649d878cb72f515"
 #define WeiXinAppSecret @"1698a94784f915891fb565364d14b656"
 #define HuanXinAppKey @"jobcube#ihelu"
 #define HuanXinAppPushCer @"3laz_dev"
+
+#define WeiBoKey @"227063147"
+#define AppSecret @"ee652d163490211ee06956ace711d5ba"
+
 #define BaiduMapSdkKey @"RnoS3EoGVa011SoUtcEDP521"//正式版百度地图sdkkey
 
 //#define BaiduMapSdkKey @"AbEs9RrT8XYLQGa2qtXrETIy"//企业版百度地图sdkkey
@@ -36,12 +40,16 @@
 #else
 
 #define NSLog(...) {}
-#define DPHOST @"http://api.3laz.com:8006/v1"
-#define UmengKey @"56efb152e0f55a0d5200070d"
+#define DPHOST @"http://182.92.158.7/yungou/REST/"
+#define UmengAppkey @"5741648ae0f55a68e7001dd5"
 #define WeiXinAppID @"wxf649d878cb72f515"
 #define WeiXinAppSecret "1698a94784f915891fb565364d14b656"
 #define HuanXinAppKey @"3laz#3laz"
 #define HuanXinAppPushCer @"3laz_release"
+
+#define WeiBoKey @"227063147"
+#define AppSecret @"ee652d163490211ee06956ace711d5ba"
+
 //#define HuanXinAppPushCer @"3laz_dev"
 #define BaiduMapSdkKey @"yea7ZsFb8vwD9Kl1xmxUOj7T"//正式版百度地图sdkkey
 //#define BaiduMapSdkKey @"AbEs9RrT8XYLQGa2qtXrETIy"//企业版百度地图sdkkey

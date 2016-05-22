@@ -8,10 +8,12 @@
 
 #import "MyOwnerHistoryViewController.h"
 #import "MyOwnerHistoryViewCell.h"
+#import "FoundsApiManager.h"
 
 @interface MyOwnerHistoryViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *arrayBuyHistory;
 
 @end
 
@@ -28,6 +30,7 @@
     }
     return _tableView;
 }
+
 #pragma mark - lifeCycleMethods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -39,6 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
+    [self requestData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,7 +50,7 @@
 }
 
 - (void)initData {
-    
+    self.arrayBuyHistory = [NSMutableArray array];
 }
 
 - (void)initUI {
@@ -55,9 +59,21 @@
     [self.view addSubview:self.tableView];
 }
 
+#pragma mark - HTTPRequest
+- (void)requestData {
+    NSString *userId = @"10000";
+    [FoundsApiManager requestUserOwnerHistoryFoundsByUserId:userId ResultListModel:^(id response) {
+        if ([response isKindOfClass:[NSArray class]]) {
+            [self.arrayBuyHistory removeAllObjects];
+            [self.arrayBuyHistory addObjectsFromArray:response];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.arrayBuyHistory.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,7 +91,7 @@
         cell = [[MyOwnerHistoryViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
         [cell showUnderLineAt:80];
     }
-    [cell configCellWithData:nil];
+    [cell configCellWithData:self.arrayBuyHistory[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -84,4 +100,5 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
+
 @end

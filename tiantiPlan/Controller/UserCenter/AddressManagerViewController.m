@@ -7,6 +7,7 @@
 //
 
 #import "AddressManagerViewController.h"
+#import "UserCenterApiManager.h"
 
 @interface AddressManagerViewController ()
 
@@ -89,7 +90,10 @@
 }
 
 - (void)didRightClick {
-    
+    NSString *address = [NSString stringWithFormat:@"%@%@%@",self.textName.text,self.textPhone.text,self.textAddress.text];
+    [UserCenterApiManager requestUpdateUserInfo:@{@"userId":[UserCacheBean share].userInfo.userId==nil?@"":[UserCacheBean share].userInfo.userId, @"name":[UserCacheBean share].userInfo.name==nil?@"":[UserCacheBean share].userInfo.name, @"icon":[UserCacheBean share].userInfo.icon==nil?@"":[UserCacheBean share].userInfo.icon, @"address":address, @"date":[UserCacheBean share].userInfo.date==nil?@"":[UserCacheBean share].userInfo.date, @"phone":[UserCacheBean share].userInfo.phone==nil?@"":[UserCacheBean share].userInfo.phone} InfoModel:^(id response) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 @end

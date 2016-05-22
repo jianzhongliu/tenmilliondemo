@@ -10,9 +10,11 @@
 #import "TouristInputInfoViewController.h"
 #import "BK_ELCAlbumPickerController.h"
 #import "BK_ELCImagePickerController.h"
+#import "UserCenterApiManager.h"
 #import "CommonViewCell.h"
 #import "FilePathManager.h"
 #import "DSConfig.h"
+#import "UserCacheBean.h"
 
 @interface UserInfoViewController () <UITableViewDelegate, UITableViewDataSource, TouristInputInfoViewControllerDelegate, UIActionSheetDelegate, UINavigationBarDelegate,UIImagePickerControllerDelegate>
 
@@ -20,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayData;
 @property (nonatomic, strong) UIImage *imageIcon;
 @property (nonatomic, strong) NSString *stringNuckname;
+@property (nonatomic, strong) NSString *iconUrl;
 
 @end
 
@@ -70,11 +73,11 @@
 }
 
 - (void)didRightClick {
-    
+    [self uploadImage];
 }
 
 - (void)uploadImage {
-    
+    [self showLoading];
     NSString *imagePath =  [FilePathManager saveImageFile:self.imageIcon toFolder:@"gange"];
     NSString *uploadpath = [NSString stringWithFormat:@"%@/%@",[FilePathManager getDocumentPath:@""],imagePath];
     
@@ -97,16 +100,31 @@
             NSDictionary *image = result[@"image"];
             NSString *imageUrl_ = [NSString stringWithFormat:@"http://pic%@.ajkimg.com/m/%@/%@x%@.jpg",image[@"host"],image[@"id"],image[@"width"],image[@"height"]];
             NSLog(@"%@",imageUrl_);
-//            self.icon = imageUrl_;
-//            [self requestData];
+            self.iconUrl = imageUrl_;
+            [self requestData];
         } else {
-//            [self requestData];
+            [self requestData];
         }
+        [self hiddenLoading];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [self showInfo:@"图片上传失败"];
-//        [self hideLoadWithAnimated:YES];
+        [self hiddenLoading];
     }];
     [opration start];
+}
+
+- (void)requestData {
+    if (self.stringNuckname.length < 1) {
+        [self showToastInfo:@"请输入昵称"];
+        return;
+    }
+    if (self.iconUrl.length < 7) {
+        [self showToastInfo:@"请上传用户头像"];
+        return;
+    }
+    
+    [UserCenterApiManager requestUpdateUserInfo:@{@"userId":[UserCacheBean share].userInfo.userId == nil?@"":[UserCacheBean share].userInfo.userId, @"name":self.stringNuckname, @"icon":self.iconUrl, @"address":[UserCacheBean share].userInfo.address==nil?@"":[UserCacheBean share].userInfo.address, @"date":[UserCacheBean share].userInfo.date==nil?@"":[UserCacheBean share].userInfo.date, @"phone":[UserCacheBean share].userInfo.phone==nil?@"":[UserCacheBean share].userInfo.phone} InfoModel:^(id response) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource

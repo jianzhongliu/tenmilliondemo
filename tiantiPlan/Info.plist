@@ -18,6 +18,25 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>icon.png</string>
+			<key>CFBundleURLName</key>
+			<string>com.company.tianti</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>idang</string>
+				<string>wxf649d878cb72f515</string>
+				<string>qqpayticket99</string>
+				<string>sinaweibohd</string>
+				<string>QQ41C4280E</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0.2</string>
 	<key>LSRequiresIPhoneOS</key>

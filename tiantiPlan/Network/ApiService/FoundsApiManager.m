@@ -9,6 +9,7 @@
 #import "FoundsApiManager.h"
 #import "FoundsDetailModel.h"
 #import "FoundsHistoryOwnerListModel.h"
+#import "UserBuyHistoryListModel.h"
 
 @implementation FoundsApiManager
 
@@ -91,22 +92,61 @@
 }
 
 /**购买历史*/
-+ (void)requestUserHistoryFoundsByUserId:(NSString *) userID ResultListModel:(responseModel ) response {
++ (void)requestUserHistoryFoundsByUserId:(NSString *) userID ResultListModel:(responseModel ) responseModel {
     NSString *url = [NSString stringWithFormat:@"orderCenter/getUserRecordList"];
     [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"userId":userID} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
-        
+        if (response.content && [response.content[@"code"] integerValue] == 0) {
+            NSMutableArray *arrayResult = [NSMutableArray array];
+            if ([response.content[@"recordList"] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *dic = response.content[@"recordList"];
+                NSError *error;
+                UserBuyHistoryListModel *historyOwnerInfo = [MTLJSONAdapter modelOfClass:UserBuyHistoryListModel.class fromJSONDictionary:dic error:&error];
+                [arrayResult addObject:historyOwnerInfo];
+            } else if ([response.content[@"recordList"] isKindOfClass:[NSArray class]]) {
+                NSArray *arrayItem = response.content[@"recordList"];
+                for (NSDictionary *dicHistory in arrayItem) {
+                    NSError *error;
+                    UserBuyHistoryListModel *historyOwnerInfo = [MTLJSONAdapter modelOfClass:UserBuyHistoryListModel.class fromJSONDictionary:dicHistory error:&error];                    [arrayResult addObject:historyOwnerInfo];
+                }
+            }
+            if (responseModel) {
+                responseModel(arrayResult);
+            }
+        }
+        if (responseModel) {
+            responseModel(nil);
+        }
     } faildCallBack:^(DSURLResponse *response) {
         
     }];
 }
 
 /**中奖历史*/
-+ (void)requestUserOwnerHistoryFoundsByUserId:(NSString *) userID ResultListModel:(responseModel ) response {
++ (void)requestUserOwnerHistoryFoundsByUserId:(NSString *) userID ResultListModel:(responseModel ) responseModel {
     NSString *url = [NSString stringWithFormat:@"orderCenter/getUserOwnerFoundsList"];
     [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"userId":userID} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
-        
+        if (response.content && [response.content[@"code"] integerValue] == 0) {
+            NSMutableArray *arrayResult = [NSMutableArray array];
+            if ([response.content[@"ownerRecordList"] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *dic = response.content[@"ownerRecordList"];
+                NSError *error;
+                FoundsHistoryOwnerInfoModel *historyOwnerInfo = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dic error:&error];
+                [arrayResult addObject:historyOwnerInfo];
+            } else if ([response.content[@"ownerRecordList"] isKindOfClass:[NSArray class]]) {
+                NSArray *arrayItem = response.content[@"ownerRecordList"];
+                for (NSDictionary *dicHistory in arrayItem) {
+                    NSError *error;
+                    FoundsHistoryOwnerInfoModel *historyOwnerInfo = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dicHistory error:&error];                    [arrayResult addObject:historyOwnerInfo];
+                }
+            }
+            if (responseModel) {
+                responseModel(arrayResult);
+            }
+        }
     } faildCallBack:^(DSURLResponse *response) {
-        
+        if (responseModel) {
+            responseModel(nil);
+        }
     }];
 }
 

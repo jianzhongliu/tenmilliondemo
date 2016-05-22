@@ -14,9 +14,14 @@
 #import "UserCacheBean.h"
 #import "BaseViewCell.h"
 
-typedef void(^loginComplited)();
+typedef NS_ENUM(NSInteger, LOGINSTATUS) {
+    LOGINSTATUSSUCCESS = 1, //登录成功
+    LOGINSTATUSFAIL = 2    //登录失败
+};
 
-//#import "LoginHomeViewController.h"
+typedef void (^loginResultBlock) (UserCacheBean *userInfo, LOGINSTATUS status);
+
+typedef void(^loginComplited)();
 
 @interface BaseViewController : UIViewController
 @property (nonatomic, strong) UIViewController *fromController;//上级页面
@@ -35,7 +40,7 @@ typedef void(^loginComplited)();
 - (void)didLeftClick;
 
 - (void)doLogin;
-//- (void)doLoginWithBlock:(loginResultBlock) resultBlock;
+- (void)doLoginWithBlock:(loginResultBlock) resultBlock;
 - (void)doCheckPhoneNumber:(loginComplited) complited;
 - (void)didCheckPhoneNumberShow;//打log需要
 - (void)didClickCheckNumber;//打log需要
