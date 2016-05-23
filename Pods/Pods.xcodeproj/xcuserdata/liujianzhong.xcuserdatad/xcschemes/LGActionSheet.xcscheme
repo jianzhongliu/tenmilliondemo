@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F7B5F35A174F26F3E5585B79'
+               BlueprintIdentifier = '9C91472797581EB502F1AB8D'
                BlueprintName = 'LGActionSheet'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLGActionSheet.a'>

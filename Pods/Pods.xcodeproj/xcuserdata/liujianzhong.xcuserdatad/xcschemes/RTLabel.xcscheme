@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BC14C9CB389AA32A1519285F'
+               BlueprintIdentifier = '6BAE53F6FE9DA8A683855C08'
                BlueprintName = 'RTLabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRTLabel.a'>

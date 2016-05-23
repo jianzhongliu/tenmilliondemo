@@ -19,19 +19,20 @@
 //#define DPHOST @"http://182.92.158.7/yungou/REST/"
 //#define HOST @"http://182.92.158.7/Love/REST/"
 
-#define DPHOST @"http://192.168.0.102:8080/yungou/REST/"
+#define DPHOST @"http://liujianongdembp:8080/yungou/REST/"
 
 //#define DPHOST @"http://api.51diansong.com/api"
 //#define DPHOST @"http://192.168.0.90/api/v1"
 #define UmengAppkey @"5741648ae0f55a68e7001dd5"
 
-#define WeiXinAppID @"wxf649d878cb72f515"
-#define WeiXinAppSecret @"1698a94784f915891fb565364d14b656"
+#define WeiXinAppID @"wx2429bb7fad250662"
+#define WeiXinAppSecret @"84f23aa567fd48d2c05bf5409fa615f8"
+
 #define HuanXinAppKey @"jobcube#ihelu"
 #define HuanXinAppPushCer @"3laz_dev"
 
 #define WeiBoKey @"227063147"
-#define AppSecret @"ee652d163490211ee06956ace711d5ba"
+#define WeiBoAppSecret @"ee652d163490211ee06956ace711d5ba"
 
 #define BaiduMapSdkKey @"RnoS3EoGVa011SoUtcEDP521"//正式版百度地图sdkkey
 
@@ -42,8 +43,9 @@
 #define NSLog(...) {}
 #define DPHOST @"http://182.92.158.7/yungou/REST/"
 #define UmengAppkey @"5741648ae0f55a68e7001dd5"
-#define WeiXinAppID @"wxf649d878cb72f515"
-#define WeiXinAppSecret "1698a94784f915891fb565364d14b656"
+#define WeiXinAppID @"wx2429bb7fad250662"
+#define WeiXinAppSecret @"84f23aa567fd48d2c05bf5409fa615f8"
+
 #define HuanXinAppKey @"3laz#3laz"
 #define HuanXinAppPushCer @"3laz_release"
 

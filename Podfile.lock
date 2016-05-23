@@ -48,6 +48,7 @@ PODS:
   - STPopup (1.6.2)
   - TYAttributedLabel (2.6.0)
   - UMengAnalytics-NO-IDFA (3.6.7)
+  - WeiboSDK (3.1.4)
   - YYKit (1.0.5):
     - YYKit/no-arc (= 1.0.5)
   - YYKit/no-arc (1.0.5)
@@ -70,6 +71,7 @@ DEPENDENCIES:
   - STPopup
   - TYAttributedLabel
   - UMengAnalytics-NO-IDFA
+  - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
   - YYKit
 
 EXTERNAL SOURCES:
@@ -77,6 +79,8 @@ EXTERNAL SOURCES:
     :git: https://github.com/DyCI/dyci-main.git
   pop:
     :git: https://github.com/facebook/pop.git
+  WeiboSDK:
+    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 CHECKOUT OPTIONS:
   dyci:
@@ -85,6 +89,9 @@ CHECKOUT OPTIONS:
   pop:
     :commit: 5fff11a68a9c5327f153d7d1e39a87a8e42f76a6
     :git: https://github.com/facebook/pop.git
+  WeiboSDK:
+    :commit: 045bcd0dfacca87e7f6271268f09d1063285e6ab
+    :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -105,6 +112,7 @@ SPEC CHECKSUMS:
   STPopup: dca530d01343df997c5ed42a7465355cd5cbf01d
   TYAttributedLabel: da1b63b7c0424680f8a2dcc8e4ab774b1b42a897
   UMengAnalytics-NO-IDFA: 6d02561a00579b2e37718f204eb81347df5d7b8b
+  WeiboSDK: aadd2af461799bd4c51c413df29914f8d4290f36
   YYKit: f2654fe525de2283648db957bddb37ddd8e06549
 
 COCOAPODS: 0.39.0

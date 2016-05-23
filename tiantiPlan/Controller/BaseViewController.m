@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "UserLoginViewController.h"
+#import "RegisterViewController.h"
 #import "UserCacheBean.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "UIViewController+Loading.h"
@@ -182,7 +182,7 @@
 
 - (void)doLogin {
     if (NO == [[UserCacheBean share] isLogin]) {
-        UserLoginViewController *controller = [[UserLoginViewController alloc] init];
+        RegisterViewController *controller = [[RegisterViewController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
         [self adjustNavigationUI:nav];
         [self presentViewController:controller animated:YES completion:nil];
@@ -194,7 +194,7 @@
     if ([[UserCacheBean share] isLogin] == YES) {
         resultBlock([UserCacheBean share], LOGINSTATUSSUCCESS);
     } else {
-        UserLoginViewController *controller = [[UserLoginViewController alloc] init];
+        RegisterViewController *controller = [[RegisterViewController alloc] init];
         controller.loginBlock = resultBlock;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
         [self presentViewController:nav animated:YES completion:nil];

@@ -11,7 +11,7 @@
 #import "DSConfig.h"
 //掌淘科技
 #import <SMS_SDK/SMS_SDK.h>
-
+#import <BmobMessageSDK/Bmob.h>
 #import "WXApi.h"
 
 #import "UMSocial.h"
@@ -21,9 +21,6 @@
 
 #define ztappKey @"6ec614bbd5cf"
 #define ztappSecret @"3c146fc7fc48754b2583d2daa389d772"
-
-NSString * const WXAppId = @"wx0781fda46ab7f7f1";
-NSString * const WXAppSecret = @"953d4513dad2056edf13063d3f4638db";
 
 @interface AppDelegate () <WXApiDelegate>
 {
@@ -36,15 +33,19 @@ NSString * const WXAppSecret = @"953d4513dad2056edf13063d3f4638db";
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Bmob registerWithAppKey:@"9420c531761d609e1bb635b02713ece5"];
+    
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:UmengAppkey];
     //打开新浪微博的SSO开关
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:WeiBoKey secret:WeiBoAppSecret RedirectURL:nil];
     [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
 //    //设置微信AppId，设置分享url，默认使用友盟的网址
 //    [UMSocialWechatHandler setWXAppId:WXAppId appSecret:WXAppSecret url:@"http://m.tieyou.com"];
     
     //设置微信AppId，设置分享url，默认使用友盟的网址
-    [UMSocialWechatHandler setWXAppId:WeiXinAppID appSecret:WXAppSecret url:@"http://m.tieyou.com"];
+    [UMSocialWechatHandler setWXAppId:WeiXinAppID appSecret:WeiXinAppSecret url:@"http://m.tieyou.com"];
     
     //注册微信sdk
     [WXApi registerApp:WeiXinAppID];

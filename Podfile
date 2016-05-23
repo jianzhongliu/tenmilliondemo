@@ -19,4 +19,5 @@ pod "YYKit"
 pod "MJRefresh"
 pod "MBProgressHUD"
 pod 'dyci', :git => 'https://github.com/DyCI/dyci-main.git'
+pod "WeiboSDK", :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git" 
 pod 'FMDB'

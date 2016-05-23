@@ -10,6 +10,7 @@
 #import "UserCenterApiManager.h"
 #import <SMS_SDK/SMS_SDK.h>
 #import "UserCacheBean.h"
+#import <BmobMessageSDK/Bmob.h>
 
 @interface RegisterViewController ()
 {
@@ -197,6 +198,25 @@
         [self.timer fire];
     }
     caculateTime = 60;
+    
+    //请求验证码
+    [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:self.textName.text andTemplate:@"test" resultBlock:^(int number, NSError *error) {
+        if (error) {
+//            self.smsIdTf.text = error.description;
+            NSLog(@"%@",error);
+        } else {
+            //获得smsID
+            NSLog(@"sms ID：%d",number);
+//            self.smsIdTf.text = [NSString stringWithFormat:@"%d",number];
+        }
+    }];
+    
+    
+    
+    
+    
+    
+    return;
     [SMS_SDK getVerificationCodeBySMSWithPhone:self.textName.text
                                           zone:@"86"
                                         result:^(SMS_SDKError *error)
@@ -219,33 +239,51 @@
 
 - (void)didClickNext {
     [self.view endEditing:YES];
-    if (self.textPass.text.length != 4){
+    if (self.textPass.text.length != 6){
         [self showInfo:@"验证码格式不正确"];
         return;
     }
     [self sendUserActionLog:@"login_phone"];
     [self showLoadingActivity:YES];
+    
+    NSString *phone = _textName.text;
+    //验证
+    [BmobSMS verifySMSCodeInBackgroundWithPhoneNumber:phone andSMSCode:_textPass.text resultBlock:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            NSLog(@"%@",@"验证成功，可执行用户请求的操作");
+            [self requestThirdPartLoginWithId:phone];
+//            self.resultTv.text = @"验证成功，可执行用户请求的操作";
+        } else {
+            NSLog(@"%@",error);
+//            self.resultTv.text = [error description];
+        }
+    }];
+    
+    
+    return;
     __weak typeof(self) weakSelf = self;
     [SMS_SDK commitVerifyCode:self.textPass.text result:^(enum SMS_ResponseState state) {
         if (state == SMS_ResponseStateSuccess) {
             NSString *userName = weakSelf.textName.text;
-            [weakSelf requestThirdPartLoginWithId:userName];
+            [weakSelf performSelectorOnMainThread:@selector(requestThirdPartLoginWithId:) withObject:userName waitUntilDone:YES];
+//            [weakSelf requestThirdPartLoginWithId:userName];
         } else {
             [weakSelf hideLoadWithAnimated:YES];
             [weakSelf showInfo:@"验证码错误！"];
             //失败
         }
     }];
-    
-//    SettingPasswordViewController *controller = [[SettingPasswordViewController alloc] init];
-//    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)requestThirdPartLoginWithId:(NSString *) userId {
     
     [UserCenterApiManager requestLoginUserInfoById:userId InfoModel:^(id response) {
+        if ([UserCacheBean share].userInfo.userId.length > 1) {
+            self.loginBlock([UserCacheBean share], LOGINSTATUSSUCCESS);
+        }
         [self didmissLoginView];
     }];
+    
 }
 
 @end

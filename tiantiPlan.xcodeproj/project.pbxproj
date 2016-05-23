@@ -99,6 +99,7 @@
 		24889DA11CED394300A4777B /* FoundsHistoryOwnerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889DA01CED394300A4777B /* FoundsHistoryOwnerListCell.m */; };
 		24889DA41CED41A900A4777B /* FoundsHistoryOwnerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889DA31CED41A900A4777B /* FoundsHistoryOwnerListModel.m */; };
 		24889DA81CEE189C00A4777B /* UserBuyHistoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889DA71CEE189C00A4777B /* UserBuyHistoryListModel.m */; };
+		248F40061CF2C9920059CFE5 /* BmobMessageSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248F40051CF2C9920059CFE5 /* BmobMessageSDK.framework */; };
 		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
 		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		24CF65051CF185E000947182 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF64FA1CF185E000947182 /* UserLoginViewController.m */; };
@@ -320,6 +321,7 @@
 		24889DA31CED41A900A4777B /* FoundsHistoryOwnerListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsHistoryOwnerListModel.m; sourceTree = "<group>"; };
 		24889DA61CEE189C00A4777B /* UserBuyHistoryListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBuyHistoryListModel.h; sourceTree = "<group>"; };
 		24889DA71CEE189C00A4777B /* UserBuyHistoryListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBuyHistoryListModel.m; sourceTree = "<group>"; };
+		248F40051CF2C9920059CFE5 /* BmobMessageSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobMessageSDK.framework; sourceTree = "<group>"; };
 		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		24CF64F91CF185E000947182 /* UserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController.h; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				24CF65351CF18C7800947182 /* libz.tbd in Frameworks */,
 				24CF655A1CF1A18100947182 /* libWeiboSDK.a in Frameworks */,
 				24CF652A1CF18AEC00947182 /* libUMSocial_Sdk_5.2.a in Frameworks */,
+				248F40061CF2C9920059CFE5 /* BmobMessageSDK.framework in Frameworks */,
 				9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */,
 				24CF65591CF1A18100947182 /* libSocialSinaSSO.a in Frameworks */,
 				24CF650D1CF1888700947182 /* SMS_SDK.framework in Frameworks */,
@@ -982,6 +985,7 @@
 		F47418BD82AD23084AE926AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				248F40051CF2C9920059CFE5 /* BmobMessageSDK.framework */,
 				24CF65401CF18CBD00947182 /* AddressBookUI.framework */,
 				24CF653E1CF18CB800947182 /* AddressBook.framework */,
 				24CF653C1CF18CAE00947182 /* libstdc++.tbd */,

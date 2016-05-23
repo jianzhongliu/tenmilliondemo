@@ -20,12 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tiantiPlan/Controller/Login/UserLoginViewController.m"
-            timestampString = "485602713.978133"
+            timestampString = "485668338.834783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "-loginWX"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "-requestThirdPartLoginWith:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
