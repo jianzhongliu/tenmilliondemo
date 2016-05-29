@@ -58,9 +58,9 @@
     return _arrayData;
 }
 
-#pragma mark - lifecycleMethod
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+#pragma mark - lifeCycleMethods
+- (id)init {
+    if (self = [super init]) {
         [self initUI];
     }
     return self;
@@ -71,9 +71,9 @@
     self.labelTitle.frame = CGRectMake(10, 0, SCREENWIDTH - 20, 30);
     self.imageArrow.frame = CGRectMake(SCREENWIDTH - 18, 7, 8, 15);
     self.viewLine.frame = CGRectMake(0, self.labelTitle.ctBottom, SCREENWIDTH, 1);
-    [self.contentView addSubview:self.labelTitle];
-    [self.contentView addSubview:self.imageArrow];
-    [self.contentView addSubview:self.viewLine];
+    [self addSubview:self.labelTitle];
+    [self addSubview:self.imageArrow];
+    [self addSubview:self.viewLine];
 }
 
 - (void)configCellWithData:(id) celldata{
@@ -90,7 +90,7 @@
             [tap setObjectDSValue:@(index + 100)];
             [cell addGestureRecognizer:tap];
             [cell configViewWithData:arrayData[index]];
-            [self.contentView addSubview:cell];
+            [self addSubview:cell];
         }
     }
 

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UILabel *labelTotal;
 @property (nonatomic, strong) UILabel *labelLess;
 @property (nonatomic, strong) UIButton *buttonDealloc;
+@property (nonatomic, strong) FoundsModel *foundsModel;
 
 @end
 
@@ -39,7 +40,7 @@
         _lableTitle.textAlignment = NSTextAlignmentLeft;
         _lableTitle.textColor = DSBlackColor;
         _lableTitle.font = [UIFont systemFontOfSize:14];
-        _lableTitle.text = @"iPhone 6S 王者的剑";
+        _lableTitle.text = @"";
     }
     return _lableTitle;
 }
@@ -96,8 +97,8 @@
         _labelTotal.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTotal.textAlignment = NSTextAlignmentLeft;
         _labelTotal.textColor = DSGrayColor9;
-        _labelTotal.font = [UIFont systemFontOfSize:14];
-        _labelTotal.text = @"总需：5890";
+        _labelTotal.font = [UIFont systemFontOfSize:12];
+        _labelTotal.text = @"总需：0";
     }
     return _labelTotal;
 }
@@ -108,9 +109,9 @@
         _labelLess.numberOfLines = 0;
         _labelLess.lineBreakMode = NSLineBreakByCharWrapping;
         _labelLess.textAlignment = NSTextAlignmentLeft;
-        _labelLess.textColor = DSGrayColor9;
-        _labelLess.font = [UIFont systemFontOfSize:14];
-        _labelLess.text = @"剩余：1000";
+        _labelLess.textColor = DSRedColor;
+        _labelLess.font = [UIFont systemFontOfSize:12];
+        _labelLess.text = @"剩余：0";
     }
     return _labelLess;
 }
@@ -140,8 +141,8 @@
     self.backgroundColor = [UIColor whiteColor];
     self.imageicon.frame = CGRectMake(10, 10, 100, 100);
     self.lableTitle.frame = CGRectMake(self.imageicon.ctRight + 6, 10, SCREENWIDTH - 80, 30);
-    self.labelTotal.frame = CGRectMake(self.imageicon.ctRight + 6, self.lableTitle.ctBottom + 5, 100, 20);
-    self.labelLess.frame = CGRectMake(self.labelTotal.ctRight + 6, self.lableTitle.ctBottom + 5, 100, 20);
+    self.labelTotal.frame = CGRectMake(self.imageicon.ctRight + 6, self.lableTitle.ctBottom , 100, 16);
+    self.labelLess.frame = CGRectMake(self.imageicon.ctRight + 6, self.labelTotal.ctBottom, 100, 16);
 
     self.buttonDealloc.frame = CGRectMake(SCREENWIDTH - 50, (120 - 40)/2, 40, 40);
     
@@ -162,23 +163,39 @@
     NSInteger currentNumber = [self.textNumber.text integerValue];
     if (currentNumber < 100) {
         self.textNumber.text = [NSString stringWithFormat:@"%ld", currentNumber + 1];
+        if (_delegate && [_delegate respondsToSelector:@selector(foundsCarCell:doAddNumber:)]) {
+            [_delegate foundsCarCell:self doAddNumber:self.foundsModel];
+        }
     }
+
 }
 
 - (void)deleteNumber {
     NSInteger currentNumber = [self.textNumber.text integerValue];
     if (currentNumber > 1) {
         self.textNumber.text = [NSString stringWithFormat:@"%ld", currentNumber - 1];
+        if (_delegate && [_delegate respondsToSelector:@selector(foundsCarCell:doDeleteNumber:)]) {
+            [_delegate foundsCarCell:self doDeleteNumber:self.foundsModel];
+        }
     }
 }
 
 - (void)deallocFounds {
-    
+    if (_delegate && [_delegate respondsToSelector:@selector(foundsCarCell:didDelete:)]) {
+        [_delegate foundsCarCell:self didDelete:self.foundsModel];
+    }
 }
 
-- (void)configCellWithData:(id) celldata {
-    [self.imageicon setImageWithURL:[NSURL URLWithString:@"www"] placeholderImage:[UIImage imageNamed:@"noimage"]];
-    
+- (void)configCellWithData:(FoundsModel *) celldata {
+    self.foundsModel = celldata;
+    NSArray *arrayImage = [celldata.images componentsSeparatedByString:@"|"];
+    if (arrayImage.count > 0) {
+        [self.imageicon setImageWithURL:[NSURL URLWithString:arrayImage[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
+    }
+    self.labelLess.text = [NSString stringWithFormat:@"剩余：%ld 人次", [celldata.totaln integerValue] - [celldata.nown integerValue]];
+    self.labelTotal.text = [NSString stringWithFormat:@"总需：%@ 人次", celldata.totaln];
+    self.lableTitle.text = celldata.name;
+    self.textNumber.text = celldata.localNumner;
 }
 
 - (CGFloat)fetchCellHight {

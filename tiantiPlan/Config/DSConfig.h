@@ -16,10 +16,10 @@
 #define DEBUG_slaz
 
 #ifdef DEBUG_slaz
-//#define DPHOST @"http://182.92.158.7/yungou/REST/"
+#define DPHOST @"http://192.168.0.102:8080/yungou/REST/"
 //#define HOST @"http://182.92.158.7/Love/REST/"
 
-#define DPHOST @"http://liujianongdembp:8080/yungou/REST/"
+//#define DPHOST @"http://liujianongdembp:8080/yungou/REST/"
 
 //#define DPHOST @"http://api.51diansong.com/api"
 //#define DPHOST @"http://192.168.0.90/api/v1"
@@ -50,7 +50,7 @@
 #define HuanXinAppPushCer @"3laz_release"
 
 #define WeiBoKey @"227063147"
-#define AppSecret @"ee652d163490211ee06956ace711d5ba"
+#define WeiBoAppSecret @"ee652d163490211ee06956ace711d5ba"
 
 //#define HuanXinAppPushCer @"3laz_dev"
 #define BaiduMapSdkKey @"yea7ZsFb8vwD9Kl1xmxUOj7T"//正式版百度地图sdkkey
@@ -91,6 +91,7 @@
 #define GlobalConfigInfo @"GlobalConfigInfo"//全局配置项本地缓存key
 #define FilterConfigInfo @"FilterConfigInfo"//筛选项本地缓存key
 #define SendPropertyToday @"SendPropertyToday"//存储自动给顾问发送的房源
+#define LocalFoundsCar  @"LocalFoundsCar"//本地购物车数据
 
 /**通知**/
 #define DidReceiveNewMessage @"DidReceiveNewMessage"//收到新消息通知

@@ -16,7 +16,7 @@
 
 @end
 
-@interface HomeFirstViewCell : BaseViewCell
+@interface HomeFirstViewCell : UIView
 
 @property (nonatomic, assign) id<HomeFirstViewCellDelegate> delegate;
 - (void)configCellWithData:(id) celldata;

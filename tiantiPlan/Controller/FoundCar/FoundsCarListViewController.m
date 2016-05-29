@@ -7,9 +7,11 @@
 //
 
 #import "FoundsCarListViewController.h"
+#import "FoundsDetailViewController.h"
 #import "FoundsCarViewCell.h"
+#import "FoundsCarManager.h"
 
-@interface FoundsCarListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface FoundsCarListViewController () <UITableViewDataSource, UITableViewDelegate,FoundsCarViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *viewBanner;
@@ -17,6 +19,8 @@
 @property (nonatomic, strong) UIButton *buttonPay;
 @property (nonatomic, strong) UIView *viewLine;
 
+@property (nonatomic, strong) NSMutableArray *arrayData;
+@property (nonatomic, assign) NSInteger totalAmount;
 @end
 
 @implementation FoundsCarListViewController
@@ -37,7 +41,7 @@
         _labelTotal.textAlignment = NSTextAlignmentLeft;
         _labelTotal.textColor = DSBlackColor;
         _labelTotal.font = [UIFont systemFontOfSize:14];
-        _labelTotal.text = @"合计：123";
+        _labelTotal.text = @"合计：0";
     }
     return _labelTotal;
 }
@@ -92,15 +96,34 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self reloadData];
 }
 
 - (void)initData {
-    
+    self.totalAmount = 0;
+    self.arrayData = [NSMutableArray array];
+}
+
+- (void)reloadData {
+    self.totalAmount = 0;
+    [self.arrayData removeAllObjects];
+    NSArray *array = [[FoundsCarManager share] fetchLocalFoundsCar];
+    for (FoundsModel *founds in array) {
+        self.totalAmount +=[founds.localNumner integerValue];
+    }
+    self.labelTotal.text = [NSString stringWithFormat:@"总计：%ld", self.totalAmount];
+    if (self.totalAmount > 0) {
+        self.buttonPay.enabled = YES;
+    } else {
+        self.buttonPay.enabled = NO;
+    }
+    [self.arrayData addObjectsFromArray:array];
+    [self.tableView reloadData];
 }
 
 - (void)initUI {
     [self setTitle:@"购物车"];
-    self.tableView.frame = self.view.bounds;
+    self.tableView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT - 50);
     [self.view addSubview:self.tableView];
     
     self.viewBanner.frame = CGRectMake(0, self.view.ctBottom - 100, SCREENWIDTH, 50);
@@ -119,7 +142,7 @@
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self.arrayData.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -136,14 +159,55 @@
     if (cell == nil) {
         cell = [[FoundsCarViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
         [cell showUnderLineAt:120];
+        cell.delegate = self;
     }
-    [cell configCellWithData:nil];
+    [cell configCellWithData:self.arrayData[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+    FoundsModel *founds = self.arrayData[indexPath.row];
+    FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    controller.foundsId = founds.identify;
+    [self.navigationController pushViewController:controller animated:YES];
 }
+
+- (void)foundsCarCell:(FoundsCarViewCell *) foundsCell didDelete:(FoundsModel *) foundsDetail {
+    [[FoundsCarManager share] deleteLocalCar:foundsDetail.identify];
+    [self reloadData];
+}
+
+- (void)foundsCarCell:(FoundsCarViewCell *) foundsCell doAddNumber:(FoundsModel *) foundsDetail {
+    FoundsModel *founds = [[FoundsModel alloc] init];
+    founds.identify = foundsDetail.identify;
+    founds.images = foundsDetail.images;
+    founds.isover = foundsDetail.isover;
+    founds.lastid = foundsDetail.lastid;
+    founds.name = foundsDetail.name;
+    founds.nown = foundsDetail.nown;
+    founds.totaln = foundsDetail.totaln;
+    founds.type = foundsDetail.type;
+    founds.localNumner = @"1";
+    [[FoundsCarManager share] addFoundsToCar:founds];
+    [self reloadData];
+}
+
+- (void)foundsCarCell:(FoundsCarViewCell *) foundsCell doDeleteNumber:(FoundsModel *) foundsDetail {
+    FoundsModel *founds = [[FoundsModel alloc] init];
+    founds.identify = foundsDetail.identify;
+    founds.images = foundsDetail.images;
+    founds.isover = foundsDetail.isover;
+    founds.lastid = foundsDetail.lastid;
+    founds.name = foundsDetail.name;
+    founds.nown = foundsDetail.nown;
+    founds.totaln = foundsDetail.totaln;
+    founds.type = foundsDetail.type;
+    founds.localNumner = @"1";
+    [[FoundsCarManager share] deleteFoundsToCar:founds];
+    [self reloadData];
+}
+
 @end

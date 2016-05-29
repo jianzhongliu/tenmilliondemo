@@ -92,6 +92,7 @@
 		24224D951CE44DB800720DED /* FoundsApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D941CE44DB800720DED /* FoundsApiManager.m */; };
 		24224D981CE44DCC00720DED /* UserCenterApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D971CE44DCC00720DED /* UserCenterApiManager.m */; };
 		24224D9B1CE44FF300720DED /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D9A1CE44FF300720DED /* Utils.m */; };
+		24581A7E1CF896510081809A /* FoundsCarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24581A7D1CF896510081809A /* FoundsCarManager.m */; };
 		24889D941CEC35E600A4777B /* FoundsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D931CEC35E600A4777B /* FoundsModel.m */; };
 		24889D971CEC3A0500A4777B /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D961CEC3A0500A4777B /* HomeModel.m */; };
 		24889D9B1CEC846800A4777B /* FoundsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D9A1CEC846800A4777B /* FoundsDetailModel.m */; };
@@ -133,6 +134,11 @@
 		24CF655D1CF1A18100947182 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CF65541CF1A18100947182 /* libWeChatSDK.a */; };
 		24CF65641CF1B7D500947182 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CF655F1CF1B7D500947182 /* libWeChatSDK.a */; };
 		24CF65651CF1B7D500947182 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 24CF65601CF1B7D500947182 /* read_me.txt */; };
+		24EC07841CF4203900BE1774 /* DSSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EC07831CF4203900BE1774 /* DSSegmentView.m */; };
+		24EC07961CF494A500BE1774 /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EC07951CF494A500BE1774 /* HomeHeaderView.m */; };
+		24EC07991CF49D3000BE1774 /* FoundsInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EC07981CF49D3000BE1774 /* FoundsInfoCell.m */; };
+		24EC079C1CF4A36200BE1774 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EC079B1CF4A36200BE1774 /* ProgressView.m */; };
+		24EC079F1CF4AC4A00BE1774 /* ThrowLineTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EC079E1CF4AC4A00BE1774 /* ThrowLineTool.m */; };
 		9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7179336ADD00C16AF180385 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -307,6 +313,8 @@
 		24224D971CE44DCC00720DED /* UserCenterApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterApiManager.m; sourceTree = "<group>"; };
 		24224D991CE44FF300720DED /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		24224D9A1CE44FF300720DED /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		24581A7C1CF896510081809A /* FoundsCarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsCarManager.h; sourceTree = "<group>"; };
+		24581A7D1CF896510081809A /* FoundsCarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsCarManager.m; sourceTree = "<group>"; };
 		24889D921CEC35E600A4777B /* FoundsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsModel.h; sourceTree = "<group>"; };
 		24889D931CEC35E600A4777B /* FoundsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsModel.m; sourceTree = "<group>"; };
 		24889D951CEC3A0500A4777B /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
@@ -392,6 +400,16 @@
 		24CF65611CF1B7D500947182 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		24CF65621CF1B7D500947182 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		24CF65631CF1B7D500947182 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		24EC07821CF4203900BE1774 /* DSSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSSegmentView.h; sourceTree = "<group>"; };
+		24EC07831CF4203900BE1774 /* DSSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSSegmentView.m; sourceTree = "<group>"; };
+		24EC07941CF494A500BE1774 /* HomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHeaderView.h; sourceTree = "<group>"; };
+		24EC07951CF494A500BE1774 /* HomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHeaderView.m; sourceTree = "<group>"; };
+		24EC07971CF49D3000BE1774 /* FoundsInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsInfoCell.h; sourceTree = "<group>"; };
+		24EC07981CF49D3000BE1774 /* FoundsInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsInfoCell.m; sourceTree = "<group>"; };
+		24EC079A1CF4A36200BE1774 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		24EC079B1CF4A36200BE1774 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		24EC079D1CF4AC4A00BE1774 /* ThrowLineTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThrowLineTool.h; sourceTree = "<group>"; };
+		24EC079E1CF4AC4A00BE1774 /* ThrowLineTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThrowLineTool.m; sourceTree = "<group>"; };
 		3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		71403779568D52B4625CE6D4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D7179336ADD00C16AF180385 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -726,6 +744,12 @@
 				2414FAD91CC5DBA4003DA0B7 /* BaseViewCell.m */,
 				2414FAD51CC5D9D5003DA0B7 /* BYTabBarItem.h */,
 				2414FAD61CC5D9D5003DA0B7 /* BYTabBarItem.m */,
+				24EC07821CF4203900BE1774 /* DSSegmentView.h */,
+				24EC07831CF4203900BE1774 /* DSSegmentView.m */,
+				24EC079A1CF4A36200BE1774 /* ProgressView.h */,
+				24EC079B1CF4A36200BE1774 /* ProgressView.m */,
+				24EC079D1CF4AC4A00BE1774 /* ThrowLineTool.h */,
+				24EC079E1CF4AC4A00BE1774 /* ThrowLineTool.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -770,6 +794,10 @@
 				2414FAEE1CC628D6003DA0B7 /* FoundsProgressCardCell.m */,
 				2414FAF01CC6316F003DA0B7 /* FoundsTypeCell.h */,
 				2414FAF11CC6316F003DA0B7 /* FoundsTypeCell.m */,
+				24EC07941CF494A500BE1774 /* HomeHeaderView.h */,
+				24EC07951CF494A500BE1774 /* HomeHeaderView.m */,
+				24EC07971CF49D3000BE1774 /* FoundsInfoCell.h */,
+				24EC07981CF49D3000BE1774 /* FoundsInfoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -812,6 +840,8 @@
 				2414FB1D1CC9C3D1003DA0B7 /* View */,
 				2414FB1A1CC9C359003DA0B7 /* FoundsCarListViewController.h */,
 				2414FB1B1CC9C359003DA0B7 /* FoundsCarListViewController.m */,
+				24581A7C1CF896510081809A /* FoundsCarManager.h */,
+				24581A7D1CF896510081809A /* FoundsCarManager.m */,
 			);
 			path = FoundCar;
 			sourceTree = "<group>";
@@ -1152,11 +1182,13 @@
 				2414FA6A1CC52758003DA0B7 /* ImageUtils.m in Sources */,
 				24CF65091CF185E000947182 /* RegisterViewController.m in Sources */,
 				2414FA481CC52727003DA0B7 /* NSArray+TYAFNetworking.m in Sources */,
+				24EC079C1CF4A36200BE1774 /* ProgressView.m in Sources */,
 				2414FA4F1CC52727003DA0B7 /* DSURLResponse.m in Sources */,
 				2414FA791CC527A1003DA0B7 /* UserBaseInfoModel.m in Sources */,
 				2414FA431CC52727003DA0B7 /* BaseApi.m in Sources */,
 				2414FAA61CC527CB003DA0B7 /* UIViewController+Loading.m in Sources */,
 				24889DA11CED394300A4777B /* FoundsHistoryOwnerListCell.m in Sources */,
+				24EC07961CF494A500BE1774 /* HomeHeaderView.m in Sources */,
 				2414FB2D1CCA8CB4003DA0B7 /* TouristInputInfoViewController.m in Sources */,
 				24CF65061CF185E000947182 /* BaseLoginViewController.m in Sources */,
 				2414FB271CC9F158003DA0B7 /* SettingViewController.m in Sources */,
@@ -1174,6 +1206,7 @@
 				24224D9B1CE44FF300720DED /* Utils.m in Sources */,
 				2414FA491CC52727003DA0B7 /* NSDictionary+TYAFNetworking.m in Sources */,
 				2414FB661CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m in Sources */,
+				24EC07991CF49D3000BE1774 /* FoundsInfoCell.m in Sources */,
 				24889D941CEC35E600A4777B /* FoundsModel.m in Sources */,
 				24889DA41CED41A900A4777B /* FoundsHistoryOwnerListModel.m in Sources */,
 				2414FAE31CC60945003DA0B7 /* HomeFirstViewCell.m in Sources */,
@@ -1210,6 +1243,7 @@
 				2414FA6B1CC52758003DA0B7 /* NetworkUtils.m in Sources */,
 				2414FB401CCA8E5C003DA0B7 /* BK_ELCAssetTablePicker.m in Sources */,
 				2414FB571CCB1314003DA0B7 /* MyFoundsHistoryViewCell.m in Sources */,
+				24EC079F1CF4AC4A00BE1774 /* ThrowLineTool.m in Sources */,
 				24889D9B1CEC846800A4777B /* FoundsDetailModel.m in Sources */,
 				24889D971CEC3A0500A4777B /* HomeModel.m in Sources */,
 				2414FB1C1CC9C359003DA0B7 /* FoundsCarListViewController.m in Sources */,
@@ -1226,6 +1260,8 @@
 				2414FAD71CC5D9D5003DA0B7 /* BYTabBarItem.m in Sources */,
 				2414FABF1CC5D0BF003DA0B7 /* BaseViewController.m in Sources */,
 				2414FB201CC9C3E9003DA0B7 /* FoundsCarViewCell.m in Sources */,
+				24581A7E1CF896510081809A /* FoundsCarManager.m in Sources */,
+				24EC07841CF4203900BE1774 /* DSSegmentView.m in Sources */,
 				2414FB411CCA8E5C003DA0B7 /* BK_ELCImagePickerController.m in Sources */,
 				2414FAD01CC5D91E003DA0B7 /* HistoryListViewController.m in Sources */,
 				24CF65081CF185E000947182 /* ForgetPasswordViewController.m in Sources */,

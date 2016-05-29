@@ -19,13 +19,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "tiantiPlan/Controller/Login/UserLoginViewController.m"
-            timestampString = "485668338.834783"
+            filePath = "tiantiPlan/Controller/FoundCar/FoundsCarManager.m"
+            timestampString = "486181801.44125"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "-requestThirdPartLoginWith:"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-addFoundsToCar:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tiantiPlan/Controller/FoundCar/FoundsCarManager.m"
+            timestampString = "486182178.755988"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-addFoundsToCar:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
