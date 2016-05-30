@@ -10,6 +10,7 @@
 #import "FoundsDetailViewController.h"
 #import "FoundsCarViewCell.h"
 #import "FoundsCarManager.h"
+#import "FoundsApiManager.h"
 
 @interface FoundsCarListViewController () <UITableViewDataSource, UITableViewDelegate,FoundsCarViewCellDelegate>
 
@@ -137,7 +138,17 @@
 }
 
 - (void)onClickButtonPay {
-    
+    [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
+        NSArray *array = [NSArray arrayWithArray:[[FoundsCarManager share] fetchLocalFoundsCar]];
+        [self showLoading];
+        for (FoundsModel *foundsDetail in array) {
+            [[FoundsCarManager share] deleteLocalCar:foundsDetail.identify];
+            [FoundsApiManager requestHistoryFoundsById:foundsDetail.identify userId:[UserCacheBean share].userInfo.userId buyNumber:foundsDetail.identify ResultListModel:^(id response) {
+                [self hiddenLoading];
+            }];
+        }
+        [self reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource

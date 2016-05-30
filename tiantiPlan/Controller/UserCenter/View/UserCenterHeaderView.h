@@ -10,4 +10,6 @@
 
 @interface UserCenterHeaderView : UIView
 
+- (void)configViewWithData:(id) data;
+
 @end

@@ -32,7 +32,7 @@
     if (_viewAD == nil) {
         _viewAD = [[JXBAdPageView alloc] init];
         _viewAD.delegate = self;
-        _viewAD.iDisplayTime = 3;
+        _viewAD.iDisplayTime = 5;
         _viewAD.bWebImage = YES;
     }
     return _viewAD;

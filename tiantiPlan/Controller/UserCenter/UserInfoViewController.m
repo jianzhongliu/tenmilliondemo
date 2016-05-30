@@ -7,6 +7,7 @@
 //
 
 #import "UserInfoViewController.h"
+#import "UIImage+Resize.h"
 #import "TouristInputInfoViewController.h"
 #import "BK_ELCAlbumPickerController.h"
 #import "BK_ELCImagePickerController.h"
@@ -58,6 +59,7 @@
 
 - (void)initData {
     self.arrayData = [NSMutableArray arrayWithObjects:@"头像",@"昵称", nil];
+    self.stringNuckname = [UserCacheBean share].userInfo.name;
 }
 
 - (void)initUI {
@@ -77,6 +79,15 @@
 }
 
 - (void)uploadImage {
+    if (self.imageIcon == nil && [UserCacheBean share].userInfo.icon.length < 1) {
+        [self showToastInfo:@"请上传头像"];
+        return;
+    }
+    if (self.imageIcon == nil && [UserCacheBean share].userInfo.icon.length > 1) {
+        self.iconUrl = [UserCacheBean share].userInfo.icon;
+        [self requestData];
+        return;
+    }
     [self showLoading];
     NSString *imagePath =  [FilePathManager saveImageFile:self.imageIcon toFolder:@"gange"];
     NSString *uploadpath = [NSString stringWithFormat:@"%@/%@",[FilePathManager getDocumentPath:@""],imagePath];
@@ -153,7 +164,10 @@
             [cell configCellWithData:self.arrayData[indexPath.row]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(SCREENWIDTH - 55, 10, 40, 40)];
-            image.image = self.imageIcon;
+            [image setImageWithURL:[NSURL URLWithString:[UserCacheBean share].userInfo.icon] placeholderImage:[UIImage imageNamed:@"icon_search_property_selected"]];
+            if (self.imageIcon != nil) {
+                image.image = self.imageIcon;
+            }
             [cell addSubview:image];
             return cell;
         }
@@ -167,7 +181,11 @@
                 [cell showUnderLineAt:60];
             }
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH - 25, 60)];
-            label.text = self.stringNuckname;
+
+            label.text = [UserCacheBean share].userInfo.name;
+            if (self.stringNuckname.length > 0) {
+                label.text = self.stringNuckname;
+            }
             label.font = [UIFont systemFontOfSize:13];
             label.textColor = DSColor;
             label.textAlignment = NSTextAlignmentRight;
@@ -196,7 +214,10 @@
         {
             TouristInputInfoViewController *controller = [[TouristInputInfoViewController alloc] init];
             [controller setTitle:@"昵称"];
-            //            controller.textContent.text = self.viewLoveName.textInput.text;
+            controller.textContent.text = [UserCacheBean share].userInfo.name;
+            if (self.stringNuckname.length > 0) {
+                controller.textContent.text = self.stringNuckname;
+            }
             controller.delegate = self;
             controller.tag = 1;
             [self.navigationController pushViewController:controller animated:YES];
@@ -246,7 +267,8 @@
     for (NSDictionary *dict in info) {
         
         UIImage *image = [dict objectForKey:UIImagePickerControllerOriginalImage];
-        self.imageIcon = image;
+       UIImage *newSizeImage = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(300, 300) interpolationQuality:kCGInterpolationHigh];
+        self.imageIcon = newSizeImage;
     }
     [self uploadImage];
     [self.tableView reloadData];
@@ -260,7 +282,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    self.imageIcon = image;
+    UIImage *newSizeImage = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(300, 300) interpolationQuality:kCGInterpolationHigh];
+    self.imageIcon = newSizeImage;
     [self uploadImage];
     [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];

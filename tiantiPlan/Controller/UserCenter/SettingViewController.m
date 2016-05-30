@@ -86,8 +86,10 @@
     switch (indexPath.row) {
         case 0:
         {
-            UserInfoViewController *controller = [[UserInfoViewController alloc] init];
-            [self.navigationController pushViewController:controller animated:YES];
+            [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
+                UserInfoViewController *controller = [[UserInfoViewController alloc] init];
+                [self.navigationController pushViewController:controller animated:YES];
+            }];
         }
             break;
         case 1:

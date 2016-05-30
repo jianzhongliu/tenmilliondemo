@@ -32,6 +32,8 @@
 - (UserCenterHeaderView *)viewHeader {
     if (_viewHeader == nil) {
         _viewHeader = [[UserCenterHeaderView alloc] init];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didtapUserHeader)];
+        [_viewHeader addGestureRecognizer:tap];
     }
     return _viewHeader;
 }
@@ -63,10 +65,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.viewHeader configViewWithData:nil];
 }
 
 - (void)initData {
-    self.array = [NSMutableArray arrayWithObjects:@"我的云购记录",@"中奖记录",@"地址管理", nil];
+    self.array = [NSMutableArray arrayWithObjects:@"我的云购记录",@"中奖记录",@"配送地址管理", nil];
 }
 
 - (void)initUI {
@@ -88,6 +91,13 @@
 //    [JOYConnect getConnect:@"24c9a1d87a0d51afd7b86753fe85e6b3" pid:@"appstore" userID:@"xguang"];
 //    [JOYConnect sharedJOYConnect].delegate=self;
 //    [JOYConnect showList:nil];
+}
+
+- (void)didtapUserHeader {
+    [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
+        UserInfoViewController *controller = [[UserInfoViewController alloc] init];
+        [self.navigationController pushViewController:controller animated:YES];
+    }];
 }
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource

@@ -82,12 +82,16 @@
 }
 
 /**购买商品*/
-+ (void)requestHistoryFoundsById:(NSString *)foundsId userId:(NSString *) userID buyNumber:(NSString *) buyNumber ResultListModel:(responseModel ) response {
++ (void)requestHistoryFoundsById:(NSString *)foundsId userId:(NSString *) userID buyNumber:(NSString *) buyNumber ResultListModel:(responseModel ) responseModel {
     NSString *url = [NSString stringWithFormat:@"orderCenter/payOrder"];
-    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"foundsId":@"392840234802",@"userId":userID, @"buyNumber":buyNumber} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
-        
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"foundsId":@"392840234802",@"userId":userID, @"buyNumber":buyNumber} isShowLoading:NO successCallBack:^(DSURLResponse *response) {
+        if (responseModel) {
+            responseModel(nil);
+        }
     } faildCallBack:^(DSURLResponse *response) {
-        
+        if (responseModel) {
+            responseModel(nil);
+        }
     }];
 }
 
