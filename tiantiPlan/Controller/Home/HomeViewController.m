@@ -29,6 +29,7 @@
 @property (nonatomic, strong) HomeModel *homeModel;
 @property (nonatomic, strong) DSSegmentView *viewSegement;
 @property (nonatomic, strong) UIButton *buttonCar;
+@property (nonatomic, strong) NSMutableArray *arrayMainEnter;
 
 @end
 
@@ -99,6 +100,32 @@
 }
 
 - (void)initData {
+    self.arrayMainEnter = [NSMutableArray array];
+    
+    FoundsModel *founds1 = [[FoundsModel alloc] init];
+    founds1.images = @"icon_type_1";
+    founds1.name = @"汽车专区";
+    founds1.type = @"一元秒车";
+    
+    FoundsModel *founds2 = [[FoundsModel alloc] init];
+    founds2.images = @"icon_type_2";
+    founds2.name = @"手机专区";
+    founds2.type = @"一元买iPhone 6S";
+    
+    FoundsModel *founds3 = [[FoundsModel alloc] init];
+    founds3.images = @"icon_type_3";
+    founds3.name = @"手表专区";
+    founds3.type = @"一元变高富帅";
+    
+    FoundsModel *founds4 = [[FoundsModel alloc] init];
+    founds4.images = @"icon_type_4";
+    founds4.name = @"都市丽人";
+    founds4.type = @"一元变白富美";
+    
+    [self.arrayMainEnter addObject:founds1];
+    [self.arrayMainEnter addObject:founds2];
+    [self.arrayMainEnter addObject:founds3];
+    [self.arrayMainEnter addObject:founds4];
     
 }
 
@@ -121,7 +148,7 @@
         HomeModel *homeModel = [[HomeModel alloc] init];
         [homeModel configModelWithDic:response];
         self.homeModel = homeModel;
-        [self.viewHeader configViewWithData:self.homeModel];
+        [self.viewHeader configViewWithData:self.arrayMainEnter];
         [self.tableView reloadData];
     }];
 }

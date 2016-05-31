@@ -26,8 +26,8 @@
         _labelTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTitle.textAlignment = NSTextAlignmentLeft;
         _labelTitle.textColor = DSBlackColor;
-        _labelTitle.font = [UIFont systemFontOfSize:14];
-        _labelTitle.text = @"苹果(iPhone 6) 64g";
+        _labelTitle.font = [UIFont boldSystemFontOfSize:14];
+        _labelTitle.text = @"";
     }
     return _labelTitle;
 }
@@ -39,8 +39,8 @@
         _labelTime.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTime.textAlignment = NSTextAlignmentLeft;
         _labelTime.textColor = DSRedColor;
-        _labelTime.font = [UIFont systemFontOfSize:14];
-        _labelTime.text = @"02:34:35";
+        _labelTime.font = [UIFont systemFontOfSize:10];
+        _labelTime.text = @"";
     }
     return _labelTime;
 }
@@ -75,10 +75,9 @@
 - (void)configViewWithData:(id) data {
     if ([data isKindOfClass:[FoundsModel class]]) {
         FoundsModel *founds = (FoundsModel *)data;
-        NSArray *images = [founds.images componentsSeparatedByString:@"|"];
-        [self.imageView setImageWithURL:[NSURL URLWithString:images[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
+        self.imageView.image = [UIImage imageNamed:founds.images];
         self.labelTitle.text = founds.name;
-        self.labelTime.text = [NSString stringWithFormat:@"剩余：%ld 份", [founds.totaln integerValue] - [founds.nown integerValue]];
+        self.labelTime.text = founds.type;
     }
 }
 

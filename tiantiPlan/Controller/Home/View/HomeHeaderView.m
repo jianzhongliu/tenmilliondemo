@@ -65,9 +65,8 @@
 }
 
 - (void)configViewWithData:(id) data {
-    if ([data isKindOfClass:[HomeModel class]]) {
-        HomeModel *homeModel = (HomeModel *)data;
-        [self.viewFirst configCellWithData:homeModel.arrayOver];
+    if ([data isKindOfClass:[NSArray class]]) {
+        [self.viewFirst configCellWithData:data];
     }
 }
 

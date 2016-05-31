@@ -28,7 +28,7 @@
         _labelTitle.textAlignment = NSTextAlignmentLeft;
         _labelTitle.textColor = DSBlackColor;
         _labelTitle.font = [UIFont systemFontOfSize:14];
-        _labelTitle.text = @"即将结束";
+        _labelTitle.text = @"热门分类";
     }
     return _labelTitle;
 }
