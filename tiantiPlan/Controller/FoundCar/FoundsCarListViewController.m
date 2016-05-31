@@ -144,6 +144,7 @@
         for (FoundsModel *foundsDetail in array) {
             [[FoundsCarManager share] deleteLocalCar:foundsDetail.identify];
             [FoundsApiManager requestHistoryFoundsById:foundsDetail.identify userId:[UserCacheBean share].userInfo.userId buyNumber:foundsDetail.identify ResultListModel:^(id response) {
+                
                 [self hiddenLoading];
             }];
         }

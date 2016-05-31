@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "UserInfoViewController.h"
+#import "FadbackViewController.h"
 #import "CommonViewCell.h"
 
 @interface SettingViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -88,13 +89,16 @@
         {
             [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
                 UserInfoViewController *controller = [[UserInfoViewController alloc] init];
+                controller.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:controller animated:YES];
             }];
         }
             break;
         case 1:
         {
-            
+            FadbackViewController *controller = [[FadbackViewController alloc] init];
+            controller.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:controller animated:YES];
         }
             break;
         case 2:
