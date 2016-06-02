@@ -108,4 +108,12 @@
     }
 }
 
+- (NSInteger)foundsNumber {
+    NSInteger number = 0;
+    for (FoundsModel *foundsItem in self.arrayCar) {
+        number += [foundsItem.localNumner integerValue];
+    }
+    return number;
+}
+
 @end

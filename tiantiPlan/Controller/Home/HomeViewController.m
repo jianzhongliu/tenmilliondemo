@@ -12,6 +12,7 @@
 #import "HomeFirstViewCell.h"
 #import "HomeSecondViewCell.h"
 #import "HomeThirdViewCell.h"
+#import "FoundsCarManager.h"
 #import "FoundsDetailViewController.h"
 #import "FoundsTypeListViewController.h"
 #import "FoundsApiManager.h"
@@ -21,7 +22,6 @@
 #import "FoundsModel.h"
 #import "FoundsInfoCell.h"
 #import "ThrowLineTool.h"
-#import "FoundsCarManager.h"
 #import "MJRefresh.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, HomeHeaderViewDelegate, HomeSecondViewCellDelegate, DSSegmentViewDelegate, FoundsInfoCellDelegate, ThrowLineToolDelegate>
@@ -31,6 +31,7 @@
 @property (nonatomic, strong) HomeModel *homeModel;
 @property (nonatomic, strong) DSSegmentView *viewSegement;
 @property (nonatomic, strong) UIButton *buttonCar;
+@property (nonatomic, strong) UILabel *labelNumber;
 @property (nonatomic, strong) NSMutableArray *arrayMainEnter;
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, copy) NSString *type;
@@ -86,6 +87,22 @@
     return _buttonCar;
 }
 
+- (UILabel *)labelNumber {
+    if (_labelNumber == nil) {
+        _labelNumber = [[UILabel alloc] init];
+        _labelNumber.numberOfLines = 0;
+        _labelNumber.lineBreakMode = NSLineBreakByCharWrapping;
+        _labelNumber.textAlignment = NSTextAlignmentCenter;
+        _labelNumber.textColor = [UIColor whiteColor];
+        _labelNumber.font = [UIFont systemFontOfSize:14];
+        _labelNumber.text = @"";
+        _labelNumber.layer.cornerRadius = 10;
+        _labelNumber.clipsToBounds = YES;
+        _labelNumber.backgroundColor = [UIColor redColor];
+    }
+    return _labelNumber;
+}
+
 #pragma mark - lifeCycleMethods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -119,6 +136,7 @@
 }
 
 - (void)initData {
+    
     self.arrayMainEnter = [NSMutableArray array];
     self.index = 1;
     self.type = @"1";
@@ -157,8 +175,9 @@
     self.viewHeader.frame = CGRectMake(0, 0, SCREENWIDTH, 370);
     self.tableView.tableHeaderView = self.viewHeader;
     self.buttonCar.frame = CGRectMake(0, 0, 50, 50);
-//    [self.view addSubview:self.buttonCar];
-    
+    self.labelNumber.frame = CGRectMake(30, 0, 20, 20);
+    [self.buttonCar addSubview:self.labelNumber];
+    self.labelNumber.text = [NSString stringWithFormat:@"%ld", [[FoundsCarManager share] foundsNumber]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonCar];
     
 }
@@ -301,9 +320,7 @@
 }
 
 - (void)animationDidFinish {
-    
-    
-    
+    self.labelNumber.text = [NSString stringWithFormat:@"%ld", [[FoundsCarManager share] foundsNumber]];
 }
 
 @end

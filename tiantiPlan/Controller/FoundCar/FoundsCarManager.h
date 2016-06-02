@@ -23,4 +23,6 @@
 
 - (void)deleteLocalCar:(NSString *) identify;
 
+- (NSInteger)foundsNumber;
+
 @end

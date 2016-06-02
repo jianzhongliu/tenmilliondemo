@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开启一元淘宝新时代" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTs-qt-E8u">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="开启一元淘宝新时代" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTs-qt-E8u">
                                 <rect key="frame" x="0.0" y="249" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.97672611256544506" green="0.97672611256544506" blue="0.97672611256544506" alpha="1" colorSpace="calibratedRGB"/>
@@ -25,12 +25,6 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.71295020278922783" blue="0.28574832859837418" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="wTs-qt-E8u" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="229" id="6n5-0i-jHS"/>
-                            <constraint firstItem="wTs-qt-E8u" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="dYi-lC-SMx"/>
-                            <constraint firstAttribute="trailing" secondItem="wTs-qt-E8u" secondAttribute="trailing" id="s3h-M4-dB4"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wTs-qt-E8u" secondAttribute="bottom" constant="330" id="zxe-wf-uHj"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

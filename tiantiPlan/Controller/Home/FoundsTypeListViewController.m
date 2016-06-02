@@ -19,6 +19,7 @@
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSMutableArray *arrayData;
 @property (nonatomic, strong) UIButton *buttonCar;
+@property (nonatomic, strong) UILabel *labelNumber;
 
 @end
 
@@ -51,6 +52,23 @@
     }
     return _tableView;
 }
+
+- (UILabel *)labelNumber {
+    if (_labelNumber == nil) {
+        _labelNumber = [[UILabel alloc] init];
+        _labelNumber.numberOfLines = 0;
+        _labelNumber.lineBreakMode = NSLineBreakByCharWrapping;
+        _labelNumber.textAlignment = NSTextAlignmentCenter;
+        _labelNumber.textColor = [UIColor whiteColor];
+        _labelNumber.font = [UIFont systemFontOfSize:14];
+        _labelNumber.text = @"";
+        _labelNumber.layer.cornerRadius = 10;
+        _labelNumber.clipsToBounds = YES;
+        _labelNumber.backgroundColor = [UIColor redColor];
+    }
+    return _labelNumber;
+}
+
 #pragma mark - lifeCycleMethods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -79,6 +97,9 @@
     [self.view addSubview:self.tableView];
     self.buttonCar.frame = CGRectMake(0, 0, 50, 50);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonCar];
+    self.labelNumber.frame = CGRectMake(30, 0, 20, 20);
+    [self.buttonCar addSubview:self.labelNumber];
+    self.labelNumber.text = [NSString stringWithFormat:@"%ld", [[FoundsCarManager share] foundsNumber]];
 
 }
 
@@ -151,7 +172,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 140;
+    return 104;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -159,7 +180,7 @@
     FoundsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[FoundsInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-        [cell showUnderLineAt:140];
+        [cell showUnderLineAt:104];
         cell.delegate = self;
         
     }
@@ -202,6 +223,7 @@
 }
 
 - (void)animationDidFinish {
-
+    self.labelNumber.text = [NSString stringWithFormat:@"%ld", [[FoundsCarManager share] foundsNumber]];
 }
+
 @end
