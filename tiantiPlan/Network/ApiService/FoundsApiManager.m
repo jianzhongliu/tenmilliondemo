@@ -10,15 +10,38 @@
 #import "FoundsDetailModel.h"
 #import "FoundsHistoryOwnerListModel.h"
 #import "UserBuyHistoryListModel.h"
+#import "FoundsModel.h"
 
 @implementation FoundsApiManager
 
 /**获取首页列表*/
-+ (void)requestAllFoundsInfoModel:(responseModel ) responseBlock {
++ (void)requestAllFoundsType:(NSString *)type AtIndex:(NSString *) index InfoModel:(responseModel ) responseBlock {
     NSString *url = [NSString stringWithFormat:@"founds/getHomeFounds"];
-    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"type":type ,@"index":index,@"limit":@"20"} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
         if (responseBlock) {
             responseBlock(response.content);
+        }
+    } faildCallBack:^(DSURLResponse *response) {
+        if (responseBlock) {
+            responseBlock(nil);
+        }
+    }];
+}
+
+/**按类别获取商品*/
++ (void)requestFoundsWithCategory:(NSString *)category AtIndex:(NSString *) index InfoModel:(responseModel ) responseBlock {
+    NSString *url = [NSString stringWithFormat:@"founds/getTypeFounds"];
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"category":category ,@"index":index,@"limit":@"20"} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
+        NSMutableArray *arrayFounds = [NSMutableArray array];
+        if ([response.content[@"overArray"] isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *dic in response.content[@"overArray"]) {
+                NSError *error = nil;
+                FoundsModel *found = [MTLJSONAdapter modelOfClass:FoundsModel.class fromJSONDictionary:dic error:&error];
+                [arrayFounds addObject:found];
+            }
+        }
+        if (responseBlock) {
+            responseBlock(arrayFounds);
         }
     } faildCallBack:^(DSURLResponse *response) {
         if (responseBlock) {

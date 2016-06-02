@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeModel.h"
+@class HomeHeaderView;
+@protocol HomeHeaderViewDelegate <NSObject>
+
+- (void)homeHeaderViewCell:(HomeHeaderView *) cell atIndex:(NSInteger) index;
+
+@end
 
 @interface HomeHeaderView : UIView
+
+@property (nonatomic, assign) id<HomeHeaderViewDelegate> delegate;
 
 - (void)configViewWithData:(id) data;
 

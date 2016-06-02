@@ -70,8 +70,8 @@
 
 - (void)initBaseUI {
     self.imageBack.frame = self.view.bounds;
-    self.imageBack.image = [UIImage imageNamed:@"image_back"];
-    self.navigationController.navigationBarHidden = YES;
+    self.imageBack.image = [UIImage imageNamed:@""];
+//    self.navigationController.navigationBarHidden = YES;
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8) {
         UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];

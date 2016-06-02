@@ -13,6 +13,7 @@
 #import "HomeSecondViewCell.h"
 #import "HomeThirdViewCell.h"
 #import "FoundsDetailViewController.h"
+#import "FoundsTypeListViewController.h"
 #import "FoundsApiManager.h"
 #import "DSSegmentView.h"
 #import "HomeHeaderView.h"
@@ -21,8 +22,9 @@
 #import "FoundsInfoCell.h"
 #import "ThrowLineTool.h"
 #import "FoundsCarManager.h"
+#import "MJRefresh.h"
 
-@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, HomeFirstViewCellDelegate, HomeSecondViewCellDelegate, DSSegmentViewDelegate, FoundsInfoCellDelegate, ThrowLineToolDelegate>
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, HomeHeaderViewDelegate, HomeSecondViewCellDelegate, DSSegmentViewDelegate, FoundsInfoCellDelegate, ThrowLineToolDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) HomeHeaderView *viewHeader;
@@ -30,6 +32,8 @@
 @property (nonatomic, strong) DSSegmentView *viewSegement;
 @property (nonatomic, strong) UIButton *buttonCar;
 @property (nonatomic, strong) NSMutableArray *arrayMainEnter;
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, copy) NSString *type;
 
 @end
 
@@ -38,6 +42,7 @@
 - (HomeHeaderView *)viewHeader {
     if (_viewHeader == nil) {
         _viewHeader = [[HomeHeaderView alloc] init];
+        _viewHeader.delegate = self;
     }
     return _viewHeader;
 }
@@ -47,7 +52,7 @@
         _viewSegement = [[DSSegmentView alloc] init];
         _viewSegement.backgroundColor = [UIColor whiteColor];
         _viewSegement.delegate = self;
-        [_viewSegement setTitles:@[@"房源",@"楼盘",@"工位",@"工位"] Frame:CGRectMake(0,0,SCREENWIDTH, 40)];
+        [_viewSegement setTitles:@[@"热门",@"人气",@"推荐",@"新品"] Frame:CGRectMake(0,0,SCREENWIDTH, 40)];
     }
     return _viewSegement;
 }
@@ -60,14 +65,19 @@
         _tableView.separatorColor = [UIColor clearColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = DSBackColor;
+//        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
+
     }
     return _tableView;
 }
 
 - (UIButton *)buttonCar {
     if (_buttonCar == nil) {
-        _buttonCar = [UIButton buttonWithType:UIButtonTypeContactAdd];
-        [_buttonCar addTarget:self action:@selector(onClickButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _buttonCar = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_buttonCar setImage:[UIImage imageNamed:@"icon_car"] forState:UIControlStateNormal];
+        [_buttonCar setImage:[UIImage imageNamed:@"icon_car_seleted"] forState:UIControlStateHighlighted];
+        [_buttonCar addTarget:self action:@selector(onClickFoundsCar) forControlEvents:UIControlEventTouchUpInside];
         _buttonCar.selected = NO;
         [_buttonCar setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _buttonCar.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -87,8 +97,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    [self requestData];
-
+    [self headerRefresh];
 }
 
 - (void)dealloc {
@@ -99,9 +108,20 @@
     [super viewWillAppear:animated];
 }
 
+- (void)headerRefresh {
+    self.index = 1;
+    [self requestData];
+}
+
+- (void)footerRefresh {
+    self.index ++;
+    [self requestData];
+}
+
 - (void)initData {
     self.arrayMainEnter = [NSMutableArray array];
-    
+    self.index = 1;
+    self.type = @"1";
     FoundsModel *founds1 = [[FoundsModel alloc] init];
     founds1.images = @"icon_type_1";
     founds1.name = @"汽车专区";
@@ -143,13 +163,24 @@
     
 }
 
+- (void)onClickFoundsCar {
+    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
+}
+
 - (void)requestData {
-    [FoundsApiManager requestAllFoundsInfoModel:^(id response) {
+    [FoundsApiManager requestAllFoundsType:self.type AtIndex:[NSString stringWithFormat:@"%ld",self.index] InfoModel:^(id response) {
         HomeModel *homeModel = [[HomeModel alloc] init];
         [homeModel configModelWithDic:response];
         self.homeModel = homeModel;
         [self.viewHeader configViewWithData:self.arrayMainEnter];
         [self.tableView reloadData];
+        if (homeModel.arrayOver.count < [self.type integerValue] * 20) {
+            _tableView.mj_footer = nil;
+        } else {
+            _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
+        }
+        [_tableView.mj_footer endRefreshing];
+        [_tableView.mj_header endRefreshing];
     }];
 }
 
@@ -183,25 +214,28 @@
 //        [cell showUnderLineAt:140];
 //        cell.delegate = self;
     }
-    [cell configCellWithData:self.homeModel.arrayActivity[indexPath.row]];
+    [cell configCellWithData:self.homeModel.arrayOver[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    FoundsModel *foundsModel = self.homeModel.arrayOver[indexPath.row];
     FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
     controller.hidesBottomBarWhenPushed = YES;
+    controller.foundsId = foundsModel.identify;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
 
-#pragma mark - HomeFirstViewCellDelegate
-- (void)homeFirstViewCell:(HomeFirstViewCell *) cell clickData:(id) clickData {
-    FoundsModel *founds = clickData;
-    FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
+#pragma mark - HomeHeaderViewDelegate
+- (void)homeHeaderViewCell:(HomeHeaderView *) cell atIndex:(NSInteger) index {
+    FoundsModel *founds = self.arrayMainEnter[index];
+    FoundsTypeListViewController *controller = [[FoundsTypeListViewController alloc] init];
     controller.hidesBottomBarWhenPushed = YES;
-    controller.foundsId = founds.identify;
+    controller.title = founds.name;
+    controller.type = index + 1;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -219,22 +253,28 @@
     switch (index) {
         case 0:
         {
-            
+            self.type = @"1";
         }
             break;
         case 1:
         {
-            
+            self.type = @"2";
         }
             break;
         case 2:
         {
-            
+            self.type = @"3";
+        }
+            break;
+        case 3:
+        {
+            self.type = @"4";
         }
             break;
         default:
             break;
     }
+    [self headerRefresh];
 }
 
 - (void)foundsInfoCell:(FoundsInfoCell *)foundsCell  {

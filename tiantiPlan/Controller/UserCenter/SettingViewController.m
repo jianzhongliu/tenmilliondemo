@@ -9,7 +9,9 @@
 #import "SettingViewController.h"
 #import "UserInfoViewController.h"
 #import "FadbackViewController.h"
+#import "AboutUsViewController.h"
 #import "CommonViewCell.h"
+#import "UserCacheBean.h"
 
 @interface SettingViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -48,7 +50,11 @@
 }
 
 - (void)initData {
-    self.array = [NSMutableArray arrayWithObjects:@"编辑个人资料", @"意见反馈",@"服务协议",@"关于我们", nil];
+    if ([[UserCacheBean share] isLogin] == YES) {
+        self.array = [NSMutableArray arrayWithObjects:@"编辑个人资料", @"意见反馈",@"服务协议",@"退出登录", nil];
+    } else {
+        self.array = [NSMutableArray arrayWithObjects:@"编辑个人资料", @"意见反馈",@"服务协议", nil];
+    }
 }
 
 - (void)initUI {
@@ -103,12 +109,15 @@
             break;
         case 2:
         {
-            
+            AboutUsViewController *controler = [[AboutUsViewController alloc] init];
+            controler.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:controler animated:YES];
         }
             break;
         case 3:
         {
-            
+            [UserCacheBean share].userInfo = nil;
+            self.array = [NSMutableArray arrayWithObjects:@"编辑个人资料", @"意见反馈",@"服务协议", nil];
         }
             break;
         default:

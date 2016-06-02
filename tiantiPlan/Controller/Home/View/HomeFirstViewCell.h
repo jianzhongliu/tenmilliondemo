@@ -12,7 +12,7 @@
 
 @protocol HomeFirstViewCellDelegate <NSObject>
 
-- (void)homeFirstViewCell:(HomeFirstViewCell *) cell clickData:(id) clickData;
+- (void)homeFirstViewCell:(HomeFirstViewCell *) cell clickData:(id) clickData atIndex:(NSInteger) index;
 
 @end
 

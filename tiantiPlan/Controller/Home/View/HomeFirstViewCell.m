@@ -98,8 +98,8 @@
 
 - (void)didTapFounds:(UITapGestureRecognizer *) gesture {
     NSInteger index = [gesture.objectDSValue integerValue] - 100;
-    if (_delegate && [_delegate respondsToSelector:@selector(homeFirstViewCell:clickData:)]) {
-        [_delegate homeFirstViewCell:self clickData:self.arrayData[index]];
+    if (_delegate && [_delegate respondsToSelector:@selector(homeFirstViewCell:clickData:atIndex:)]) {
+        [_delegate homeFirstViewCell:self clickData:self.arrayData[index] atIndex:index];
     }
 }
 

@@ -189,7 +189,6 @@
     }
 }
 
-
 - (void)doLoginWithBlock:(loginResultBlock) resultBlock {
     if ([[UserCacheBean share] isLogin] == YES) {
         resultBlock([UserCacheBean share], LOGINSTATUSSUCCESS);
@@ -197,6 +196,7 @@
         RegisterViewController *controller = [[RegisterViewController alloc] init];
         controller.loginBlock = resultBlock;
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+        [controller adjustNavigationUI:nav];
         [self presentViewController:nav animated:YES completion:nil];
     }
     

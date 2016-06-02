@@ -12,7 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "DSConfig.h"
 
-@interface HomeHeaderView () <JXBAdPageViewDelegate>
+@interface HomeHeaderView () <JXBAdPageViewDelegate, HomeFirstViewCellDelegate>
 
 @property (nonatomic, strong) JXBAdPageView *viewAD;
 @property (nonatomic, strong) HomeFirstViewCell *viewFirst;
@@ -24,6 +24,7 @@
 - (HomeFirstViewCell *)viewFirst {
     if (_viewFirst == nil) {
         _viewFirst = [[HomeFirstViewCell alloc] init];
+        _viewFirst.delegate = self;
     }
     return _viewFirst;
 }
@@ -80,6 +81,12 @@
     }
     NSURL *url = [NSURL URLWithString:@"http://img.1yyg.com/Poster/20140918182340689.jpg"];
     [imgView sd_setImageWithURL:url];
+}
+
+- (void)homeFirstViewCell:(HomeFirstViewCell *) cell clickData:(id) clickData atIndex:(NSInteger) index {
+    if (_delegate && [_delegate respondsToSelector:@selector(homeHeaderViewCell:atIndex:)]) {
+        [_delegate homeHeaderViewCell:self atIndex:index];
+    }
 }
 
 @end

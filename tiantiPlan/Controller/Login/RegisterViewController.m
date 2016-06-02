@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "UserCenterApiManager.h"
+#import "AboutUsViewController.h"
 #import <SMS_SDK/SMS_SDK.h>
 #import "UserCacheBean.h"
 #import <BmobMessageSDK/Bmob.h>
@@ -31,6 +32,12 @@
 @property (nonatomic, strong) UIButton *buttonNextStep;
 
 @property (nonatomic, strong) NSTimer *timer;
+
+@property (nonatomic, strong) UIButton *buttonProtocol;//注册协议
+@property (nonatomic, strong) UILabel *labelProtocol;
+
+@property (nonatomic, strong) UIButton *buttonProtocolDetail;
+
 
 @end
 
@@ -77,6 +84,7 @@
         _textPass.clearsOnBeginEditing = YES;
         _textPass.keyboardType = UIKeyboardTypeNumberPad;
         _textPass.secureTextEntry = YES;
+        _textPass.placeholder = @"验证码";
     }
     return _textPass;
 }
@@ -116,6 +124,46 @@
     return _buttonNextStep;
 }
 
+- (UIButton *)buttonProtocol {
+    if (_buttonProtocol == nil) {
+        _buttonProtocol = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_buttonProtocol addTarget:self action:@selector(onClickProtocol:) forControlEvents:UIControlEventTouchUpInside];
+        _buttonProtocol.selected = NO;
+        [_buttonProtocol setImage:[UIImage imageNamed:@"icon_unselected"] forState:UIControlStateNormal];
+        [_buttonProtocol setImage:[UIImage imageNamed:@"icon_selected"] forState:UIControlStateSelected];
+        [_buttonProtocol setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _buttonProtocol.titleLabel.font = [UIFont systemFontOfSize:14];
+        _buttonProtocol.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    }
+    return _buttonProtocol;
+}
+
+- (UILabel *)labelProtocol {
+    if (_labelProtocol == nil) {
+        _labelProtocol = [[UILabel alloc] init];
+        _labelProtocol.numberOfLines = 0;
+        _labelProtocol.lineBreakMode = NSLineBreakByCharWrapping;
+        _labelProtocol.textAlignment = NSTextAlignmentLeft;
+        _labelProtocol.textColor = DSGrayColor9;
+        _labelProtocol.font = [UIFont systemFontOfSize:13];
+        _labelProtocol.text = @"我已阅读并同意";
+    }
+    return _labelProtocol;
+}
+
+- (UIButton *)buttonProtocolDetail {
+    if (_buttonProtocolDetail == nil) {
+        _buttonProtocolDetail = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_buttonProtocolDetail addTarget:self action:@selector(onClickProtocolDetail) forControlEvents:UIControlEventTouchUpInside];
+        _buttonProtocolDetail.selected = YES;
+        [_buttonProtocolDetail setTitleColor:DSColor forState:UIControlStateNormal];
+        _buttonProtocolDetail.titleLabel.font = [UIFont systemFontOfSize:13];
+        [_buttonProtocolDetail setTitle:@"《一元云宝用户协议》" forState:UIControlStateNormal];
+        _buttonProtocolDetail.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    }
+    return _buttonProtocolDetail;
+}
+
 #pragma mark - lifeCycleMethods
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -132,6 +180,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 - (void)initData {
@@ -140,7 +189,8 @@
 }
 
 - (void)initUI {
-    
+    [self setTitle:@"登录注册"];
+    [self setLeftButtonWithIcon:[UIImage imageNamed:@"icon_back"]];
     self.imageView.frame = CGRectMake(10, 80, SCREENWIDTH - 20, 86);
     self.imageView.userInteractionEnabled = YES;
     [self.view addSubview:self.imageView];
@@ -166,11 +216,42 @@
     self.buttonNextStep.frame = CGRectMake(10, self.imageView.ctBottom + 20, SCREENWIDTH - 20, 44);
     [self.view addSubview:self.buttonNextStep];
 
+    self.buttonProtocol.frame = CGRectMake(10, self.buttonNextStep.ctBottom + 10, 13, 13);
+    self.labelProtocol.frame = CGRectMake(self.buttonProtocol.ctRight + 3, self.buttonNextStep.ctBottom + 8, 100, 20);
+    [self.labelProtocol sizeToFit];
+    self.buttonProtocolDetail.frame = CGRectMake(self.labelProtocol.ctRight, self.buttonNextStep.ctBottom + 6, 180, 20);
+    self.buttonProtocol.selected = YES;
+    [self.view addSubview:self.buttonProtocol];
+    [self.view addSubview:self.labelProtocol];
+    [self.view addSubview:self.buttonProtocolDetail];
+}
+
+- (void)didLeftClick {
+    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)goBackView {
-    [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+- (void)didAcceptUserProtocol {
+    self.buttonProtocol.selected = YES;
+}
+
+- (void)onClickProtocol:(UIButton *) button{
+    if (button.selected == YES) {
+        button.selected = NO;
+    } else {
+        button.selected = YES;
+    }
+}
+
+- (void)onClickProtocolDetail {
+    AboutUsViewController *controller = [[AboutUsViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+    [self adjustNavigationUI:nav];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)timeClock {
@@ -243,6 +324,13 @@
         [self showInfo:@"验证码格式不正确"];
         return;
     }
+    
+    if (self.buttonProtocol.selected == NO) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"您必须同意一元云宝用户协议才能进行注册" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+        [alert show];
+        return;
+    }
+    
     [self sendUserActionLog:@"login_phone"];
     [self showLoadingActivity:YES];
     

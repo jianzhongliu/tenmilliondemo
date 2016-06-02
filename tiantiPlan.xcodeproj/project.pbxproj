@@ -89,10 +89,12 @@
 		2414FB601CCB17B1003DA0B7 /* AddressManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB5F1CCB17B1003DA0B7 /* AddressManagerViewController.m */; };
 		2414FB631CCB1EA4003DA0B7 /* MoneyHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB621CCB1EA4003DA0B7 /* MoneyHistoryViewController.m */; };
 		2414FB661CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2414FB651CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m */; };
+		241DF0B41D0003EB00E0CFF9 /* FoundsTypeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 241DF0B31D0003EB00E0CFF9 /* FoundsTypeListViewController.m */; };
 		24224D951CE44DB800720DED /* FoundsApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D941CE44DB800720DED /* FoundsApiManager.m */; };
 		24224D981CE44DCC00720DED /* UserCenterApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D971CE44DCC00720DED /* UserCenterApiManager.m */; };
 		24224D9B1CE44FF300720DED /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24224D9A1CE44FF300720DED /* Utils.m */; };
 		243D67031CFD597D00999ED2 /* FadbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243D67021CFD597D00999ED2 /* FadbackViewController.m */; };
+		243D67061CFDD52300999ED2 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243D67051CFDD52300999ED2 /* AboutUsViewController.m */; };
 		24581A7E1CF896510081809A /* FoundsCarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24581A7D1CF896510081809A /* FoundsCarManager.m */; };
 		24889D941CEC35E600A4777B /* FoundsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D931CEC35E600A4777B /* FoundsModel.m */; };
 		24889D971CEC3A0500A4777B /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889D961CEC3A0500A4777B /* HomeModel.m */; };
@@ -308,6 +310,8 @@
 		2414FB621CCB1EA4003DA0B7 /* MoneyHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyHistoryViewController.m; sourceTree = "<group>"; };
 		2414FB641CCB1F2C003DA0B7 /* MoneyHistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyHistoryViewCell.h; sourceTree = "<group>"; };
 		2414FB651CCB1F2C003DA0B7 /* MoneyHistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyHistoryViewCell.m; sourceTree = "<group>"; };
+		241DF0B21D0003EB00E0CFF9 /* FoundsTypeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsTypeListViewController.h; sourceTree = "<group>"; };
+		241DF0B31D0003EB00E0CFF9 /* FoundsTypeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsTypeListViewController.m; sourceTree = "<group>"; };
 		24224D931CE44DB800720DED /* FoundsApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsApiManager.h; sourceTree = "<group>"; };
 		24224D941CE44DB800720DED /* FoundsApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsApiManager.m; sourceTree = "<group>"; };
 		24224D961CE44DCC00720DED /* UserCenterApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterApiManager.h; sourceTree = "<group>"; };
@@ -316,6 +320,8 @@
 		24224D9A1CE44FF300720DED /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		243D67011CFD597D00999ED2 /* FadbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadbackViewController.h; sourceTree = "<group>"; };
 		243D67021CFD597D00999ED2 /* FadbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadbackViewController.m; sourceTree = "<group>"; };
+		243D67041CFDD52300999ED2 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		243D67051CFDD52300999ED2 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		24581A7C1CF896510081809A /* FoundsCarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsCarManager.h; sourceTree = "<group>"; };
 		24581A7D1CF896510081809A /* FoundsCarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsCarManager.m; sourceTree = "<group>"; };
 		24889D921CEC35E600A4777B /* FoundsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsModel.h; sourceTree = "<group>"; };
@@ -676,6 +682,8 @@
 				2414FAE01CC5E1D7003DA0B7 /* View */,
 				2414FAC51CC5D8CA003DA0B7 /* HomeViewController.h */,
 				2414FAC61CC5D8CA003DA0B7 /* HomeViewController.m */,
+				241DF0B21D0003EB00E0CFF9 /* FoundsTypeListViewController.h */,
+				241DF0B31D0003EB00E0CFF9 /* FoundsTypeListViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -729,6 +737,8 @@
 				2414FB621CCB1EA4003DA0B7 /* MoneyHistoryViewController.m */,
 				243D67011CFD597D00999ED2 /* FadbackViewController.h */,
 				243D67021CFD597D00999ED2 /* FadbackViewController.m */,
+				243D67041CFDD52300999ED2 /* AboutUsViewController.h */,
+				243D67051CFDD52300999ED2 /* AboutUsViewController.m */,
 			);
 			path = UserCenter;
 			sourceTree = "<group>";
@@ -1222,6 +1232,7 @@
 				2414FA9D1CC527CB003DA0B7 /* UDIDWrapper.m in Sources */,
 				2414FAD31CC5D93F003DA0B7 /* AllGoodsListViewController.m in Sources */,
 				2414FA691CC52758003DA0B7 /* FunctionMethodsUtil.m in Sources */,
+				243D67061CFDD52300999ED2 /* AboutUsViewController.m in Sources */,
 				2414FAA31CC527CB003DA0B7 /* UILabel+HightLight.m in Sources */,
 				2414FA9E1CC527CB003DA0B7 /* UIDevice+IdentifierAddition.m in Sources */,
 				2414FB121CC8D9B9003DA0B7 /* CommonViewCell.m in Sources */,
@@ -1260,6 +1271,7 @@
 				2414FA0A1CC4E7AF003DA0B7 /* main.m in Sources */,
 				2414FB5A1CCB15F8003DA0B7 /* MyOwnerHistoryViewCell.m in Sources */,
 				2414FAA41CC527CB003DA0B7 /* UIScrollView+UnderLine.m in Sources */,
+				241DF0B41D0003EB00E0CFF9 /* FoundsTypeListViewController.m in Sources */,
 				2414FA771CC527A1003DA0B7 /* AgentInfoModel.m in Sources */,
 				2414FB541CCB129A003DA0B7 /* MyFoundsHistoryListViewController.m in Sources */,
 				2414FAA01CC527CB003DA0B7 /* UIImage+Resize.m in Sources */,

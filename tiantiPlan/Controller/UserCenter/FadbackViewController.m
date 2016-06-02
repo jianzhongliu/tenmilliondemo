@@ -20,7 +20,7 @@
         _textView = [[UITextView alloc] init];
         _textView.font = [UIFont systemFontOfSize:15];
         _textView.textColor = DSGrayColor3;
-        _textView.text = @"一元云宝运营服务邮箱：503519050@qq.com  您有任何问题都可以直接发邮件，或者加客服qq：503519050";
+        _textView.text = @"一元云宝运营服务部联系方式\n\n邮箱：503519050@qq.com  \n   qq：503519050 \n";
 //        _textView.editable = NO;
     }
     return _textView;

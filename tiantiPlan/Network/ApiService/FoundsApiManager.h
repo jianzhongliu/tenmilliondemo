@@ -12,7 +12,9 @@
 @interface FoundsApiManager : BaseApi
 
 /**获取首页列表*/
-+ (void)requestAllFoundsInfoModel:(responseModel ) responseBlock;
++ (void)requestAllFoundsType:(NSString *)type AtIndex:(NSString *) index InfoModel:(responseModel ) responseBlock;
+/**按类别获取商品*/
++ (void)requestFoundsWithCategory:(NSString *)category AtIndex:(NSString *) index InfoModel:(responseModel ) responseBlock;
 /**获取商品详情*/
 + (void)requestFoundsById:(NSString *)foundsId DetailInfoModel:(responseModel ) response;
 /**获取商品往期揭晓列表*/

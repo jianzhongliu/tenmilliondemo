@@ -7,6 +7,12 @@
 //
 
 #import "BaseViewController.h"
+typedef NS_ENUM(NSInteger, FOUNDSTYPE) {
+    FOUNDSTYPECAR = 1,
+    FOUNDSTYPEPHONE = 2,
+    FOUNDSTYPEWATCH = 3,
+    FOUNDSTYPEGIRL = 4
+};
 
 @interface HomeViewController : BaseViewController
 

@@ -13,6 +13,7 @@
 #import "UserBaseInfoModel.h"
 #import "UserCacheBean.h"
 #import "BaseViewCell.h"
+#import "MJRefresh.h"
 
 typedef NS_ENUM(NSInteger, LOGINSTATUS) {
     LOGINSTATUSSUCCESS = 1, //登录成功
