@@ -37,7 +37,7 @@
         _labelTitle.lineBreakMode = NSLineBreakByCharWrapping;
         _labelTitle.textAlignment = NSTextAlignmentLeft;
         _labelTitle.textColor = DSBlackColor;
-        _labelTitle.font = [UIFont systemFontOfSize:14];
+        _labelTitle.font = [UIFont boldSystemFontOfSize:16];
         _labelTitle.text = @"iPhone 6S 64 G 超大内存 王者风范";
     }
     return _labelTitle;
@@ -62,8 +62,8 @@
         _openTime.numberOfLines = 0;
         _openTime.lineBreakMode = NSLineBreakByCharWrapping;
         _openTime.textAlignment = NSTextAlignmentLeft;
-        _openTime.textColor = DSBlackColor;
-        _openTime.font = [UIFont systemFontOfSize:14];
+        _openTime.textColor = DSGrayColor9;
+        _openTime.font = [UIFont systemFontOfSize:12];
         _openTime.text = @"揭晓时间：2016-4-18 20：49";
     }
     return _openTime;
@@ -79,7 +79,7 @@
 
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
-    self.imageIcon.frame = CGRectMake(10, 10, 60, 60);
+    self.imageIcon.frame = CGRectMake(10, 10, 107, 60);
     self.labelTitle.frame = CGRectMake(self.imageIcon.ctRight + 8, 10, SCREENWIDTH - 90, 20);
     self.labelOwner.frame = CGRectMake(self.imageIcon.ctRight + 8, self.labelTitle.ctBottom, SCREENWIDTH - 90, 20);
     self.openTime.frame = CGRectMake(self.imageIcon.ctRight + 8, self.labelOwner.ctBottom, SCREENWIDTH - 90, 20);
@@ -92,14 +92,16 @@
 - (void)configCellWithData:(id) celldata{
     if ([celldata isKindOfClass:[UserBuyHistoryListModel class]]) {
         UserBuyHistoryListModel *buyModel = (UserBuyHistoryListModel *)celldata;
-        [self.imageIcon setImageWithURL:[NSURL URLWithString:buyModel.userIcon] placeholderImage:[UIImage imageNamed:@"noimage"]];
-        self.labelTitle.text = buyModel.name;
-        self.labelOwner.text = buyModel.ownerName;
+        NSArray *arrayImage = [buyModel.images componentsSeparatedByString:@"|"];
+        [self.imageIcon setImageWithURL:[NSURL URLWithString:arrayImage[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
+        self.labelTitle.text = [NSString stringWithFormat:@"%@ 第(%@)期",buyModel.name, buyModel.timeidentify];
+        NSArray *array = [buyModel.images componentsSeparatedByString:@","];
+        self.labelOwner.text = [NSString stringWithFormat:@"购买数量：%ld", array.count];
         NSDateFormatter *formater = [[NSDateFormatter alloc] init];
         [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)buyModel.time];
         NSString *dateString = [formater stringFromDate:date];
-        self.openTime.text = dateString;
+        self.openTime.text = [NSString stringWithFormat:@"购买时间：%@", dateString];
     }
     
 }

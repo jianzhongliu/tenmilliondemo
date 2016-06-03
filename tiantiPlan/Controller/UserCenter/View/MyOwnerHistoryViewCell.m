@@ -79,7 +79,7 @@
 
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
-    self.imageIcon.frame = CGRectMake(10, 10, 60, 60);
+    self.imageIcon.frame = CGRectMake(10, 10, 107, 60);
     self.labelTitle.frame = CGRectMake(self.imageIcon.ctRight + 8, 10, SCREENWIDTH - 90, 20);
     self.labelOwner.frame = CGRectMake(self.imageIcon.ctRight + 8, self.labelTitle.ctBottom, SCREENWIDTH - 90, 20);
     self.openTime.frame = CGRectMake(self.imageIcon.ctRight + 8, self.labelOwner.ctBottom, SCREENWIDTH - 90, 20);
@@ -94,7 +94,7 @@
         FoundsHistoryOwnerInfoModel *buyModel = (FoundsHistoryOwnerInfoModel *)celldata;
         NSArray *arrayImage = [buyModel.images componentsSeparatedByString:@"|"];
         [self.imageIcon setImageWithURL:[NSURL URLWithString:arrayImage[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
-        self.labelTitle.text = buyModel.name;
+        self.labelTitle.text = [NSString stringWithFormat:@"%@ 第(%@)期",buyModel.name, buyModel.timeidentify];
         self.labelOwner.text = [NSString stringWithFormat:@"参与次数：%@次", buyModel.ownerBuyNumber];
         NSDateFormatter *formater = [[NSDateFormatter alloc] init];
         [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];

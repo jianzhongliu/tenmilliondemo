@@ -20,7 +20,7 @@
              @"userIcon":@"userIcon",
              @"isOver":@"isOver",
              @"ownerName":@"ownerName",
-             @"timeidentify":@"timeidentify"
+             @"timeidentify":@"timeid"
              };
 }
 

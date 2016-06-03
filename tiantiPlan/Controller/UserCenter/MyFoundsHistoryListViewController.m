@@ -60,7 +60,7 @@
 
 #pragma mark - HTTPRequest
 - (void)requestData {
-    NSString *userId = @"10000";
+    NSString *userId = [UserCacheBean share].userInfo.userId;
     [FoundsApiManager requestUserHistoryFoundsByUserId:userId ResultListModel:^(id response) {
         if ([response isKindOfClass:[NSArray class]]) {
             [self.arrayBuyHistory removeAllObjects];
