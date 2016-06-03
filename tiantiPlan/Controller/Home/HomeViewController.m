@@ -54,6 +54,7 @@
         _viewSegement.backgroundColor = [UIColor whiteColor];
         _viewSegement.delegate = self;
         [_viewSegement setTitles:@[@"热门",@"人气",@"推荐",@"新品"] Frame:CGRectMake(0,0,SCREENWIDTH, 40)];
+        [_viewSegement setSelectedIndex:0];
     }
     return _viewSegement;
 }
@@ -67,7 +68,7 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = DSBackColor;
 //        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
-        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
+//        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
 
     }
     return _tableView;
@@ -172,7 +173,7 @@
     [self.view addSubview:self.tableView];
     self.tableView.frame = self.view.bounds;
     self.viewSegement.frame  =CGRectMake(0, 64, SCREENWIDTH, 40);
-    self.viewHeader.frame = CGRectMake(0, 0, SCREENWIDTH, 370);
+    self.viewHeader.frame = CGRectMake(0, 0, SCREENWIDTH, [self.viewHeader fetchViewHeight]);
     self.tableView.tableHeaderView = self.viewHeader;
     self.buttonCar.frame = CGRectMake(0, 0, 50, 50);
     self.labelNumber.frame = CGRectMake(30, 0, 20, 20);
@@ -183,7 +184,14 @@
 }
 
 - (void)onClickFoundsCar {
+    [self.navigationController popToRootViewControllerAnimated:NO];
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
+}
+
+- (void)reloadData {
+    [self.viewHeader configViewWithData:self.arrayMainEnter];
+    [self.viewHeader configAD:self.homeModel.arrayHot];
+    [self.tableView reloadData];
 }
 
 - (void)requestData {
@@ -191,8 +199,7 @@
         HomeModel *homeModel = [[HomeModel alloc] init];
         [homeModel configModelWithDic:response];
         self.homeModel = homeModel;
-        [self.viewHeader configViewWithData:self.arrayMainEnter];
-        [self.tableView reloadData];
+        [self reloadData];
         if (homeModel.arrayOver.count < [self.type integerValue] * 20) {
             _tableView.mj_footer = nil;
         } else {
@@ -221,7 +228,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 104;
+    return 114;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -255,6 +262,14 @@
     controller.hidesBottomBarWhenPushed = YES;
     controller.title = founds.name;
     controller.type = index + 1;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)homeHeaderViewCell:(HomeHeaderView *) cell didSelectADatIndex:(NSInteger) index {
+    FoundsModel *foundsModel = self.homeModel.arrayHot[index];
+    FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    controller.foundsId = foundsModel.identify;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

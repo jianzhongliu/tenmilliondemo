@@ -114,6 +114,7 @@
 }
 
 - (void)onClickFoundsCar {
+    [self.navigationController popToRootViewControllerAnimated:NO];
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }
 
@@ -172,7 +173,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 104;
+    return 114;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -180,9 +181,8 @@
     FoundsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[FoundsInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-        [cell showUnderLineAt:104];
+//        [cell showUnderLineAt:104];
         cell.delegate = self;
-        
     }
     [cell configCellWithData:self.arrayData[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

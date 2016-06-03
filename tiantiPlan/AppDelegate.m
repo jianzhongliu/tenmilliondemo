@@ -31,6 +31,14 @@
 
 @implementation AppDelegate
 
++ (instancetype)share {
+    static AppDelegate *appDelegate;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        appDelegate = [[UIApplication sharedApplication] delegate];
+    });
+    return appDelegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -59,6 +67,14 @@
     self.window.rootViewController = _mainTabController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)switchToTabBarItemIndex:(NSInteger ) index {
+    [self performSelector:@selector(tabbarIndex:) withObject:@(index) afterDelay:0.1];
+}
+
+- (void)tabbarIndex:(id) index {
+    _mainTabController.selectedViewController = [_mainTabController.viewControllers objectAtIndex:[index integerValue]];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {

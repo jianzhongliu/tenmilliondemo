@@ -61,7 +61,7 @@
              @"ownerid":@"ownerid",
              @"resulttime":@"resulttime",
              @"resultnumber":@"resultnumber",
-             @"timeidentify":@"timeidentify",
+             @"timeidentify":@"timeid",
              @"totaln":@"totaln",
              @"type":@"type"
              };

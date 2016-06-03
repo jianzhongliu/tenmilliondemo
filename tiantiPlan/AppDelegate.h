@@ -12,6 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (instancetype)share;
+
+- (void)switchToTabBarItemIndex:(NSInteger ) index;
 
 @end
 

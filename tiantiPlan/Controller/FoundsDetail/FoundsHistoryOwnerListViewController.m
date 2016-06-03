@@ -80,7 +80,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 95;
+    return 105;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -88,7 +88,7 @@
     FoundsHistoryOwnerListCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[FoundsHistoryOwnerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
-        [cell showUnderLineAt:95];
+        [cell showUnderLineAt:105];
     }
     [cell configCellWithData:self.arrayHistory[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

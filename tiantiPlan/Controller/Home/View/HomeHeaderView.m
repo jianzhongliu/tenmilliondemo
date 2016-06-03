@@ -11,6 +11,7 @@
 #import "HomeFirstViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "DSConfig.h"
+#import "FoundsModel.h"
 
 @interface HomeHeaderView () <JXBAdPageViewDelegate, HomeFirstViewCellDelegate>
 
@@ -52,17 +53,10 @@
 }
 
 - (void)initUI {
-    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, 150);
+    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, ImageHight);
     self.viewFirst.frame = CGRectMake(0, self.viewAD.ctBottom, SCREENWIDTH, 210);
     [self addSubview:self.viewAD];
     [self addSubview:self.viewFirst];
-    [self.viewAD startAdsWithBlock:@[@"www", @"www"] block:^(NSInteger clickIndex){
-        //        if (arrayData.count > clickIndex) {
-        //            if (_delegate && [_delegate respondsToSelector:@selector(didSelectedADitem:)]) {
-        //                [_delegate didSelectedADitem:data[clickIndex]];
-        //            }
-        //        }
-    }];
 }
 
 - (void)configViewWithData:(id) data {
@@ -71,8 +65,22 @@
     }
 }
 
+- (void)configAD:(NSArray *) array {
+    NSMutableArray *arrayAD = [NSMutableArray array];
+    for (FoundsModel *founds in array) {
+        NSArray *arrayImage = [founds.images componentsSeparatedByString:@"|"];
+        [arrayAD addObject:arrayImage[0]];
+    }
+    
+    [self.viewAD startAdsWithBlock:arrayAD block:^(NSInteger clickIndex){
+        if (_delegate && [_delegate respondsToSelector:@selector(homeHeaderViewCell:didSelectADatIndex:)]) {
+            [_delegate homeHeaderViewCell:self didSelectADatIndex:clickIndex];
+        }
+    }];
+}
+
 - (CGFloat)fetchViewHeight {
-    return 360;
+    return ImageHight + 225;
 }
 
 - (void)setWebImage:(UIImageView*)imgView imgUrl:(NSString*)imgUrl withIndex:(NSInteger ) index {

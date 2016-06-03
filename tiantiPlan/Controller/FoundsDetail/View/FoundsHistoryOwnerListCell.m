@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIView *viewBG;
 
 @property (nonatomic, strong) UILabel *labelOwner;
+@property (nonatomic, strong) UILabel *labelTimeId;
 
 @property (nonatomic, strong) UIButton *buttonResult;
 
@@ -101,7 +102,7 @@
 - (UIView *)viewBG {
     if (_viewBG == nil) {
         _viewBG = [[UIView alloc] init];
-        _viewBG.backgroundColor = DSRedColor;
+        _viewBG.backgroundColor = DSColorAlphaFromHex(0xe36062, 0.5);
     }
     return _viewBG;
 }
@@ -117,6 +118,19 @@
         _labelOwner.text = @"";
     }
     return _labelOwner;
+}
+
+- (UILabel *)labelTimeId {
+    if (_labelTimeId == nil) {
+        _labelTimeId = [[UILabel alloc] init];
+        _labelTimeId.numberOfLines = 0;
+        _labelTimeId.lineBreakMode = NSLineBreakByCharWrapping;
+        _labelTimeId.textAlignment = NSTextAlignmentRight;
+        _labelTimeId.textColor = [UIColor whiteColor];
+        _labelTimeId.font = [UIFont systemFontOfSize:14];
+        _labelTimeId.text = @"";
+    }
+    return _labelTimeId;
 }
 
 - (UIButton *)buttonResult {
@@ -152,11 +166,12 @@
     self.labelTime.frame = CGRectMake(self.imageIcon.ctRight + 6, self.labelNumber.ctBottom, SCREENWIDTH - 85, 20);
     self.imageStatus.frame = CGRectMake(SCREENWIDTH - 30, 0, 21, 53);
     
-    self.viewBG.frame = CGRectMake(0, self.imageIcon.ctBottom, SCREENWIDTH, 25);
+    self.viewBG.frame = CGRectMake(0, self.imageIcon.ctBottom + 10, SCREENWIDTH, 25);
     self.labelOwner.frame = CGRectMake(10, 0, SCREENWIDTH, 25);
+    self.labelTimeId.frame = CGRectMake(0, 0, SCREENWIDTH - 10, 25);
     self.buttonResult.frame = CGRectMake(SCREENWIDTH - 90, 10, 80, 30);
     [self.viewBG addSubview:self.labelOwner];
-    //    [self.viewBG addSubview:self.buttonResult];
+    [self.viewBG addSubview:self.labelTimeId];
     [self.contentView addSubview:self.imageIcon];
     [self.contentView addSubview:self.imageOwnerTag];
     [self.contentView addSubview:self.labelName];
@@ -185,6 +200,7 @@
         NSString *dateString = [formater stringFromDate:date];
         self.labelTime.text = [NSString stringWithFormat:@"揭晓时间：%@", dateString];
         self.labelOwner.text = [NSString stringWithFormat:@"幸运号码：%@",history.historyFoundsInfo.resultnumber];
+        self.labelTimeId.text = [NSString stringWithFormat:@"期号：%@", history.historyFoundsInfo.lastid];
     }
 }
 

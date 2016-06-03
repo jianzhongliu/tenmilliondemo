@@ -12,6 +12,7 @@
 @protocol HomeHeaderViewDelegate <NSObject>
 
 - (void)homeHeaderViewCell:(HomeHeaderView *) cell atIndex:(NSInteger) index;
+- (void)homeHeaderViewCell:(HomeHeaderView *) cell didSelectADatIndex:(NSInteger) index;
 
 @end
 
@@ -20,5 +21,8 @@
 @property (nonatomic, assign) id<HomeHeaderViewDelegate> delegate;
 
 - (void)configViewWithData:(id) data;
+
+- (void)configAD:(NSArray *) array;
+- (CGFloat)fetchViewHeight;
 
 @end

@@ -36,7 +36,7 @@
         _imageOffice = [[UIImageView alloc] init];
         _imageOffice.clipsToBounds = YES;
         _imageOffice.userInteractionEnabled = YES;
-        _imageOffice.backgroundColor = DSColor;
+        _imageOffice.backgroundColor = [UIColor whiteColor];
     }
     return _imageOffice;
 }
@@ -82,7 +82,8 @@
         _buttonAdd = [UIButton buttonWithType:UIButtonTypeCustom];
         [_buttonAdd addTarget:self action:@selector(onClickButtonAction) forControlEvents:UIControlEventTouchUpInside];
         _buttonAdd.selected = NO;
-        [_buttonAdd setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+        [_buttonAdd setImage:[UIImage imageNamed:@"icon_car"] forState:UIControlStateNormal];
+        [_buttonAdd setImage:[UIImage imageNamed:@"icon_car_seleted"] forState:UIControlStateHighlighted];
         [_buttonAdd setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _buttonAdd.titleLabel.font = [UIFont systemFontOfSize:14];
         _buttonAdd.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -100,12 +101,12 @@
 
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
-    self.imageOffice.frame = CGRectMake(15, 15, 109, 73);
+    self.imageOffice.frame = CGRectMake(15, 15, 148, 83);
     self.labelBuildingName.frame = CGRectMake(self.imageOffice.ctRight + 10, 12, SCREENWIDTH-150, 22);
     self.viewProgress.frame = CGRectMake(self.imageOffice.ctRight + 10, self.labelBuildingName.ctBottom + 12 , 90, 10);
     self.labelLackNumber.frame = CGRectMake(self.imageOffice.ctRight + 10, self.viewProgress.ctBottom+12, 200, 18);
 
-    self.viewLine.frame = CGRectMake(15, self.imageOffice.ctBottom + 15, SCREENWIDTH - 30, 1);
+    self.viewLine.frame = CGRectMake(15, self.imageOffice.ctBottom + 15.5, SCREENWIDTH - 30, 0.5);
     self.buttonAdd.frame = CGRectMake(SCREENWIDTH - 60, (104 - 40)/2, 40, 40);
     [self.contentView addSubview:self.viewLine];
     [self.contentView addSubview:self.imageOffice];

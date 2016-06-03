@@ -93,6 +93,8 @@
 #define SendPropertyToday @"SendPropertyToday"//存储自动给顾问发送的房源
 #define LocalFoundsCar  @"LocalFoundsCar"//本地购物车数据
 
+#define ImageHight SCREENWIDTH * 9.0f/16.0f
+
 /**通知**/
 #define DidReceiveNewMessage @"DidReceiveNewMessage"//收到新消息通知
 #endif /* DSConfig_h */
