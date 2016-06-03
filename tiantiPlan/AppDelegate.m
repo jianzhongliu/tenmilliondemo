@@ -31,17 +31,14 @@
 
 @implementation AppDelegate
 
+static AppDelegate *appDelegate;
+
 + (instancetype)share {
-    static AppDelegate *appDelegate;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        appDelegate = [[UIApplication sharedApplication] delegate];
-    });
     return appDelegate;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    appDelegate = self;
     [Bmob registerWithAppKey:@"9420c531761d609e1bb635b02713ece5"];
     
     //设置友盟社会化组件appkey

@@ -16,7 +16,7 @@
 #define DEBUG_slaz
 
 #ifdef DEBUG_slaz
-#define DPHOST @"http://liujianongdembp.lan:8080/yungou/REST/"
+#define DPHOST @"http://192.168.0.102:8080/yungou/REST/"
 //#define HOST @"http://182.92.158.7/Love/REST/"
 
 //#define DPHOST @"http://liujianongdembp:8080/yungou/REST/"
@@ -66,7 +66,7 @@
 #define DSColorFromHex(rgb)     [UIColor colorWithRed:((float)((rgb & 0xFF0000) >> 16))/255.0 green:((float)((rgb & 0xFF00) >> 8))/255.0 blue:((float)(rgb & 0xFF))/255.0 alpha:1.0]
 #define DSColorAlphaFromHex(rgb,a)     [UIColor colorWithRed:((float)((rgb & 0xFF0000) >> 16))/255.0 green:((float)((rgb & 0xFF00) >> 8))/255.0 blue:((float)(rgb & 0xFF))/255.0 alpha:a]
 /**设置主题色*/
-#define DSColor DSColorFromHex(0x0D94E5) //蓝色风格主题色调00ad88
+#define DSColor DSColorFromHex(0xEC633C) //蓝色风格主题色调00ad88
 #define DSNavi DSColorFromHex(0xEC633C) //navigation的颜色
 #define DSRedColor DSColorFromHex(0xe36062)//红色风格主题色调
 #define DSGrayColor DSColorFromHex(0x99999c)//灰色字体

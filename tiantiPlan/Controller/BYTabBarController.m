@@ -60,11 +60,14 @@
     [[BYTabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DSColorFromHex(0x9999999), NSForegroundColorAttributeName, [UIFont systemFontOfSize:10], NSFontAttributeName, nil] forState:UIControlStateNormal];
     self.tabBar.tintColor = DSColor;
     homeItem = [[BYTabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"icon_home_home"] selectedImage:[UIImage imageNamed:@"icon_home_home_selected"]];
-    
+    homeItem.image = [[UIImage imageNamed:@"icon_home_home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     messageItem = [[BYTabBarItem alloc]initWithTitle:@"购物车" image:[UIImage imageNamed:@"icon_home_message"] selectedImage:[UIImage imageNamed:@"icon_home_message_selected"]];
-    
+    messageItem.image = [[UIImage imageNamed:@"icon_home_message"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     myItem = [[BYTabBarItem alloc]initWithTitle:@"我的" image:[UIImage imageNamed:@"icon_home_me"] selectedImage:[UIImage imageNamed:@"icon_home_me_selected"]];
-    
+    myItem.image = [[UIImage imageNamed:@"icon_home_me"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     //home tab
     HomeViewController *homeController = [[HomeViewController alloc] init];
     UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeController];

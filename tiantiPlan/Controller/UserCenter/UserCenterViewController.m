@@ -84,6 +84,7 @@
 
 - (void)didRightClick {
     SettingViewController *controller = [[SettingViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -132,6 +133,7 @@
         {
             [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
                 MyFoundsHistoryListViewController *controller = [[MyFoundsHistoryListViewController alloc] init];
+                controller.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:controller animated:YES];
             }];
         }
@@ -140,6 +142,7 @@
         {
             [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
                 MyOwnerHistoryViewController *controller = [[MyOwnerHistoryViewController alloc] init];
+                controller.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:controller animated:YES];
             }];
         }
@@ -148,6 +151,7 @@
         {
             [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
                 AddressManagerViewController *controller = [[AddressManagerViewController alloc] init];
+                controller.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:controller animated:YES];
             }];
         }
@@ -156,6 +160,7 @@
         {
             [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
                 MoneyHistoryViewController *controller = [[MoneyHistoryViewController alloc] init];
+                controller.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:controller animated:YES];
             }];
         }

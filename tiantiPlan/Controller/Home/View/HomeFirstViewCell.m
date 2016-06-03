@@ -84,7 +84,7 @@
         for (NSInteger index = 0; index < 4 && arrayData.count >=4; index ++) {
             FoundsCardCell *cell = [[FoundsCardCell alloc] init];
             cell.frame = CGRectMake(index % 2 * SCREENWIDTH/2 - 0.5, index/2 * 90 + 30, SCREENWIDTH/2 + 1, 90+1);
-            cell.layer.borderColor = DSRedColor.CGColor;
+            cell.layer.borderColor = DSLineSepratorColor.CGColor;
             cell.layer.borderWidth = 1;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapFounds:)];
             [tap setObjectDSValue:@(index + 100)];
