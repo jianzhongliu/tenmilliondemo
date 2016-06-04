@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) JXBAdPageView *viewAD;
 @property (nonatomic, strong) HomeFirstViewCell *viewFirst;
+@property (nonatomic, strong) NSArray *arrayImage;
 
 @end
 
@@ -54,7 +55,7 @@
 
 - (void)initUI {
     self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, ImageHight);
-    self.viewFirst.frame = CGRectMake(0, self.viewAD.ctBottom, SCREENWIDTH, 210);
+    self.viewFirst.frame = CGRectMake(0, self.viewAD.ctBottom + 10, SCREENWIDTH, 210);
     [self addSubview:self.viewAD];
     [self addSubview:self.viewFirst];
 }
@@ -71,7 +72,7 @@
         NSArray *arrayImage = [founds.images componentsSeparatedByString:@"|"];
         [arrayAD addObject:arrayImage[0]];
     }
-    
+    self.arrayImage = arrayAD;
     [self.viewAD startAdsWithBlock:arrayAD block:^(NSInteger clickIndex){
         if (_delegate && [_delegate respondsToSelector:@selector(homeHeaderViewCell:didSelectADatIndex:)]) {
             [_delegate homeHeaderViewCell:self didSelectADatIndex:clickIndex];
@@ -80,14 +81,14 @@
 }
 
 - (CGFloat)fetchViewHeight {
-    return ImageHight + 225;
+    return ImageHight + 235;
 }
 
 - (void)setWebImage:(UIImageView*)imgView imgUrl:(NSString*)imgUrl withIndex:(NSInteger ) index {
-    if (self == nil) {
+    if (self == nil || self.arrayImage.count < index) {
         return;
     }
-    NSURL *url = [NSURL URLWithString:@"http://img.1yyg.com/Poster/20140918182340689.jpg"];
+    NSURL *url = [NSURL URLWithString:self.arrayImage[index]];
     [imgView sd_setImageWithURL:url];
 }
 

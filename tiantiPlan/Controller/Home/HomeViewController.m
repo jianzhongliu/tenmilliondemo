@@ -153,7 +153,7 @@
     
     FoundsModel *founds3 = [[FoundsModel alloc] init];
     founds3.images = @"icon_type_3";
-    founds3.name = @"手表专区";
+    founds3.name = @"电子产品";
     founds3.type = @"一元变高富帅";
     
     FoundsModel *founds4 = [[FoundsModel alloc] init];

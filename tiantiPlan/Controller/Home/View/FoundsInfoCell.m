@@ -44,11 +44,11 @@
 - (UILabel *)labelBuildingName {
     if (_labelBuildingName == nil) {
         _labelBuildingName = [[UILabel alloc] init];
-        //        _labelBuildingName.numberOfLines = 0;
-        //        _labelBuildingName.lineBreakMode = NSLineBreakByCharWrapping;
+        _labelBuildingName.numberOfLines = 0;
+        _labelBuildingName.lineBreakMode = NSLineBreakByCharWrapping;
         _labelBuildingName.textAlignment = NSTextAlignmentLeft;
         _labelBuildingName.textColor = DSGrayColor3;
-        _labelBuildingName.font = [UIFont boldSystemFontOfSize:17];
+        _labelBuildingName.font = [UIFont boldSystemFontOfSize:15];
         _labelBuildingName.text = @"";
     }
     return _labelBuildingName;
@@ -102,9 +102,9 @@
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
     self.imageOffice.frame = CGRectMake(15, 15, 148, 83);
-    self.labelBuildingName.frame = CGRectMake(self.imageOffice.ctRight + 10, 12, SCREENWIDTH-150, 22);
+    self.labelBuildingName.frame = CGRectMake(self.imageOffice.ctRight + 10, 12, SCREENWIDTH-180, 22);
     self.viewProgress.frame = CGRectMake(self.imageOffice.ctRight + 10, self.labelBuildingName.ctBottom + 12 , 90, 10);
-    self.labelLackNumber.frame = CGRectMake(self.imageOffice.ctRight + 10, self.viewProgress.ctBottom+12, 200, 18);
+    self.labelLackNumber.frame = CGRectMake(self.imageOffice.ctRight + 10, self.imageOffice.ctBottom - 18, 200, 18);
 
     self.viewLine.frame = CGRectMake(15, self.imageOffice.ctBottom + 15.5, SCREENWIDTH - 30, 0.5);
     self.buttonAdd.frame = CGRectMake(SCREENWIDTH - 60, (104 - 40)/2, 40, 40);
@@ -126,7 +126,15 @@
 - (void)configCellWithData:(FoundsModel *) foundsModel{
     self.foundsData = foundsModel;
     self.labelBuildingName.text = foundsModel.name;
-
+    CGSize  size = [self.labelBuildingName.text sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:15]}];
+    if (size.width > SCREENWIDTH-180) {
+        self.labelBuildingName.ctHeight = 36;
+        self.viewProgress.ctTop = self.labelBuildingName.ctBottom +12;
+    } else {
+        self.labelBuildingName.ctHeight = 22;
+        self.viewProgress.ctTop = self.labelBuildingName.ctBottom + 12;
+    }
+    
     NSArray *arrayImage = [foundsModel.images componentsSeparatedByString:@"|"];
     if (arrayImage.count > 1) {
         [self.imageOffice setImageWithURL:[NSURL URLWithString:arrayImage[0]] placeholderImage:[UIImage imageNamed:@"icon_building_list"]];
