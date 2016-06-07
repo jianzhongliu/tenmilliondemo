@@ -114,9 +114,9 @@
     }
     self.labelTotal.text = [NSString stringWithFormat:@"总计：%ld", self.totalAmount];
     if (self.totalAmount > 0) {
-        self.buttonPay.enabled = YES;
+        self.buttonPay.hidden = NO;
     } else {
-        self.buttonPay.enabled = NO;
+        self.buttonPay.hidden = YES;
     }
     [self.arrayData addObjectsFromArray:array];
     [self.tableView reloadData];
@@ -132,8 +132,8 @@
     self.buttonPay.frame = CGRectMake(SCREENWIDTH - 100, 10, 80, 30);
     self.viewLine.frame = CGRectMake(0, 0, SCREENWIDTH, 1);
     [self.view addSubview:self.viewBanner];
-    [self.viewBanner addSubview:self.labelTotal];
-    [self.viewBanner addSubview:self.buttonPay];
+//    [self.viewBanner addSubview:self.labelTotal];
+//    [self.viewBanner addSubview:self.buttonPay];
     [self.viewBanner addSubview:self.viewLine];
 }
 
@@ -144,8 +144,8 @@
         for (FoundsModel *foundsDetail in array) {
             [[FoundsCarManager share] deleteLocalCar:foundsDetail.identify];
             [FoundsApiManager requestHistoryFoundsById:foundsDetail.identify userId:[UserCacheBean share].userInfo.userId buyNumber:foundsDetail.localNumner ResultListModel:^(id response) {
-                
                 [self hiddenLoading];
+                [self showToastInfo:@"支付成功"];
             }];
         }
         [self reloadData];

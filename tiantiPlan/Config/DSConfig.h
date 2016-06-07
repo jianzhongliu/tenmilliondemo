@@ -13,7 +13,7 @@
 #define DPSIGNATURE @"psmtoiyrpyqofhfo7atdofdby4eqc02p"//加密key
 #define API_PhotoUpload @"http://upd1.ajkimg.com/upload"
 
-#define DEBUG_slaz
+//#define DEBUG_slaz
 
 #ifdef DEBUG_slaz
 #define DPHOST @"http://192.168.0.102:8080/yungou/REST/"
