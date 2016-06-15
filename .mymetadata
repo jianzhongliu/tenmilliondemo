@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="yungou"
+  id="myeclipse.1438246544850"
+  context-root="/yungou"
+  j2ee-spec="6.0"
+  archive="yungou.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
