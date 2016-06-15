@@ -1397,8 +1397,8 @@
 			baseConfigurationReference = 3A67ABE99B7A76334128E7FA /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1419,7 +1419,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43cf1f9f-1639-4de4-b1b7-27e0815c8589";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1428,8 +1428,8 @@
 			baseConfigurationReference = 71403779568D52B4625CE6D4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: liu jianzhong (4DW89V8URU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1450,7 +1450,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "43cf1f9f-1639-4de4-b1b7-27e0815c8589";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

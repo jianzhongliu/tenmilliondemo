@@ -25,4 +25,5 @@
 + (void)requestUserHistoryFoundsByUserId:(NSString *) userID ResultListModel:(responseModel ) response;
 /**中奖历史*/
 + (void)requestUserOwnerHistoryFoundsByUserId:(NSString *) userID ResultListModel:(responseModel ) response;
++ (void)requestUtilResultListModel:(responseModel ) responseModel;
 @end

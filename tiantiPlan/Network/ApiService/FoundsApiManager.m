@@ -177,4 +177,17 @@
     }];
 }
 
++ (void)requestUtilResultListModel:(responseModel ) responseModel {
+    NSString *url = [NSString stringWithFormat:@"util/startThread"];
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
+            if (responseModel) {
+                responseModel(response);
+            }
+    } faildCallBack:^(DSURLResponse *response) {
+        if (responseModel) {
+            responseModel(nil);
+        }
+    }];
+}
+
 @end

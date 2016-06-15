@@ -13,6 +13,7 @@
 #import "AddressManagerViewController.h"
 #import "UserCenterHeaderView.h"
 #import "CommonViewCell.h"
+#import "FoundsApiManager.h"
 #import "UserInfoViewController.h"
 #import "MoneyHistoryViewController.h"
 #import <objc/runtime.h>
@@ -80,7 +81,12 @@
     [self.view addSubview:self.tableView];
     
     [self setRightButtonWithIcon:[UIImage imageNamed:@"ic_setting"]];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickUtil)];
+    tap.numberOfTapsRequired = 3;
+    [self.view addGestureRecognizer:tap];
 }
+
 
 - (void)didRightClick {
     SettingViewController *controller = [[SettingViewController alloc] init];
@@ -98,6 +104,12 @@
     [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
         UserInfoViewController *controller = [[UserInfoViewController alloc] init];
         [self.navigationController pushViewController:controller animated:YES];
+    }];
+}
+
+- (void)didClickUtil {
+    [FoundsApiManager requestUtilResultListModel:^(id response) {
+        
     }];
 }
 
