@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -29,6 +31,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import sample.RecordImpl;
+
 import com.by.dao.FoundsManager;
 import com.by.dao.OrderCenterManager;
 import com.by.dao.UserCenterManager;
@@ -36,6 +40,7 @@ import com.by.model.Founds;
 import com.by.model.Historyowner;
 import com.by.model.Recode;
 import com.by.model.User;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class MyTimerTask extends TimerTask {
 
@@ -141,8 +146,10 @@ public synchronized static List<String> getEmailFromResultFile(String filepath) 
 }
 
 public static void payFoundsSystem(String foundsId,String userId) {
-	String buyNumber = "5";
-	String date = "" + System.currentTimeMillis(); 
+	String buyNumber = "" + new Random().nextInt(10);
+	String date = "" + new Date().getTime();
+    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:sss");  
+    date = sdf.format(new Date().getTime());
 	FoundsManager foundsmanager = new FoundsManager();
 	Founds founds = foundsmanager.getFoundsById(foundsId).get(0);
 	OrderCenterManager orderCenter = new OrderCenterManager();
@@ -154,62 +161,64 @@ public static void payFoundsSystem(String foundsId,String userId) {
 		 numberString = numberString + newNumber + ",";
 	}
 
-	orderCenter.insertUserObject(foundsId, userId, numberString,buyNumber,founds.getTimeid(), "1");
+	orderCenter.insertUserObject(foundsId, userId, numberString,buyNumber,founds.getTimeid(), "1",date);
 	/**更新商品当前进度*/
 	int foundsNown = Integer.valueOf(founds.getNown()) + Integer.valueOf(buyNumber);
 	founds.setNown(""+foundsNown);
-	foundsmanager.updateFoundsWithObject(founds);
 	/**判断是否结束，若结束，则进入活动结束的处理*/
 	if (Integer.parseInt(founds.getTotaln()) <= foundsNown) {
 		// new owner created
-		int Num=new Random().nextInt(Integer.parseInt(founds.getNown()))+1 + 10000000;
-		for (int i = 0; i < 1000000; i++) {
-			Num=new Random().nextInt(Integer.parseInt(founds.getNown()))+1 + 10000000;
-			ArrayList<Recode> recordes = orderCenter.createNewOwner(foundsId, ""+Num, founds.getTimeid());
-			if (recordes.size() > 0) {
-				Recode recode = recordes.get(0);
-				String ownerId = recode.getUserid();//result owner id
-				UserCenterManager userCenter = new UserCenterManager();
-				ArrayList<User> usersList = userCenter.getUserInfoByUserId(ownerId);
-				if (usersList.size() > 0) {
-					User user = usersList.get(0);
-					if (user.getType() == "1") {
-						break;
-					}
-				}
-			}
-			if (i>10) {
-				break;
+		User user = new User();
+		Recode recordResult = new Recode();//抽中的record
+		ArrayList<Recode> recordes = orderCenter.createNewOwner(foundsId, "0", founds.getTimeid());
+		String recordStringTotal = "";
+		for (int i = 0; i < recordes.size(); i++) {
+			Recode recordItem = recordes.get(i);
+			recordStringTotal = recordStringTotal + recordItem.getNumber();
+		}
+		String[] arrayRecordItem = recordStringTotal.split(",");
+		int Num=new Random().nextInt(arrayRecordItem.length)+1 + 10000000;
+		
+		for (int i = 0; i < recordes.size(); i++) {
+			Recode recordItem = recordes.get(i);
+			if (recordItem.getNumber().indexOf(""+Num) > 0) {
+				recordResult = recordItem;
 			}
 		}
-		/**check record info*/
-		String ownerId="";
-		ArrayList<Recode> recordes = orderCenter.createNewOwner(foundsId, ""+Num, founds.getTimeid());
-		if (recordes.size() > 0) {
-			Recode recode = recordes.get(0);
-			ownerId = recode.getUserid();//result owner id
+		UserCenterManager userCenter = new UserCenterManager();
+		ArrayList<User> usersList = userCenter.getUserInfoByUserId(recordResult.getUserid());
+		if (usersList.size() > 0) {
+			user = usersList.get(0);
 		}
 
 		/**owner buy this founds history list*/
 		ArrayList<Recode> recordList = orderCenter.caculateOwnerBuyNumber(foundsId, userId, founds.getTimeid());
-
+		int buyNumberRecordTotal = 0;
+		if (recordList.size() > 0) {
+			for (int i = 0; i < recordList.size(); i++) {
+				Recode recordItems = recordList.get(i);
+				buyNumberRecordTotal = buyNumberRecordTotal + Integer.valueOf(recordItems.getBuyNumber());
+			}
+		}
 		//new history founds
 		Historyowner historyModel = new Historyowner();
 		historyModel.setIdentify(date);
 		historyModel.setFoundsId(founds.getIdentify());
 		historyModel.setName(founds.getName());
-		historyModel.setOwnerBuyNumber(""+recordList.size());
+		historyModel.setOwnerBuyNumber(""+buyNumberRecordTotal);
 		historyModel.setImages(founds.getImages());
 		historyModel.setTotaln(founds.getTotaln());
 		historyModel.setNown(founds.getNown());
 		historyModel.setIsover("1");
-		historyModel.setOwnerid(ownerId);
+		historyModel.setOwnerid(user.getIdentify());
 		historyModel.setOvertime(date);
 		historyModel.setResulttime(date);
 		historyModel.setLastid(founds.getLastid());
 		historyModel.setType(founds.getType());
 		historyModel.setResultnumber(""+Num);
 		historyModel.setTimeid(founds.getTimeid());
+		historyModel.setUsericon(user.getIcon());
+		historyModel.setUsername(user.getName());
 		foundsmanager.insertHistoryOwnerObject(historyModel);
 		
 		/**new founds nown begin from 0 to 1000*/
@@ -219,10 +228,9 @@ public static void payFoundsSystem(String foundsId,String userId) {
 		int newTimeId = Integer.parseInt(founds.getTimeid()) + 1;
 		founds.setTimeid(""+newTimeId);
 		founds.setResultnumber(""+Num);
-		foundsmanager.updateFoundsWithObject(founds);			
 	}
+	foundsmanager.updateFoundsWithObject(founds);
 }
-
 
 }
 

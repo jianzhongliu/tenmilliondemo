@@ -19,6 +19,8 @@ public class Historyowner {
 	private String type;
 	private String resultnumber;
 	private String timeid;
+	private String usericon;
+	private String username;
 	
 	public String getIdentify() {
 		return identify;
@@ -111,6 +113,19 @@ public class Historyowner {
 	}
 	public void setTimeid(String timeid) {
 		this.timeid = timeid;
+	}
+	
+	public String getUsericon() {
+		return usericon;
+	}
+	public void setUsericon(String usericon) {
+		this.usericon = usericon;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	@Override
 	public String toString() {

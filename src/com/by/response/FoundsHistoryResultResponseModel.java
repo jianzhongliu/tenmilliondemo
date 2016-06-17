@@ -11,7 +11,7 @@ public class FoundsHistoryResultResponseModel {
 	private String status;
 	private StringBuffer errorMSG;
 	private int errorCode;//错误码
-	private ArrayList<HistoryownerListModel> historyResult;
+	private  ArrayList<Historyowner>  historyOwnerFounds;
 
 	public String getStatus() {
 		return status;
@@ -38,12 +38,13 @@ public class FoundsHistoryResultResponseModel {
 	}
 
 
-	public ArrayList<HistoryownerListModel> getHistoryResult() {
-		return historyResult;
+
+	public ArrayList<Historyowner> getHistoryOwnerFounds() {
+		return historyOwnerFounds;
 	}
 
-	public void setHistoryResult(ArrayList<HistoryownerListModel> historyResult) {
-		this.historyResult = historyResult;
+	public void setHistoryOwnerFounds(ArrayList<Historyowner> historyOwnerFounds) {
+		this.historyOwnerFounds = historyOwnerFounds;
 	}
 
 	@Override

@@ -270,6 +270,8 @@ public class FoundsManager extends ConnectionFactory {
 				founds.setType(rs.getString("type"));
 				founds.setResultnumber(rs.getString("resultnumber"));
 				founds.setTimeid(rs.getString("timeid"));
+				founds.setUsericon(rs.getString("usericon"));
+				founds.setUsername(rs.getString("username"));
 				foundsList.add(founds);
 			}		
 		} catch (Exception e) {
@@ -310,6 +312,8 @@ public class FoundsManager extends ConnectionFactory {
 				founds.setType(rs.getString("type"));
 				founds.setResultnumber(rs.getString("resultnumber"));
 				founds.setTimeid(rs.getString("timeid"));
+				founds.setUsericon(rs.getString("usericon"));
+				founds.setUsername(rs.getString("username"));
 				foundsList.add(founds);
 			}		
 		} catch (Exception e) {
@@ -350,6 +354,8 @@ public class FoundsManager extends ConnectionFactory {
 				founds.setType(rs.getString("type"));
 				founds.setResultnumber(rs.getString("resultnumber"));
 				founds.setTimeid(rs.getString("timeid"));
+				founds.setUsericon(rs.getString("usericon"));
+				founds.setUsername(rs.getString("username"));
 				foundsList.add(founds);
 			}		
 		} catch (Exception e) {
@@ -368,7 +374,7 @@ public class FoundsManager extends ConnectionFactory {
 		ArrayList<User> foundsList = null;
 		connect = createConnect();
 		foundsList = new ArrayList<User>();
-		String sql = "select * from user where identify ="+identity;
+		String sql = "select * from user where identify = '"+identity+"'";
 		System.out.println(sql);
 		try {
 			pstmt = connect.prepareStatement(sql);
@@ -394,14 +400,14 @@ public class FoundsManager extends ConnectionFactory {
 	}
 	
 /**通过商品id查询该商品所有历史中奖结果*/
-	public ArrayList<Historyowner> getHistoryResultByFoundsId (String identity){
+	public ArrayList<Historyowner> getHistoryResultByFoundsId (String identity,int index,int limit){
 		Connection connect = null;
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		ArrayList<Historyowner> foundsList = null;
 		connect = createConnect();
 		foundsList = new ArrayList<Historyowner>();
-		String sql = "select * from historyowner where foundsId ="+identity;
+		String sql = "select * from historyowner where foundsId ="+identity + " order by resulttime desc  limit "+(index+-1)*limit+","+limit+"";
 		System.out.println(sql);
 		try {
 			pstmt = connect.prepareStatement(sql);
@@ -423,6 +429,8 @@ public class FoundsManager extends ConnectionFactory {
 				founds.setType(rs.getString("type"));
 				founds.setResultnumber(rs.getString("resultnumber"));
 				founds.setTimeid(rs.getString("timeid"));
+				founds.setUsericon(rs.getString("usericon"));
+				founds.setUsername(rs.getString("username"));
 				foundsList.add(founds);
 			}		
 		} catch (Exception e) {
@@ -438,7 +446,7 @@ public class FoundsManager extends ConnectionFactory {
 		Connection connect = null;
 		
 		String sql = "INSERT INTO historyowner(identify,foundsId,name,ownerBuyNumber,images,totaln,nown,isover,ownerid,overtime,resulttime," +
-				"lastid,type,resultnumber,timeid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				"lastid,type,resultnumber,timeid,usericon,username) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt = null;
 		System.out.print(sql);
 		connect = createConnect();
@@ -460,6 +468,8 @@ public class FoundsManager extends ConnectionFactory {
 				pstmt.setString(13, historyOwner.getType());
 				pstmt.setString(14, historyOwner.getResultnumber());
 				pstmt.setString(15, historyOwner.getTimeid());
+				pstmt.setString(16, historyOwner.getUsericon());
+				pstmt.setString(17, historyOwner.getUsername());
 				pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.print(e);

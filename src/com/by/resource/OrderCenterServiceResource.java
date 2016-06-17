@@ -2,6 +2,7 @@ package com.by.resource;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -47,6 +48,8 @@ public class OrderCenterServiceResource {
 		String sign = info.getQueryParameters().getFirst("signature");
 		System.out.println("out======="+ sign+"=="+date+"==="+MD5Util.MD5(date + "psmtoiyrpyqofhfo7atdofdby4eqc02p"));
 		if (sign.equals(MD5Util.MD5(date + "psmtoiyrpyqofhfo7atdofdby4eqc02p"))){
+		    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:sss");  
+		    date = sdf.format(new Date().getTime());
 			StringBuffer errorMSG = new StringBuffer();
 			errorMSG.append("ok");
 			resp.setStatus("OK");
@@ -61,7 +64,7 @@ public class OrderCenterServiceResource {
 				 numberString = numberString + newNumber + ",";
 			}
 
-			orderCenter.insertUserObject(foundsId, userId, numberString,buyNumber,founds.getTimeid(), "1");
+			orderCenter.insertUserObject(foundsId, userId, numberString,buyNumber,founds.getTimeid(), "1",date);
 			/**更新商品当前进度*/
 			int foundsNown = Integer.valueOf(founds.getNown()) + Integer.valueOf(buyNumber);
 			founds.setNown(""+foundsNown);
@@ -69,43 +72,57 @@ public class OrderCenterServiceResource {
 			/**判断是否结束，若结束，则进入活动结束的处理*/
 			if (Integer.parseInt(founds.getTotaln()) <= foundsNown) {
 				// new owner created
-				int Num=new Random().nextInt(Integer.parseInt(founds.getNown()))+1 + 10000000;
-				for (int i = 0; i < 1000000; i++) {
-					Num=new Random().nextInt(Integer.parseInt(founds.getNown()))+1 + 10000000;
-					ArrayList<Recode> recordes = orderCenter.createNewOwner(foundsId, ""+Num, founds.getTimeid());
-					Recode recode = recordes.get(0);
-					String ownerId = recode.getUserid();//result owner id
-					UserCenterManager userCenter = new UserCenterManager();
-					ArrayList<User> usersList = userCenter.getUserInfoByUserId(ownerId);
-					User user = usersList.get(0);
-					if (user.getType() == "1") {
-						break;
+				User user = new User();
+				Recode recordResult = new Recode();//抽中的record
+				ArrayList<Recode> recordes = orderCenter.createNewOwner(foundsId, "0", founds.getTimeid());
+				String recordStringTotal = "";
+				for (int i = 0; i < recordes.size(); i++) {
+					Recode recordItem = recordes.get(i);
+					recordStringTotal = recordStringTotal + recordItem.getNumber();
+				}
+				String[] arrayRecordItem = recordStringTotal.split(",");
+				int Num=new Random().nextInt(arrayRecordItem.length)+1 + 10000000;
+				
+				for (int i = 0; i < recordes.size(); i++) {
+					Recode recordItem = recordes.get(i);
+					if (recordItem.getNumber().indexOf(""+Num) > 0) {
+						recordResult = recordItem;
 					}
 				}
-				/**check record info*/
-				ArrayList<Recode> recordes = orderCenter.createNewOwner(foundsId, ""+Num, founds.getTimeid());
-				Recode recode = recordes.get(0);
-				String ownerId = recode.getUserid();//result owner id
+				UserCenterManager userCenter = new UserCenterManager();
+				ArrayList<User> usersList = userCenter.getUserInfoByUserId(recordResult.getUserid());
+				if (usersList.size() > 0) {
+					user = usersList.get(0);
+				}
+
 				/**owner buy this founds history list*/
 				ArrayList<Recode> recordList = orderCenter.caculateOwnerBuyNumber(foundsId, userId, founds.getTimeid());
-
+				int buyNumberRecordTotal = 0;
+				if (recordList.size() > 0) {
+					for (int i = 0; i < recordList.size(); i++) {
+						Recode recordItems = recordList.get(i);
+						buyNumberRecordTotal = buyNumberRecordTotal + Integer.valueOf(recordItems.getBuyNumber());
+					}
+				}
 				//new history founds
 				Historyowner historyModel = new Historyowner();
 				historyModel.setIdentify(date);
 				historyModel.setFoundsId(founds.getIdentify());
 				historyModel.setName(founds.getName());
-				historyModel.setOwnerBuyNumber(""+recordList.size());
+				historyModel.setOwnerBuyNumber(""+buyNumberRecordTotal);
 				historyModel.setImages(founds.getImages());
 				historyModel.setTotaln(founds.getTotaln());
 				historyModel.setNown(founds.getNown());
 				historyModel.setIsover("1");
-				historyModel.setOwnerid(ownerId);
+				historyModel.setOwnerid(user.getIdentify());
 				historyModel.setOvertime(date);
 				historyModel.setResulttime(date);
 				historyModel.setLastid(founds.getLastid());
 				historyModel.setType(founds.getType());
 				historyModel.setResultnumber(""+Num);
 				historyModel.setTimeid(founds.getTimeid());
+				historyModel.setUsericon(user.getIcon());
+				historyModel.setUsername(user.getName());
 				foundsmanager.insertHistoryOwnerObject(historyModel);
 				
 				/**new founds nown begin from 0 to 1000*/
@@ -115,8 +132,8 @@ public class OrderCenterServiceResource {
 				int newTimeId = Integer.parseInt(founds.getTimeid()) + 1;
 				founds.setTimeid(""+newTimeId);
 				founds.setResultnumber(""+Num);
-				foundsmanager.updateFoundsWithObject(founds);			
 			}
+			foundsmanager.updateFoundsWithObject(founds);
 			resp.setErrorCode(0);
 			resp.setErrorMSG(errorMSG);
 			return resp;

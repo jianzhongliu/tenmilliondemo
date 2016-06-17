@@ -2,7 +2,9 @@ package com.by.resource;
 
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -36,6 +38,8 @@ public class UserInfoServiceResource {
 		String sign = info.getQueryParameters().getFirst("signature");
 		System.out.println("out======="+ sign+"=="+date+"==="+MD5Util.MD5(date + "psmtoiyrpyqofhfo7atdofdby4eqc02p"));
 		if (sign.equals(MD5Util.MD5(date + "psmtoiyrpyqofhfo7atdofdby4eqc02p"))){
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:sss");  
+		    date = sdf.format(new Date().getTime());
 			StringBuffer errorMSG = new StringBuffer();
 			errorMSG.append("ok");
 			String   userNameString = java.net.URLDecoder.decode(userName,"utf-8");

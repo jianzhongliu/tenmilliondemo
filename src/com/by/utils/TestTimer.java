@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,9 +44,20 @@ public class TestTimer extends ConnectionFactory {
 	 */
 public static void main(String[] args) throws IOException {
 //	TestTimer.startSendMailSina();
-	System.out.println(System.getProperty("user.dir")); 
 	
-	TestTimer.startTimer();
+	Date nowTime = new Date(System.currentTimeMillis());
+	SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd ");
+	String retStrFormatNowDate = sdFormatter.format(nowTime);
+	  
+	String date = "" + new Date().getTime();
+
+//	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//    System.out.println(sdf.format("1466055015643"));
+    String beginDate="1466055015643";  
+    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:sss");  
+    String sd = sdf.format(new Date().getTime());  
+    System.out.println(sd);
+//	TestTimer.startTimer();
 //	while(true){
 //		TestTimer.startSendMailSina();
 //		try {

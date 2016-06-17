@@ -16,10 +16,10 @@ public class OrderCenterManager extends ConnectionFactory {
 		orderCenter.createNewOwner("392840234805", "10000056", "20160515001");
 	}
 	/**添加一条购买信息*/
-	public void insertUserObject(String foundsid, String userid,String number,String buyNumber,String timeid, String type) {
+	public void insertUserObject(String foundsid, String userid,String number,String buyNumber,String timeid, String type,String date) {
 		Connection connect = null;
-		Date date = new Date();
-		String identitfy = "" + date.getTime();
+		Date nowdate = new Date();
+		String identitfy = "" + nowdate.getTime();
 		String sql = "INSERT INTO record(identify,foundsid,userid,number,time,type,buyNumber,timeid) VALUES (?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt = null;
 		System.out.print(sql);
@@ -31,7 +31,7 @@ public class OrderCenterManager extends ConnectionFactory {
 				pstmt.setString(2, foundsid);
 				pstmt.setString(3, userid);
 				pstmt.setString(4, number);
-				pstmt.setString(5, identitfy);
+				pstmt.setString(5, date);
 				pstmt.setString(6, type);
 				pstmt.setString(7, buyNumber);
 				pstmt.setString(8, timeid);
@@ -45,14 +45,15 @@ public class OrderCenterManager extends ConnectionFactory {
 		}
 	}
 
-	public ArrayList<Recode> createNewOwner (String foundsId, String number,String timeId){
+	public ArrayList<Recode> createNewOwner (String foundsId, String number, String timeId){
 		Connection connect = null;
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		ArrayList<Recode> recordList = null;
 		connect = createConnect();
 		recordList = new ArrayList<Recode>();
-		String sql = "select * from record where foundsid = "+foundsId +" and number like '%"+number+"%' and timeid = "+timeId;
+//		String sql = "select * from record where foundsid = "+foundsId +" and number like '%"+number+"%' and timeid = "+timeId ;
+		String sql = "select * from record where foundsid = "+foundsId +" and timeid = "+timeId + " and type = 1";
 		System.out.println(sql);
 		try {
 			pstmt = connect.prepareStatement(sql);
@@ -96,6 +97,7 @@ public class OrderCenterManager extends ConnectionFactory {
 				founds.setFoundsid(rs.getString("foundsid"));
 				founds.setUserid(rs.getString("userid"));
 				founds.setNumber(rs.getString("number"));
+				founds.setBuyNumber(rs.getString("buyNumber"));
 				founds.setTime(rs.getString("time"));
 				founds.setType(rs.getString("type"));
 				founds.setTimeid(rs.getString("timeid"));

@@ -188,6 +188,8 @@ public class FoundsServiceResource {
 		String foundsId = info.getQueryParameters().getFirst("foundsId");
 		String date = info.getQueryParameters().getFirst("timestamp");
 		String sign = info.getQueryParameters().getFirst("signature");
+		String index = info.getQueryParameters().getFirst("index");
+		String limit = info.getQueryParameters().getFirst("limit");
 		System.out.println("out======="+ sign+"=="+date+"==="+MD5Util.MD5(date + "psmtoiyrpyqofhfo7atdofdby4eqc02p"));
 		if (sign.equals(MD5Util.MD5(date + "psmtoiyrpyqofhfo7atdofdby4eqc02p"))){
 			StringBuffer errorMSG = new StringBuffer();
@@ -196,17 +198,18 @@ public class FoundsServiceResource {
 			FoundsManager foundsManager = new FoundsManager();
 			ArrayList<HistoryownerListModel> historyownerListModels = new ArrayList<HistoryownerListModel>();
 
-			ArrayList<Historyowner> historyFounds = foundsManager.getHistoryResultByFoundsId(foundsId);
-			UserCenterManager userCenterManager = new UserCenterManager();
-			for (int i = 0; i < historyFounds.size(); i++) {
-				HistoryownerListModel historyModel = new HistoryownerListModel();
-				Historyowner foundsHistoryowner = historyFounds.get(i);
-				historyModel.setHistoryOwnerFounds(foundsHistoryowner);
-				ArrayList<User> userInfo = userCenterManager.getUserInfoByUserId(foundsHistoryowner.getOwnerid());
-				historyModel.setHistoryOwnerUser(userInfo.get(0));
-				historyownerListModels.add(historyModel);
-			}
-			resp.setHistoryResult(historyownerListModels);
+			ArrayList<Historyowner> historyFounds = foundsManager.getHistoryResultByFoundsId(foundsId,Integer.valueOf(index), Integer.valueOf(limit));
+//			UserCenterManager userCenterManager = new UserCenterManager();
+//			for (int i = 0; i < historyFounds.size(); i++) {
+//				HistoryownerListModel historyModel = new HistoryownerListModel();
+//				Historyowner foundsHistoryowner = historyFounds.get(i);
+//				historyModel.setHistoryOwnerFounds(foundsHistoryowner);
+//				ArrayList<User> userInfo = userCenterManager.getUserInfoByUserId(foundsHistoryowner.getOwnerid());
+//				historyModel.setHistoryOwnerUser(userInfo.get(0));
+//				historyownerListModels.add(historyModel);
+//			}
+			
+			resp.setHistoryOwnerFounds(historyFounds);
 			resp.setErrorMSG(errorMSG);
 			return resp;
 		}else {
