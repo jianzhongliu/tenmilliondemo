@@ -63,6 +63,8 @@
              @"resultnumber":@"resultnumber",
              @"timeidentify":@"timeid",
              @"totaln":@"totaln",
+             @"userIcon":@"usericon",
+             @"userName":@"username",
              @"type":@"type"
              };
 }

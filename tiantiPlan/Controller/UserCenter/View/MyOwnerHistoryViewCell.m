@@ -51,7 +51,7 @@
         _labelOwner.textAlignment = NSTextAlignmentLeft;
         _labelOwner.textColor = DSBlackColor;
         _labelOwner.font = [UIFont systemFontOfSize:14];
-        _labelOwner.text = @"中奖号码：10003439483";
+        _labelOwner.text = @"中奖号码：0";
     }
     return _labelOwner;
 }
@@ -64,7 +64,7 @@
         _openTime.textAlignment = NSTextAlignmentLeft;
         _openTime.textColor = DSBlackColor;
         _openTime.font = [UIFont systemFontOfSize:14];
-        _openTime.text = @"揭晓时间：2016-4-18 20：49";
+        _openTime.text = @"揭晓时间：1970-1-1 1：1";
     }
     return _openTime;
 }
@@ -96,10 +96,10 @@
         [self.imageIcon setImageWithURL:[NSURL URLWithString:arrayImage[0]] placeholderImage:[UIImage imageNamed:@"noimage"]];
         self.labelTitle.text = [NSString stringWithFormat:@"%@ 第(%@)期",buyModel.name, buyModel.timeidentify];
         self.labelOwner.text = [NSString stringWithFormat:@"参与次数：%@次", buyModel.ownerBuyNumber];
-        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)buyModel.resulttime];
-        NSString *dateString = [NSString stringWithFormat:@"揭晓时间%@",[formater stringFromDate:date]];
+//        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+//        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
+//        NSDate *date = [NSDate dateWithTimeIntervalSinceNow:(long)buyModel.resulttime];
+        NSString *dateString = [NSString stringWithFormat:@"揭晓时间%@",buyModel.resulttime];
         self.openTime.text = dateString;
     }
 }

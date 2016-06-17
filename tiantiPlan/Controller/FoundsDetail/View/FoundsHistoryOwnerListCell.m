@@ -12,6 +12,7 @@
 
 @interface FoundsHistoryOwnerListCell ()
 
+@property (nonatomic, strong) UIView *viewBackground;
 @property (nonatomic, strong) UIImageView *imageIcon;
 @property (nonatomic, strong) UILabel *labelName;
 @property (nonatomic, strong) UILabel *labelNumber;
@@ -30,6 +31,15 @@
 @end
 
 @implementation FoundsHistoryOwnerListCell
+
+- (UIView *)viewBackground {
+    if (_viewBackground == nil) {
+        _viewBackground = [[UIView alloc] init];
+        _viewBackground.backgroundColor = [UIColor whiteColor];
+    }
+    return _viewBackground;
+}
+
 - (UIImageView *)imageIcon {
     if (_imageIcon == nil) {
         _imageIcon = [[UIImageView alloc] init];
@@ -158,7 +168,8 @@
 }
 
 - (void)initUI {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = DSBackColor;
+    self.viewBackground.frame = CGRectMake(0, 0, SCREENWIDTH, 105);
     self.imageIcon.frame = CGRectMake(10, 10, 60, 60);
     self.imageOwnerTag.frame = CGRectMake(0, 0, 30, 30);
     self.labelName.frame = CGRectMake(self.imageIcon.ctRight + 6, 10, SCREENWIDTH - 85, 20);
@@ -172,6 +183,7 @@
     self.buttonResult.frame = CGRectMake(SCREENWIDTH - 90, 10, 80, 30);
     [self.viewBG addSubview:self.labelOwner];
     [self.viewBG addSubview:self.labelTimeId];
+    [self.contentView addSubview:self.viewBackground];
     [self.contentView addSubview:self.imageIcon];
     [self.contentView addSubview:self.imageOwnerTag];
     [self.contentView addSubview:self.labelName];
@@ -189,18 +201,18 @@
 }
 
 - (void)configCellWithData:(id) celldata{
-    if ([celldata isKindOfClass:[FoundsHistoryOwnerListModel class]]) {
-        FoundsHistoryOwnerListModel *history = (FoundsHistoryOwnerListModel *) celldata;
-        [self.imageIcon setImageWithURL:[NSURL URLWithString:history.userInfoModel.icon] placeholderImage:[UIImage imageNamed:@"userhead"]];
-        self.labelName.text = [NSString stringWithFormat:@"获奖者：%@", history.userInfoModel.name];
-        self.labelNumber.text = [NSString stringWithFormat:@"参与次数：%@", history.historyFoundsInfo.ownerBuyNumber];
-        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)history.historyFoundsInfo.resulttime];
-        NSString *dateString = [formater stringFromDate:date];
-        self.labelTime.text = [NSString stringWithFormat:@"揭晓时间：%@", dateString];
-        self.labelOwner.text = [NSString stringWithFormat:@"幸运号码：%@",history.historyFoundsInfo.resultnumber];
-        self.labelTimeId.text = [NSString stringWithFormat:@"期号：%@", history.historyFoundsInfo.lastid];
+    if ([celldata isKindOfClass:[FoundsHistoryOwnerInfoModel class]]) {
+        FoundsHistoryOwnerInfoModel *history = (FoundsHistoryOwnerInfoModel *) celldata;
+        [self.imageIcon setImageWithURL:[NSURL URLWithString:history.userIcon] placeholderImage:[UIImage imageNamed:@"userhead"]];
+        self.labelName.text = [NSString stringWithFormat:@"获奖者：%@", history.userName == nil?@"1391624135":history.userName];
+        self.labelNumber.text = [NSString stringWithFormat:@"参与次数：%@", history.ownerBuyNumber];
+//        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+//        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
+//        NSDate *date = [NSDate dateWithTimeIntervalSinceNow:(long)history.resulttime];
+//        NSString *dateString = [formater stringFromDate:date];
+        self.labelTime.text = [NSString stringWithFormat:@"揭晓时间：%@", history.resulttime];
+        self.labelOwner.text = [NSString stringWithFormat:@"幸运号码：%@",history.resultnumber];
+        self.labelTimeId.text = [NSString stringWithFormat:@"期号：%@", history.lastid];
     }
 }
 

@@ -10,8 +10,6 @@
 #import "JXBAdPageView.h"
 #import "UIImageView+WebCache.h"
 #import "HomeFirstViewCell.h"
-#import "HomeSecondViewCell.h"
-#import "HomeThirdViewCell.h"
 #import "FoundsCarManager.h"
 #import "FoundsDetailViewController.h"
 #import "FoundsTypeListViewController.h"
@@ -24,7 +22,7 @@
 #import "ThrowLineTool.h"
 #import "MJRefresh.h"
 
-@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, HomeHeaderViewDelegate, HomeSecondViewCellDelegate, DSSegmentViewDelegate, FoundsInfoCellDelegate, ThrowLineToolDelegate>
+@interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, HomeHeaderViewDelegate, DSSegmentViewDelegate, FoundsInfoCellDelegate, ThrowLineToolDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) HomeHeaderView *viewHeader;
@@ -115,7 +113,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-    [self headerRefresh];
+//    [self headerRefresh];
 }
 
 - (void)dealloc {
@@ -124,6 +122,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.labelNumber.text = [NSString stringWithFormat:@"%ld", [[FoundsCarManager share] foundsNumber]];
 }
 
 - (void)headerRefresh {
@@ -180,16 +179,16 @@
     [self.buttonCar addSubview:self.labelNumber];
     self.labelNumber.text = [NSString stringWithFormat:@"%ld", [[FoundsCarManager share] foundsNumber]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonCar];
-    
+    [self.viewHeader configViewWithData:self.arrayMainEnter];
+
 }
 
 - (void)onClickFoundsCar {
+    [self.tabBarController setSelectedIndex:1];
     [self.navigationController popToRootViewControllerAnimated:NO];
-    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }
 
 - (void)reloadData {
-    [self.viewHeader configViewWithData:self.arrayMainEnter];
     [self.viewHeader configAD:self.homeModel.arrayHot];
     [self.tableView reloadData];
 }
@@ -200,7 +199,7 @@
         [homeModel configModelWithDic:response];
         self.homeModel = homeModel;
         [self reloadData];
-        if (homeModel.arrayOver.count < [self.type integerValue] * 20) {
+        if (homeModel.arrayOver.count < self.index * 20) {
             _tableView.mj_footer = nil;
         } else {
             _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
@@ -232,7 +231,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identify = @"HomeSecondViewCell";
+    static NSString *identify = @"FoundsInfoCell";
     FoundsInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
         cell = [[FoundsInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
@@ -270,15 +269,6 @@
     FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
     controller.hidesBottomBarWhenPushed = YES;
     controller.foundsId = foundsModel.identify;
-    [self.navigationController pushViewController:controller animated:YES];
-}
-
-#pragma makr - HomeSecondViewCellDelegate
-- (void)homeSecondViewCell:(HomeSecondViewCell *) cell clickData:(id) clickData {
-    FoundsModel *founds = clickData;
-    FoundsDetailViewController *controller = [[FoundsDetailViewController alloc] init];
-    controller.hidesBottomBarWhenPushed = YES;
-    controller.foundsId = founds.identify;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

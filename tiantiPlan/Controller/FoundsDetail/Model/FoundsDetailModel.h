@@ -54,5 +54,7 @@
 @property (nonatomic, strong) NSString *timeidentify;
 @property (nonatomic, strong) NSString *totaln;
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *userIcon;
+@property (nonatomic, strong) NSString *userName;
 
 @end

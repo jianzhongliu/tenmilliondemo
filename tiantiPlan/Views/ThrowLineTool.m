@@ -13,7 +13,7 @@ static ThrowLineTool *s_sharedInstance = nil;
 
 + (ThrowLineTool *)sharedTool
 {
-    if (!s_sharedInstance) {
+    if (s_sharedInstance == nil) {
         s_sharedInstance = [[[self class] alloc] init];
     }
     return s_sharedInstance;

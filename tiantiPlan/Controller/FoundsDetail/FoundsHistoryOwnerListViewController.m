@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *arrayHistory;
+@property (nonatomic, assign) NSInteger index;
 
 @end
 
@@ -27,6 +28,8 @@
         _tableView.separatorColor = [UIColor clearColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = DSBackColor;
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefresh)];
+        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
     }
     return _tableView;
 }
@@ -51,6 +54,7 @@
 
 - (void)initData {
     self.arrayHistory = [NSMutableArray array];
+    self.index = 1;
 }
 
 - (void)initUI {
@@ -59,14 +63,35 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void)headerRefresh {
+    self.index = 1;
+    [self requestData];
+}
+
+- (void)footerRefresh {
+    self.index ++;
+    [self requestData];
+}
+
+
 #pragma mark - HTTPRequest
 - (void)requestData {
-    [FoundsApiManager requestHistoryFoundsById:self.foundsId ResultListModel:^(id response) {
-        if ([response isKindOfClass:[NSArray class]]) {
+    [FoundsApiManager requestHistoryFoundsById:self.foundsId Atindex:[NSString stringWithFormat:@"%ld",self.index] ResultListModel:^(id response) {
+        if (self.index == 1) {
             [self.arrayHistory removeAllObjects];
+        }
+        if ([response isKindOfClass:[NSArray class]]) {
             [self.arrayHistory addObjectsFromArray:response];
             [self.tableView reloadData];
         }
+        
+        if (self.arrayHistory.count < self.index * 20) {
+            _tableView.mj_footer = nil;
+        } else {
+            _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
+        }
+        [_tableView.mj_footer endRefreshing];
+        [_tableView.mj_header endRefreshing];
     }];
 }
 
@@ -80,7 +105,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 105;
+    return 125;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -90,7 +115,9 @@
         cell = [[FoundsHistoryOwnerListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
         [cell showUnderLineAt:105];
     }
-    [cell configCellWithData:self.arrayHistory[indexPath.row]];
+    if (self.arrayHistory.count > indexPath.row) {
+        [cell configCellWithData:self.arrayHistory[indexPath.row]];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

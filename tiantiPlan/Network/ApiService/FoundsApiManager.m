@@ -72,30 +72,36 @@
 }
 
 /**获取商品往期揭晓列表*/
-+ (void)requestHistoryFoundsById:(NSString *)foundsId ResultListModel:(responseModel ) responseModel {
++ (void)requestHistoryFoundsById:(NSString *)foundsId Atindex:(NSString *) index ResultListModel:(responseModel ) responseModel {
     NSString *url = [NSString stringWithFormat:@"founds/getHistoryFoundsResultList"];
-    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"foundsId":foundsId} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"foundsId":foundsId,@"index":index, @"limit":@"20"} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
         if (response.content && [response.content[@"code"] integerValue] == 0) {
             NSMutableArray *arrayResult = [NSMutableArray array];
-            if ([response.content[@"historyResult"] isKindOfClass:[NSDictionary class]]) {
-                NSDictionary *dic = response.content[@"historyResult"];
-                FoundsHistoryOwnerListModel *historyOwnerInfo = [[FoundsHistoryOwnerListModel alloc] init];
-                [historyOwnerInfo configFoundsDetailModelWithDic:dic];
+            if ([response.content[@"historyOwnerFounds"] isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *dic = response.content[@"historyOwnerFounds"];
+                NSError *error = nil;
+                FoundsHistoryOwnerInfoModel *historyOwnerInfo = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dic error:&error];
+                
+//                FoundsHistoryOwnerListModel *historyOwnerInfo = [[FoundsHistoryOwnerListModel alloc] init];
+//                [historyOwnerInfo configFoundsDetailModelWithDic:dic];
                 [arrayResult addObject:historyOwnerInfo];
-            } else if ([response.content[@"historyResult"] isKindOfClass:[NSArray class]]) {
-                NSArray *arrayItem = response.content[@"historyResult"];
+            } else if ([response.content[@"historyOwnerFounds"] isKindOfClass:[NSArray class]]) {
+                NSArray *arrayItem = response.content[@"historyOwnerFounds"];
                 for (NSDictionary *dicHistory in arrayItem) {
-                    FoundsHistoryOwnerListModel *historyOwnerInfo = [[FoundsHistoryOwnerListModel alloc] init];
-                    [historyOwnerInfo configFoundsDetailModelWithDic:dicHistory];
+                    NSError *error = nil;
+                    FoundsHistoryOwnerInfoModel *historyOwnerInfo = [MTLJSONAdapter modelOfClass:FoundsHistoryOwnerInfoModel.class fromJSONDictionary:dicHistory error:&error];
+//                    FoundsHistoryOwnerListModel *historyOwnerInfo = [[FoundsHistoryOwnerListModel alloc] init];
+//                    [historyOwnerInfo configFoundsDetailModelWithDic:dicHistory];
                     [arrayResult addObject:historyOwnerInfo];
                 }
             }
             if (responseModel) {
                 responseModel(arrayResult);
             }
-        }
-        if (responseModel) {
-            responseModel(nil);
+        } else {
+            if (responseModel) {
+                responseModel(nil);
+            }
         }
     } faildCallBack:^(DSURLResponse *response) {
         if (responseModel) {

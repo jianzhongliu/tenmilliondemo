@@ -114,8 +114,8 @@
 }
 
 - (void)onClickFoundsCar {
+    [self.tabBarController setSelectedIndex:1];
     [self.navigationController popToRootViewControllerAnimated:NO];
-    self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }
 
 #pragma mark - HTTPRequest

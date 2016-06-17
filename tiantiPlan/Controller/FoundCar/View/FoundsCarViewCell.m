@@ -139,7 +139,7 @@
 
 - (void)initUI {
     self.backgroundColor = [UIColor whiteColor];
-    self.imageicon.frame = CGRectMake(10, 10, 100, 100);
+    self.imageicon.frame = CGRectMake(15, 15, 148, 83);
     self.lableTitle.frame = CGRectMake(self.imageicon.ctRight + 6, 10, SCREENWIDTH - 80, 30);
     self.labelTotal.frame = CGRectMake(self.imageicon.ctRight + 6, self.lableTitle.ctBottom , 100, 16);
     self.labelLess.frame = CGRectMake(self.imageicon.ctRight + 6, self.labelTotal.ctBottom, 100, 16);

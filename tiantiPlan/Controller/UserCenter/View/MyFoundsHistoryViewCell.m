@@ -51,7 +51,7 @@
         _labelOwner.textAlignment = NSTextAlignmentLeft;
         _labelOwner.textColor = DSBlackColor;
         _labelOwner.font = [UIFont systemFontOfSize:14];
-        _labelOwner.text = @"获奖者：屌丝是怎么炼成的";
+        _labelOwner.text = @"获奖者：";
     }
     return _labelOwner;
 }

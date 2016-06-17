@@ -132,8 +132,8 @@
     self.buttonPay.frame = CGRectMake(SCREENWIDTH - 100, 10, 80, 30);
     self.viewLine.frame = CGRectMake(0, 0, SCREENWIDTH, 1);
     [self.view addSubview:self.viewBanner];
-//    [self.viewBanner addSubview:self.labelTotal];
-//    [self.viewBanner addSubview:self.buttonPay];
+    [self.viewBanner addSubview:self.labelTotal];
+    [self.viewBanner addSubview:self.buttonPay];
     [self.viewBanner addSubview:self.viewLine];
 }
 

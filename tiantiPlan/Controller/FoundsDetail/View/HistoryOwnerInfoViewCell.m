@@ -193,13 +193,13 @@
     if ([celldata isKindOfClass:[FoundsDetailModel class]]) {
         FoundsDetailModel *history = (FoundsDetailModel *) celldata;
         [self.imageIcon setImageWithURL:[NSURL URLWithString:history.userInfoModel.icon] placeholderImage:[UIImage imageNamed:@"userhead"]];
-        self.labelName.text = [NSString stringWithFormat:@"获奖者：%@", history.userInfoModel.name];
+        self.labelName.text = [NSString stringWithFormat:@"获奖者：%@", history.userInfoModel.name == nil?@"1391624135":history.userInfoModel.name];
         self.labelNumber.text = [NSString stringWithFormat:@"参与次数：%@", history.foundsHistoryInfoModel.ownerBuyNumber];
-        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)history.foundsHistoryInfoModel.resulttime];
-        NSString *dateString = [formater stringFromDate:date];
-        self.labelTime.text = [NSString stringWithFormat:@"揭晓时间：%@", dateString];
+//        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+//        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss:sss"];
+//        NSDate *date = [NSDate dateWithTimeIntervalSince1970:(long)history.foundsHistoryInfoModel.resulttime];
+//        NSString *dateString = [formater stringFromDate:date];
+        self.labelTime.text = [NSString stringWithFormat:@"揭晓时间：%@", history.foundsHistoryInfoModel.resulttime];
         self.labelOwner.text = [NSString stringWithFormat:@"幸运号码：%@",history.foundsHistoryInfoModel.resultnumber];
         self.labelTimeId.text = [NSString stringWithFormat:@"期号：%@", history.foundsHistoryInfoModel.timeidentify];
     }
