@@ -76,8 +76,8 @@ static ThrowLineTool *s_sharedInstance = nil;
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    [self.showingView.layer removeFromSuperlayer];
-    self.showingView = nil;
+//    [self.showingView.layer removeFromSuperlayer];
+//    self.showingView = nil;
     if (self.delegate && [self.delegate respondsToSelector:@selector(animationDidFinish)]) {
         [self.delegate performSelector:@selector(animationDidFinish) withObject:nil];
     }

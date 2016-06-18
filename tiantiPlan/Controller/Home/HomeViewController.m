@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "HomeFirstViewCell.h"
 #import "FoundsCarManager.h"
+#import "ToolMainViewController.h"
 #import "FoundsDetailViewController.h"
 #import "FoundsTypeListViewController.h"
 #import "FoundsApiManager.h"
@@ -117,7 +118,7 @@
 }
 
 - (void)dealloc {
-    
+    [ThrowLineTool sharedTool].delegate = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -181,6 +182,17 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonCar];
     [self.viewHeader configViewWithData:self.arrayMainEnter];
 
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    button.frame = CGRectMake(10, 400, 50, 50);
+    button.backgroundColor = [UIColor yellowColor];
+    [button addTarget:self action:@selector(didShowTool) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+#ifdef DEBUG_slaz
+    
+#endif
+    
+    
 }
 
 - (void)onClickFoundsCar {
@@ -191,6 +203,12 @@
 - (void)reloadData {
     [self.viewHeader configAD:self.homeModel.arrayHot];
     [self.tableView reloadData];
+}
+
+- (void)didShowTool {
+    ToolMainViewController *controller = [[ToolMainViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)requestData {
@@ -302,6 +320,9 @@
 }
 
 - (void)foundsInfoCell:(FoundsInfoCell *)foundsCell  {
+    if (self.navigationController.view == nil) {
+        return;
+    }
     //通过坐标转换得到抛物线的起点和终点
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(foundsCell.imageOffice.ctLeft, foundsCell.imageOffice.ctTop, foundsCell.imageOffice.ctWidth, foundsCell.imageOffice.ctHeight)];
     image.image = foundsCell.imageOffice.image;
@@ -325,6 +346,7 @@
 }
 
 - (void)animationDidFinish {
+    [ThrowLineTool sharedTool].delegate = nil;
     self.labelNumber.text = [NSString stringWithFormat:@"%ld", [[FoundsCarManager share] foundsNumber]];
 }
 

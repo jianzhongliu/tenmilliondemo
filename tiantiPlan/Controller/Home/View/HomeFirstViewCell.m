@@ -88,7 +88,7 @@
             cell.layer.borderWidth = 1;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapFounds:)];
             [tap setObjectDSValue:@(index + 100)];
-            [cell addGestureRecognizer:tap];
+//            [cell addGestureRecognizer:tap];
             [cell configViewWithData:arrayData[index]];
             [self addSubview:cell];
         }

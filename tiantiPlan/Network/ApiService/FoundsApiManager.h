@@ -26,4 +26,12 @@
 /**中奖历史*/
 + (void)requestUserOwnerHistoryFoundsByUserId:(NSString *) userID ResultListModel:(responseModel ) response;
 + (void)requestUtilResultListModel:(responseModel ) responseModel;
+
+
+/**管理工具-获取所有的商品*/
++ (void)requestAllFoundsForDBManagerAtIndex:(NSString *) index ResultListModel:(responseModel ) responseBlock;
+
+/**管理工具-修改商品图片*/
++ (void)requestUpdateFoundsInfo:(NSString *) foundsId image:(NSString *)image ResultListModel:(responseModel ) responseBlock;
+
 @end

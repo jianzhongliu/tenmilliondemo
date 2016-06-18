@@ -196,4 +196,40 @@
     }];
 }
 
+/**管理工具-获取所有的商品*/
++ (void)requestAllFoundsForDBManagerAtIndex:(NSString *) index ResultListModel:(responseModel ) responseBlock {
+    NSString *url = [NSString stringWithFormat:@"founds/getAllFoundsForDBManager"];
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"index":index,@"limit":@"20"} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
+        NSMutableArray *arrayFounds = [NSMutableArray array];
+        if ([response.content[@"overArray"] isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *dic in response.content[@"overArray"]) {
+                NSError *error = nil;
+                FoundsModel *found = [MTLJSONAdapter modelOfClass:FoundsModel.class fromJSONDictionary:dic error:&error];
+                [arrayFounds addObject:found];
+            }
+        }
+        if (responseBlock) {
+            responseBlock(arrayFounds);
+        }
+    } faildCallBack:^(DSURLResponse *response) {
+        if (responseBlock) {
+            responseBlock(nil);
+        }
+    }];
+}
+
+/**管理工具-修改商品图片*/
++ (void)requestUpdateFoundsInfo:(NSString *) foundsId image:(NSString *)image ResultListModel:(responseModel ) responseBlock {
+    NSString *url = [NSString stringWithFormat:@"founds/updateFoundsImages"];
+    [[DSAPIProxy shareProxy] callGETWithUrl:url Params:@{@"foundsId":foundsId,@"images":image} isShowLoading:YES successCallBack:^(DSURLResponse *response) {
+        if (responseBlock) {
+            responseBlock(response.content);
+        }
+    } faildCallBack:^(DSURLResponse *response) {
+        if (responseBlock) {
+            responseBlock(nil);
+        }
+    }];
+    
+}
 @end

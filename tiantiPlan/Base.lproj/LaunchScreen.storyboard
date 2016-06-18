@@ -17,19 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用一元钱，给自己一个机会。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTs-qt-E8u">
-                                <rect key="frame" x="0.0" y="249" width="600" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一元云宝   为您实现梦想" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTs-qt-E8u">
+                                <rect key="frame" x="0.0" y="249" width="600" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.97672611256544506" green="0.97672611256544506" blue="0.97672611256544506" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.71295020278922783" blue="0.28574832859837418" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wTs-qt-E8u" secondAttribute="bottom" constant="311" id="Egl-c3-KAE"/>
-                            <constraint firstItem="wTs-qt-E8u" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="229" id="Uxa-y5-efH"/>
-                            <constraint firstAttribute="trailing" secondItem="wTs-qt-E8u" secondAttribute="trailing" id="bfa-TQ-dcu"/>
-                            <constraint firstItem="wTs-qt-E8u" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="w2C-sk-nfg"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wTs-qt-E8u" secondAttribute="bottom" constant="271" id="757-Wr-pN6"/>
+                            <constraint firstItem="wTs-qt-E8u" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="229" id="EtJ-tb-1kl"/>
+                            <constraint firstAttribute="trailing" secondItem="wTs-qt-E8u" secondAttribute="trailing" id="H9t-Nu-9so"/>
+                            <constraint firstItem="wTs-qt-E8u" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qSw-qI-1dh"/>
                         </constraints>
                     </view>
                 </viewController>
