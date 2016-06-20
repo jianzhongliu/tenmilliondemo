@@ -70,7 +70,9 @@
     NSMutableArray *arrayAD = [NSMutableArray array];
     for (FoundsModel *founds in array) {
         NSArray *arrayImage = [founds.images componentsSeparatedByString:@"|"];
-        [arrayAD addObject:arrayImage[0]];
+        if (arrayImage.count > 0) {
+            [arrayAD addObject:arrayImage[0]];
+        }
     }
     self.arrayImage = arrayAD;
     [self.viewAD startAdsWithBlock:arrayAD block:^(NSInteger clickIndex){

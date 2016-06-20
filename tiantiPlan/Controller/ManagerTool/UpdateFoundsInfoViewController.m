@@ -103,8 +103,13 @@
 
 - (void)requestData {
     NSString *images = @"";
-    for (NSString *image in self.arrayImageUrl) {
-        images = [NSString stringWithFormat:@"%@%@|",images,image];
+    for (NSInteger index = 0;index < self.arrayImageUrl.count; index++) {
+        NSString *image = self.arrayImageUrl[index];
+        if (index == self.arrayImageUrl.count - 1) {
+            images = [NSString stringWithFormat:@"%@%@",images,image];
+        } else {
+            images = [NSString stringWithFormat:@"%@%@|",images,image];
+        }
     }
     [FoundsApiManager requestUpdateFoundsInfo:self.foundsModel.identify image:images ResultListModel:^(id response) {
         if ([response[@"errorCode"] integerValue] == 0) {

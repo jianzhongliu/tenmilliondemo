@@ -35,6 +35,9 @@
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, copy) NSString *type;
 
+@property (nonatomic, strong) NSMutableArray *arrayFounds;
+@property (nonatomic, strong) NSMutableArray *arrayAD;
+
 @end
 
 @implementation HomeViewController
@@ -137,7 +140,8 @@
 }
 
 - (void)initData {
-    
+    self.arrayAD = [NSMutableArray array];
+    self.arrayFounds = [NSMutableArray array];
     self.arrayMainEnter = [NSMutableArray array];
     self.index = 1;
     self.type = @"1";
@@ -213,11 +217,15 @@
 
 - (void)requestData {
     [FoundsApiManager requestAllFoundsType:self.type AtIndex:[NSString stringWithFormat:@"%ld",self.index] InfoModel:^(id response) {
+        if (self.index == 1) {
+            [self.arrayFounds removeAllObjects];
+        }
         HomeModel *homeModel = [[HomeModel alloc] init];
         [homeModel configModelWithDic:response];
         self.homeModel = homeModel;
+        [self.arrayFounds addObjectsFromArray:self.homeModel.arrayOver];
         [self reloadData];
-        if (homeModel.arrayOver.count < self.index * 20) {
+        if (self.arrayFounds.count < self.index * 20) {
             _tableView.mj_footer = nil;
         } else {
             _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefresh)];
@@ -229,7 +237,7 @@
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.homeModel.arrayActivity.count;
+    return self.arrayFounds.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -257,7 +265,7 @@
 //        [cell showUnderLineAt:140];
 //        cell.delegate = self;
     }
-    [cell configCellWithData:self.homeModel.arrayOver[indexPath.row]];
+    [cell configCellWithData:self.arrayFounds[indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

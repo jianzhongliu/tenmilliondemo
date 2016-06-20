@@ -136,8 +136,10 @@
     }
     
     NSArray *arrayImage = [foundsModel.images componentsSeparatedByString:@"|"];
-    if (arrayImage.count > 1) {
+    if (arrayImage.count >= 1) {
         [self.imageOffice setImageWithURL:[NSURL URLWithString:arrayImage[0]] placeholderImage:[UIImage imageNamed:@"icon_building_list"]];
+    } else {
+        [self.imageOffice setImageWithURL:[NSURL URLWithString:@"www"] placeholderImage:[UIImage imageNamed:@"icon_building_list"]];
     }
     CGFloat rate = [foundsModel.nown floatValue] / [foundsModel.totaln floatValue];
     if (rate >= 0 && rate <= 1) {

@@ -80,6 +80,11 @@
     NSArray *arrayData = celldata;
     [self.arrayData removeAllObjects];
     [self.arrayData addObjectsFromArray:arrayData];
+    for (UIView *subview in self.subviews) {
+        if ([subview isKindOfClass:[FoundsCardCell class]]) {
+            [subview removeFromSuperview];
+        }
+    }
     if ([celldata isKindOfClass:[NSArray class]]) {
         for (NSInteger index = 0; index < 4 && arrayData.count >=4; index ++) {
             FoundsCardCell *cell = [[FoundsCardCell alloc] init];
@@ -88,7 +93,7 @@
             cell.layer.borderWidth = 1;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapFounds:)];
             [tap setObjectDSValue:@(index + 100)];
-//            [cell addGestureRecognizer:tap];
+            [cell addGestureRecognizer:tap];
             [cell configViewWithData:arrayData[index]];
             [self addSubview:cell];
         }
