@@ -107,6 +107,8 @@
 		24A3AB051D17E28200651D35 /* IapppayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3AB031D17E28200651D35 /* IapppayKit.framework */; };
 		24A3AB061D17E28200651D35 /* IapppayResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AB041D17E28200651D35 /* IapppayResource.bundle */; };
 		24A3AB091D17E3CE00651D35 /* OrderPayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3AB081D17E3CE00651D35 /* OrderPayDetailViewController.m */; };
+		24A3AB0C1D18406000651D35 /* PayMethodListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3AB0B1D18406000651D35 /* PayMethodListCell.m */; };
+		24A3AB0F1D18449400651D35 /* FoundsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3AB0E1D18449400651D35 /* FoundsListCell.m */; };
 		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
 		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		24CF65051CF185E000947182 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF64FA1CF185E000947182 /* UserLoginViewController.m */; };
@@ -347,6 +349,10 @@
 		24A3AB041D17E28200651D35 /* IapppayResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IapppayResource.bundle; sourceTree = "<group>"; };
 		24A3AB071D17E3CE00651D35 /* OrderPayDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPayDetailViewController.h; sourceTree = "<group>"; };
 		24A3AB081D17E3CE00651D35 /* OrderPayDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPayDetailViewController.m; sourceTree = "<group>"; };
+		24A3AB0A1D18406000651D35 /* PayMethodListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayMethodListCell.h; sourceTree = "<group>"; };
+		24A3AB0B1D18406000651D35 /* PayMethodListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayMethodListCell.m; sourceTree = "<group>"; };
+		24A3AB0D1D18449400651D35 /* FoundsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundsListCell.h; sourceTree = "<group>"; };
+		24A3AB0E1D18449400651D35 /* FoundsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundsListCell.m; sourceTree = "<group>"; };
 		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		24CF64F91CF185E000947182 /* UserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController.h; sourceTree = "<group>"; };
@@ -877,6 +883,10 @@
 			children = (
 				2414FB1E1CC9C3E9003DA0B7 /* FoundsCarViewCell.h */,
 				2414FB1F1CC9C3E9003DA0B7 /* FoundsCarViewCell.m */,
+				24A3AB0A1D18406000651D35 /* PayMethodListCell.h */,
+				24A3AB0B1D18406000651D35 /* PayMethodListCell.m */,
+				24A3AB0D1D18449400651D35 /* FoundsListCell.h */,
+				24A3AB0E1D18449400651D35 /* FoundsListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1273,6 +1283,7 @@
 				24224D981CE44DCC00720DED /* UserCenterApiManager.m in Sources */,
 				2414FA9F1CC527CB003DA0B7 /* UIImage+Alpha.m in Sources */,
 				2414FAC71CC5D8CA003DA0B7 /* HomeViewController.m in Sources */,
+				24A3AB0C1D18406000651D35 /* PayMethodListCell.m in Sources */,
 				2414FA671CC52758003DA0B7 /* DeviceModel.m in Sources */,
 				2414FA6A1CC52758003DA0B7 /* ImageUtils.m in Sources */,
 				24CF65091CF185E000947182 /* RegisterViewController.m in Sources */,
@@ -1355,6 +1366,7 @@
 				2414FA771CC527A1003DA0B7 /* AgentInfoModel.m in Sources */,
 				2414FB541CCB129A003DA0B7 /* MyFoundsHistoryListViewController.m in Sources */,
 				2414FAA01CC527CB003DA0B7 /* UIImage+Resize.m in Sources */,
+				24A3AB0F1D18449400651D35 /* FoundsListCell.m in Sources */,
 				2414FAD71CC5D9D5003DA0B7 /* BYTabBarItem.m in Sources */,
 				2414FABF1CC5D0BF003DA0B7 /* BaseViewController.m in Sources */,
 				2414FB201CC9C3E9003DA0B7 /* FoundsCarViewCell.m in Sources */,

@@ -186,11 +186,11 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonCar];
     [self.viewHeader configViewWithData:self.arrayMainEnter];
 
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    button.frame = CGRectMake(10, 400, 50, 50);
-    button.backgroundColor = [UIColor yellowColor];
-    [button addTarget:self action:@selector(didShowTool) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//    button.frame = CGRectMake(10, 400, 50, 50);
+//    button.backgroundColor = [UIColor yellowColor];
+//    [button addTarget:self action:@selector(didShowTool) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:button];
     
 #ifdef DEBUG_slaz
     

@@ -140,6 +140,7 @@
 
 - (void)onClickButtonPay {
     OrderPayDetailViewController *controller = [[OrderPayDetailViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:controller animated:YES];
     return;
     [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
