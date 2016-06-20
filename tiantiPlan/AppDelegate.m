@@ -18,6 +18,7 @@
 
 #import "UMSocialSinaSSOHandler.h"
 #import "UMSocialWechatHandler.h"
+#import <IapppayKit/IapppayKit.h>
 
 #define ztappKey @"6ec614bbd5cf"
 #define ztappSecret @"3c146fc7fc48754b2583d2daa389d772"
@@ -39,6 +40,11 @@ static AppDelegate *appDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     appDelegate = self;
+    
+    //爱贝设置支付宝回调地址
+    [[IapppayKit sharedInstance] setAppAlipayScheme:@"iapppay.alipay.com.AiBei.IapppayExample"];
+    
+    //bmob支付sdk注册
     [Bmob registerWithAppKey:@"9420c531761d609e1bb635b02713ece5"];
     
     //设置友盟社会化组件appkey

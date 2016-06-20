@@ -8,6 +8,7 @@
 
 #import "FoundsCarListViewController.h"
 #import "FoundsDetailViewController.h"
+#import "OrderPayDetailViewController.h"
 #import "FoundsCarViewCell.h"
 #import "FoundsCarManager.h"
 #import "FoundsApiManager.h"
@@ -138,6 +139,9 @@
 }
 
 - (void)onClickButtonPay {
+    OrderPayDetailViewController *controller = [[OrderPayDetailViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+    return;
     [self doLoginWithBlock:^(UserCacheBean *userInfo, LOGINSTATUS status) {
         NSArray *array = [NSArray arrayWithArray:[[FoundsCarManager share] fetchLocalFoundsCar]];
         [self showLoading];

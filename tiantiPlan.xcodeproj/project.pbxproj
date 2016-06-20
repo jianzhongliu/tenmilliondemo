@@ -101,6 +101,12 @@
 		24889DA81CEE189C00A4777B /* UserBuyHistoryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24889DA71CEE189C00A4777B /* UserBuyHistoryListModel.m */; };
 		248F40061CF2C9920059CFE5 /* BmobMessageSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248F40051CF2C9920059CFE5 /* BmobMessageSDK.framework */; };
 		24A3AAD71D1442B000651D35 /* UpdateFoundsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3AAD61D1442B000651D35 /* UpdateFoundsInfoViewController.m */; };
+		24A3AB001D17E26C00651D35 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AAF81D17E26C00651D35 /* AlipaySDK.bundle */; };
+		24A3AB011D17E26C00651D35 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3AAF91D17E26C00651D35 /* AlipaySDK.framework */; };
+		24A3AB021D17E26C00651D35 /* libUPPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3AAFF1D17E26C00651D35 /* libUPPayPlugin.a */; };
+		24A3AB051D17E28200651D35 /* IapppayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A3AB031D17E28200651D35 /* IapppayKit.framework */; };
+		24A3AB061D17E28200651D35 /* IapppayResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 24A3AB041D17E28200651D35 /* IapppayResource.bundle */; };
+		24A3AB091D17E3CE00651D35 /* OrderPayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3AB081D17E3CE00651D35 /* OrderPayDetailViewController.m */; };
 		24A732B51CCBD26A001F4199 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B31CCBD26A001F4199 /* Default-568h@2x.png */; };
 		24A732B61CCBD26A001F4199 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24A732B41CCBD26A001F4199 /* Default.png */; };
 		24CF65051CF185E000947182 /* UserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF64FA1CF185E000947182 /* UserLoginViewController.m */; };
@@ -332,6 +338,15 @@
 		248F40051CF2C9920059CFE5 /* BmobMessageSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobMessageSDK.framework; sourceTree = "<group>"; };
 		24A3AAD51D1442B000651D35 /* UpdateFoundsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateFoundsInfoViewController.h; sourceTree = "<group>"; };
 		24A3AAD61D1442B000651D35 /* UpdateFoundsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateFoundsInfoViewController.m; sourceTree = "<group>"; };
+		24A3AAF81D17E26C00651D35 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		24A3AAF91D17E26C00651D35 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		24A3AAFC1D17E26C00651D35 /* UPPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPayPlugin.h; sourceTree = "<group>"; };
+		24A3AAFD1D17E26C00651D35 /* UPPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPayPluginDelegate.h; sourceTree = "<group>"; };
+		24A3AAFF1D17E26C00651D35 /* libUPPayPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUPPayPlugin.a; sourceTree = "<group>"; };
+		24A3AB031D17E28200651D35 /* IapppayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IapppayKit.framework; sourceTree = "<group>"; };
+		24A3AB041D17E28200651D35 /* IapppayResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IapppayResource.bundle; sourceTree = "<group>"; };
+		24A3AB071D17E3CE00651D35 /* OrderPayDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPayDetailViewController.h; sourceTree = "<group>"; };
+		24A3AB081D17E3CE00651D35 /* OrderPayDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPayDetailViewController.m; sourceTree = "<group>"; };
 		24A732B31CCBD26A001F4199 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24A732B41CCBD26A001F4199 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		24CF64F91CF185E000947182 /* UserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLoginViewController.h; sourceTree = "<group>"; };
@@ -428,6 +443,7 @@
 			files = (
 				24CF655D1CF1A18100947182 /* libWeChatSDK.a in Frameworks */,
 				24CF65411CF18CBD00947182 /* AddressBookUI.framework in Frameworks */,
+				24A3AB011D17E26C00651D35 /* AlipaySDK.framework in Frameworks */,
 				24CF653F1CF18CB800947182 /* AddressBook.framework in Frameworks */,
 				24CF653D1CF18CAE00947182 /* libstdc++.tbd in Frameworks */,
 				24CF655C1CF1A18100947182 /* libSocialWechat.a in Frameworks */,
@@ -438,9 +454,11 @@
 				24CF655A1CF1A18100947182 /* libWeiboSDK.a in Frameworks */,
 				24CF652A1CF18AEC00947182 /* libUMSocial_Sdk_5.2.a in Frameworks */,
 				248F40061CF2C9920059CFE5 /* BmobMessageSDK.framework in Frameworks */,
+				24A3AB051D17E28200651D35 /* IapppayKit.framework in Frameworks */,
 				9FBAB2B97E265BF55D7C04D6 /* libPods.a in Frameworks */,
 				24CF65591CF1A18100947182 /* libSocialSinaSSO.a in Frameworks */,
 				24CF650D1CF1888700947182 /* SMS_SDK.framework in Frameworks */,
+				24A3AB021D17E26C00651D35 /* libUPPayPlugin.a in Frameworks */,
 				24CF65641CF1B7D500947182 /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,6 +788,7 @@
 		2414FADB1CC5DED4003DA0B7 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				24A3AAF51D17E25600651D35 /* AiPay */,
 				24CF655E1CF1B7D500947182 /* WeChatSDK1.6.2 */,
 				24CF65421CF1A18100947182 /* SinaSSO */,
 				24CF65521CF1A18100947182 /* Wechat */,
@@ -847,6 +866,8 @@
 				2414FB1B1CC9C359003DA0B7 /* FoundsCarListViewController.m */,
 				24581A7C1CF896510081809A /* FoundsCarManager.h */,
 				24581A7D1CF896510081809A /* FoundsCarManager.m */,
+				24A3AB071D17E3CE00651D35 /* OrderPayDetailViewController.h */,
+				24A3AB081D17E3CE00651D35 /* OrderPayDetailViewController.m */,
 			);
 			path = FoundCar;
 			sourceTree = "<group>";
@@ -914,6 +935,60 @@
 				24889DA71CEE189C00A4777B /* UserBuyHistoryListModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		24A3AAF51D17E25600651D35 /* AiPay */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AB031D17E28200651D35 /* IapppayKit.framework */,
+				24A3AB041D17E28200651D35 /* IapppayResource.bundle */,
+				24A3AAF61D17E26C00651D35 /* DependenceSDK */,
+			);
+			path = AiPay;
+			sourceTree = "<group>";
+		};
+		24A3AAF61D17E26C00651D35 /* DependenceSDK */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AAF71D17E26C00651D35 /* AlipaySDK */,
+				24A3AAFA1D17E26C00651D35 /* UPPay */,
+			);
+			path = DependenceSDK;
+			sourceTree = "<group>";
+		};
+		24A3AAF71D17E26C00651D35 /* AlipaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AAF81D17E26C00651D35 /* AlipaySDK.bundle */,
+				24A3AAF91D17E26C00651D35 /* AlipaySDK.framework */,
+			);
+			path = AlipaySDK;
+			sourceTree = "<group>";
+		};
+		24A3AAFA1D17E26C00651D35 /* UPPay */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AAFB1D17E26C00651D35 /* inc */,
+				24A3AAFE1D17E26C00651D35 /* libs */,
+			);
+			path = UPPay;
+			sourceTree = "<group>";
+		};
+		24A3AAFB1D17E26C00651D35 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AAFC1D17E26C00651D35 /* UPPayPlugin.h */,
+				24A3AAFD1D17E26C00651D35 /* UPPayPluginDelegate.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		24A3AAFE1D17E26C00651D35 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				24A3AAFF1D17E26C00651D35 /* libUPPayPlugin.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		24CF650E1CF18AEB00947182 /* UMSocial_Sdk_5.2 */ = {
@@ -1113,6 +1188,7 @@
 				24A732B61CCBD26A001F4199 /* Default.png in Resources */,
 				24CF652F1CF18AEC00947182 /* UMShareEditViewControlleriPad.xib in Resources */,
 				2414FB431CCA8E5C003DA0B7 /* Overlay@2x.png in Resources */,
+				24A3AB001D17E26C00651D35 /* AlipaySDK.bundle in Resources */,
 				2414FA151CC4E7AF003DA0B7 /* Assets.xcassets in Resources */,
 				24CF65321CF18AEC00947182 /* UMSShareListController.xib in Resources */,
 				24CF65301CF18AEC00947182 /* UMSLoginViewController.xib in Resources */,
@@ -1122,6 +1198,7 @@
 				24CF65331CF18AEC00947182 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				24CF652B1CF18AEC00947182 /* UMSCommentDetailController.xib in Resources */,
 				24CF652E1CF18AEC00947182 /* UMShareEditViewController.xib in Resources */,
+				24A3AB061D17E28200651D35 /* IapppayResource.bundle in Resources */,
 				24CF655B1CF1A18100947182 /* WeiboSDK.bundle in Resources */,
 				24CF652D1CF18AEC00947182 /* UMSCommentInputControlleriPad.xib in Resources */,
 				24CF65291CF18AEC00947182 /* UMSocialLocalizable.strings in Resources */,
@@ -1242,6 +1319,7 @@
 				2414FA9C1CC527CB003DA0B7 /* NSString+RTStyle.m in Sources */,
 				2414FB631CCB1EA4003DA0B7 /* MoneyHistoryViewController.m in Sources */,
 				2414FA9B1CC527CB003DA0B7 /* NSString+MD5Addition.m in Sources */,
+				24A3AB091D17E3CE00651D35 /* OrderPayDetailViewController.m in Sources */,
 				2414FADE1CC5DEF6003DA0B7 /* JXBAdPageView.m in Sources */,
 				2414FA0D1CC4E7AF003DA0B7 /* AppDelegate.m in Sources */,
 				2414FB601CCB17B1003DA0B7 /* AddressManagerViewController.m in Sources */,
@@ -1407,6 +1485,8 @@
 					"$(PROJECT_DIR)/tiantiPlan",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AD",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AiPay/DependenceSDK/AlipaySDK",
+					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AiPay",
 				);
 				INFOPLIST_FILE = tiantiPlan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1418,6 +1498,7 @@
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/SinaSSO",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/Wechat",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/WeChatSDK1.6.2",
+					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AiPay/DependenceSDK/UPPay/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1438,6 +1519,8 @@
 					"$(PROJECT_DIR)/tiantiPlan",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AD",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AiPay/DependenceSDK/AlipaySDK",
+					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AiPay",
 				);
 				INFOPLIST_FILE = tiantiPlan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1449,6 +1532,7 @@
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/SinaSSO",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/Wechat",
 					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/WeChatSDK1.6.2",
+					"$(PROJECT_DIR)/tiantiPlan/ThirdPart/AiPay/DependenceSDK/UPPay/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.tianti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
