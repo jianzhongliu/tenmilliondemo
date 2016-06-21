@@ -7,7 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "JXBAdPageView.h"
 #import "UIImageView+WebCache.h"
 #import "HomeFirstViewCell.h"
 #import "FoundsCarManager.h"

@@ -30,19 +30,6 @@
     return self;
 }
 
-- (id)init {
-    if (self = [super init]) {
-        [self initUI];
-    }
-    return self;
-}
-
-- (void)setFrame:(CGRect)frame
-{
-    [super setFrame:frame];
-    [self initUI];
-}
-
 - (void)initUI {
     _scView = [[UIScrollView alloc] initWithFrame:self.bounds];
     _scView.delegate = self;
@@ -57,24 +44,26 @@
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAds)];
     [_scView addGestureRecognizer:tap];
     
-    
     _imgPrev = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    _imgPrev.contentMode = UIViewContentModeScaleAspectFill;
+    _imgPrev.contentMode = UIViewContentModeScaleToFill;
     _imgPrev.userInteractionEnabled = NO;
+    _imgPrev.image = [UIImage imageNamed:@"icon_default_ad"];
     
     _imgCurrent = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
     _imgCurrent.contentMode = UIViewContentModeScaleToFill;
+    _imgCurrent.image = [UIImage imageNamed:@"icon_default_ad"];
     
     _imgNext = [[UIImageView alloc] initWithFrame:CGRectMake(2*self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
     _imgNext.contentMode = UIViewContentModeScaleToFill;
+    _imgNext.image = [UIImage imageNamed:@"icon_default_ad"];
     
     [_scView addSubview:_imgPrev];
     [_scView addSubview:_imgCurrent];
     [_scView addSubview:_imgNext];
     
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 10 , self.frame.size.width, 0)];
-    _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
-    _pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    _pageControl.currentPageIndicatorTintColor = DSColor;
+    _pageControl.pageIndicatorTintColor = DSColorFromHex(0xD8D8D8);
     [self addSubview:_pageControl];
 }
 
@@ -85,6 +74,9 @@
  *  @param block      click回调
  */
 - (void)startAdsWithBlock:(NSArray*)imageArray block:(JXBAdPageCallback)block {
+    if (imageArray.count == 0) {
+        return;
+    }
     if(imageArray.count <= 1)
         _scView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
     _pageControl.numberOfPages = imageArray.count;
@@ -107,6 +99,12 @@
  *  加载图片顺序
  */
 - (void)reloadImages {
+    if (self.arrImage.count == 1) {
+        self.pageControl.hidden = YES;
+    } else {
+        self.pageControl.hidden = NO;
+    }
+    
     if (_indexShow >= (int)_arrImage.count)
         _indexShow = 0;
     if (_indexShow < 0)
@@ -124,7 +122,7 @@
     NSString* nextImage = [_arrImage objectAtIndex:next];
     if(_bWebImage)
     {
-#warning TODO 这里有问题啊，会挂，找原因 : 需要在页面内存释放的时执行self.viewAD.delegate = nil
+#warning TODO 这里有问题啊，会挂，找原因 image的页面消失要dealoc
         if(_delegate != nil && [_delegate respondsToSelector:@selector(setWebImage:imgUrl:withIndex:)])
         {
             [_delegate setWebImage:_imgPrev imgUrl:prevImage withIndex:prev];
@@ -157,13 +155,29 @@
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    if (_myTimer)
-        [_myTimer invalidate];
+    if (self.arrImage.count == 1) {
+        return;
+    }
+    
     if (scrollView.contentOffset.x >=self.frame.size.width*2)
         _indexShow++;
     else if (scrollView.contentOffset.x < self.frame.size.width)
         _indexShow--;
     [self reloadImages];
+}
+
+/**手指操作时计时器停止工作，松开手后计时器重新开始计时*/
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSLog(@"scrollViewWillBeginDragging");
+    [_myTimer invalidate];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSLog(@"scrollViewWillBeginDragging");
+    _myTimer = nil;
+    if (_myTimer == nil) {
+        _myTimer = [NSTimer scheduledTimerWithTimeInterval:_iDisplayTime target:self selector:@selector(doImageGoDisplay) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)startTimerPlay {
@@ -176,6 +190,12 @@
  *  轮播图片
  */
 - (void)doImageGoDisplay {
+    if (self.arrImage.count == 1) {
+        self.pageControl.hidden = YES;
+        return;
+    } else {
+        self.pageControl.hidden = NO;
+    }
     [_scView scrollRectToVisible:CGRectMake(self.frame.size.width * 2, 0, self.frame.size.width, self.frame.size.height) animated:YES];
     _indexShow++;
     [self performSelector:@selector(reloadImages) withObject:nil afterDelay:0.3];

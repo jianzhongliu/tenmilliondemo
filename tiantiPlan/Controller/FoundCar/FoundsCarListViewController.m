@@ -53,7 +53,7 @@
         _buttonPay = [UIButton buttonWithType:UIButtonTypeCustom];
         [_buttonPay addTarget:self action:@selector(onClickButtonPay) forControlEvents:UIControlEventTouchUpInside];
         _buttonPay.selected = NO;
-        [_buttonPay setTitle:@"去支付" forState:UIControlStateNormal];
+        [_buttonPay setTitle:@"去结算" forState:UIControlStateNormal];
         _buttonPay.backgroundColor = [UIColor redColor];
         _buttonPay.layer.cornerRadius = 6;
         [_buttonPay setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

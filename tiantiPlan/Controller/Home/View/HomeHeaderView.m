@@ -33,7 +33,7 @@
 
 - (JXBAdPageView *)viewAD {
     if (_viewAD == nil) {
-        _viewAD = [[JXBAdPageView alloc] init];
+        _viewAD = [[JXBAdPageView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, ImageHight)];
         _viewAD.delegate = self;
         _viewAD.iDisplayTime = 5;
         _viewAD.bWebImage = YES;
@@ -54,7 +54,7 @@
 }
 
 - (void)initUI {
-    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, ImageHight);
+//    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, ImageHight);
     self.viewFirst.frame = CGRectMake(0, self.viewAD.ctBottom + 10, SCREENWIDTH, 210);
     [self addSubview:self.viewAD];
     [self addSubview:self.viewFirst];

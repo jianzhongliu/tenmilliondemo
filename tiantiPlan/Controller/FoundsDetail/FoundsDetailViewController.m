@@ -48,7 +48,7 @@
 
 - (JXBAdPageView *)viewAD {
     if (_viewAD == nil) {
-        _viewAD = [[JXBAdPageView alloc] init];
+        _viewAD = [[JXBAdPageView alloc] initWithFrame:CGRectMake(0, 0, SCREENWIDTH, ImageHight)];
         _viewAD.delegate = self;
         _viewAD.iDisplayTime = 5;
         _viewAD.bWebImage = YES;
@@ -144,7 +144,7 @@
     [self setTitle:@"商品详情"];
     self.tableView.frame = CGRectMake(0, 0 , SCREENWIDTH, self.view.ctHeight - 50);
     [self.view addSubview:self.tableView];
-    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, ImageHight);
+//    self.viewAD.frame = CGRectMake(0, 0, SCREENWIDTH, ImageHight);
     self.tableView.tableHeaderView = self.viewAD;
     
     self.buttonAddToCar.frame = CGRectMake(0, self.view.ctBottom - 50, SCREENWIDTH / 2, 50);

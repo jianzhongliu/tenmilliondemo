@@ -81,11 +81,20 @@ static AppDelegate *appDelegate;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    //此方法在某一时刻弃用，使用application:openURL:sourceApplication:annotation:代替
+    [[IapppayKit sharedInstance] handleOpenUrl:url];
     return [WXApi handleOpenURL:url delegate:self];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    //此方法为代替application:handleOpenURL:
+    [[IapppayKit sharedInstance] handleOpenUrl:url];
     return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return [[IapppayKit sharedInstance] application:application supportedInterfaceOrientationsForWindow:window];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

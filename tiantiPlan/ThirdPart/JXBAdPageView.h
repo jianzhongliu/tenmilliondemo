@@ -9,6 +9,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import "DSConfig.h"
 
 @class JXBAdPageView;
 typedef void (^JXBAdPageCallback)(NSInteger clickIndex);

@@ -67,9 +67,9 @@
         _buttonPay = [UIButton buttonWithType:UIButtonTypeCustom];
         [_buttonPay addTarget:self action:@selector(onClickButtonPay) forControlEvents:UIControlEventTouchUpInside];
         _buttonPay.selected = NO;
-        [_buttonPay setTitle:@"去支付" forState:UIControlStateNormal];
+        [_buttonPay setTitle:@"提交订单" forState:UIControlStateNormal];
         _buttonPay.backgroundColor = [UIColor redColor];
-        _buttonPay.layer.cornerRadius = 6;
+//        _buttonPay.layer.cornerRadius = 6;
         [_buttonPay setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _buttonPay.titleLabel.font = [UIFont systemFontOfSize:14];
         _buttonPay.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -137,16 +137,16 @@
 }
 
 - (void)initUI {
-    [self setTitle:@""];
+    [self setTitle:@"订单详情"];
     self.tableView.frame = CGRectMake(0, 0, SCREENWIDTH, self.view.ctHeight - 50);
     [self.view addSubview:self.tableView];
-    self.viewBanner.frame = CGRectMake(0, self.view.ctBottom - 100, SCREENWIDTH, 50);
+    self.viewBanner.frame = CGRectMake(0, self.view.ctBottom - 50, SCREENWIDTH, 50);
     self.labelTotal.frame = CGRectMake(10, 0, SCREENWIDTH - 20, 50);
-    self.buttonPay.frame = CGRectMake(SCREENWIDTH - 100, 10, 80, 30);
+    self.buttonPay.frame = CGRectMake(SCREENWIDTH - 100, 0, 100, 50);
     [self.view addSubview:self.viewBanner];
     [self.viewBanner addSubview:self.labelTotal];
     [self.viewBanner addSubview:self.buttonPay];
-    self.labelTotal.text = [NSString stringWithFormat:@"总计：%ld", [[FoundsCarManager share] foundsNumber]];
+    self.labelTotal.text = [NSString stringWithFormat:@"订单总计：%ld ￥", [[FoundsCarManager share] foundsNumber]];
 }
 
 - (void)reqeustPaySuccess {
